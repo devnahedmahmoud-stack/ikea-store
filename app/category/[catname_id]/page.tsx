@@ -13,13 +13,12 @@ export default async function NewCollectionsPage({
     (item) => item.id === parseInt(catParams[catParams.length - 1]),
   )?.products;
   console.log(catParams, products);
-  if(!products){
-    return <div>Products not found</div>
+  if (!products) {
+    return <div>Products not found</div>;
   }
   return (
-    <ContainerProvider>      
-<NewCollection items={products} />
+    <ContainerProvider>
+      <NewCollection items={products} />
     </ContainerProvider>
-    
   );
 }

@@ -78,7 +78,7 @@ const NewCollections = ({newCollectionsData}:NewCollectionsProps) => {
                     {index===newCollectionsData.length-1?
                     <div className=" w-64 h-75 bg-orange-700 group">
                     <Link
-                      href={`/category/${cat.href}-${cat.id}`}
+                      href={""}
                       className="flex flex-col items-center gap-1  w-full h-full p-1 text-white"
                       //onClick={()=>{setMainMenu([])}}
                     >

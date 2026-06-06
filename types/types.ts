@@ -5,6 +5,7 @@ export type ProductCard = {
   topSeller?: boolean;
   images: string[];
   title: string;
+  subtitle?: string;
   description?: string;
   price: number;
   unitPrice?: number;

@@ -58,6 +58,7 @@ export default function CardsSlider({products,favorites,recommended}:CardsSlider
             productId={card.id}
               images={[card.images[0], card.images[1]]}
               title={card.title}
+              subtitle={card.subtitle}
               price={card.price}
               pack={card.pack}
               packCount={card.packCount}

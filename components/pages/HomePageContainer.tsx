@@ -34,8 +34,8 @@ const HomePageContainer = () => {
         <NewCollections newCollectionsData={NewCollectionsItems}/>
         <NoworNever/>
         <DesignSpace/>
-      </ContainerProvider>
-      
+        
+      </ContainerProvider>      
     </>
   );
 };

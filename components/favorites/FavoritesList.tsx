@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "../ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -11,138 +12,193 @@ import { useUserFavorites } from "@/stores/userfavorites.store";
 import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
+import { useEffect, useState } from "react";
 
 type FavoritesListProps = {
   userID: string;
 };
+
+type FavoriteItem = {
+  id: number;
+  price: number;
+  title: string;
+  description?: string;
+  images: string[];
+  pack?: string;
+  packCount?: number;
+};
+
 const FavoritesList = ({ userID }: FavoritesListProps) => {
   const { usersFavorites } = useUserFavorites();
   const router = useRouter();
-  
+
   const userFavorites = usersFavorites.find((uf) => uf.userId === userID);
-  
-  if (!userFavorites) return null;
+
+  const [items, setItems] = useState<FavoriteItem[]>([]);
+  const [counts, setCounts] = useState<Record<number, number>>({});
+
+  useEffect(() => {
+    if (!userFavorites) return;
+
+    setItems(userFavorites.favoriteItems);
+
+    const initial: Record<number, number> = {};
+
+    userFavorites.favoriteItems.forEach((item) => {
+      initial[item.id] = 1;
+    });
+
+    setCounts(initial);
+  }, [userFavorites]);
+
+  function increment(id: number) {
+    setCounts((prev) => ({
+      ...prev,
+      [id]: (prev[id] ?? 1) + 1,
+    }));
+  }
+
+  function decrement(id: number) {
+    setCounts((prev) => {
+      const next = (prev[id] ?? 1) - 1;
+
+      if (next <= 0) {
+        setItems((items) => items.filter((item) => item.id !== id));
+
+        const { [id]: _, ...rest } = prev;
+        return rest;
+      }
+
+      return {
+        ...prev,
+        [id]: next,
+      };
+    });
+  }
+
+  function handleChange(id: number, value: string) {
+    const num = Number(value);
+
+    if (isNaN(num)) return;
+
+    if (num <= 0) {
+      setItems((items) => items.filter((item) => item.id !== id));
+
+      setCounts((prev) => {
+        const { [id]: _, ...rest } = prev;
+        return rest;
+      });
+
+      return;
+    }
+
+    setCounts((prev) => ({
+      ...prev,
+      [id]: num,
+    }));
+  }
 
   function backtoFavorites() {
     router.push("/favorites");
   }
 
-  const total = userFavorites.favoriteItems.reduce(
-  (sum, item) => sum + item.price, 0);
+  if (!userFavorites) return null;
+
+  const total = items.reduce((sum, item) => {
+    return sum + item.price * (counts[item.id] ?? 1);
+  }, 0);
 
   return (
-    <section className="space-y-6 ">
+    <section className="space-y-6">
       <h1 className="text-3xl font-bold">Favourites</h1>
+
       <div className="flex lg:flex-row lg:gap-20 gap-10 flex-col">
-        <div className="lg:w-2/3 w-full space-y-10 relative">
-          <Button
-            variant={"outline"}
-            className="border border-black box-border transition-colors duration-200 ease-in-out cursor-pointer hover:border-2"
-            onClick={backtoFavorites}
-          >
+        {/* LEFT */}
+        <div className="lg:w-2/3 w-full space-y-10">
+          <Button variant="outline" onClick={backtoFavorites}>
             <HugeiconsIcon icon={Back} strokeWidth={3} />
             Back to Favorites
           </Button>
-          <div className="w-10 h-10 rounded-full flex items-center justify-center absolute top-0 right-0 hover:bg-black/20">
-            <HugeiconsIcon icon={Ellipsis} className="" />
-          </div>
-          <div className="grid gap-10 w-full">            
-            {userFavorites.favoriteItems.map((fav) => (
-              <div key={fav.id} className="w-full ">
-                <div className="grid md:grid-cols-5 grid-cols-1 p-2 md:gap-10 gap-4 items-center ">
-                <Link href="" className="">
-                  <div className="relative lg:w-30 lg:h-30 w-20 h-20">
+
+          {items.map((fav) => (
+            <div key={fav.id}>
+              <div className="grid md:grid-cols-5 gap-4 items-center p-2">
+                <Link href="#">
+                  <div className="relative w-20 h-20 lg:w-30 lg:h-30">
                     <Image
                       src={fav.images[0]}
-                      alt={fav.images[0]}
+                      alt={fav.title}
                       fill
-                      quality={75}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className=" object-cover"
+                      className="object-cover"
                     />
                   </div>
-                  </Link>
-                  <div className=" p-2 space-y-4 col-span-4">
-                    <div className="flex flex-col">
-                      {fav.priceLowered && (
-                        <span className="text-red-700 text-base font-bold capitalize">
-                          {fav.priceLowered}
-                        </span>
-                      )}
-                      <Link href={""} className="text-lg font-bold hover:underline hover:text-black/70">{fav.title}</Link>
-                      <div className="flex md:flex-row flex-col gap-2 justify-between">
-                        <div className="space-y-2">
-                          <p className="text-black/70 tracking-tight font-medium md:max-w-3xs w-full">
-                            {fav.description}
-                          </p>
+                </Link>
 
-                          <p className="text-sm text-black/60">
-                            EGP{fav.price}
-                            {fav.pack && (
-                              <span className="text-black/60">
-                                /{fav.packCount} {fav.pack}
-                              </span>
-                            )}
-                          </p>
+                <div className="col-span-4 space-y-4">
+                  <div className="flex justify-between gap-2">
+                    <div>
+                      <Link href="#" className="text-lg font-bold">
+                        {fav.title}
+                      </Link>
 
-                          {fav.unitPrice && (
-                            <p className="text-sm font-medium text-black/80">
-                              Unit price:EGP {fav.unitPrice}/{fav.pack}
-                            </p>
-                          )}
-                          {fav.previousPrice && (
-                            <p className="text-sm text-black/70">
-                              Previous price:EGP{fav.previousPrice}
-                            </p>
-                          )}
-                        </div>
-                        <p className="text-sm font-bold">EGP{fav.price}</p>
-                      </div>
+                      <p className="text-sm text-black/70">{fav.description}</p>
                     </div>
-                    <div className="flex justify-between">
-                      <div className="flex gap-4">
-                        <div className="w-30 h-10 rounded-full border px-2 py-4 flex justify-between items-center">
-                          <button className="w-8 h-8 rounded-full text-2xl flex items-center justify-center cursor-pointer hover:bg-black/20 ">
-                            -
-                          </button>
+                    <p className="font-bold">EGP {fav.price}</p>
+                  </div>
+                  {/* QUANTITY */}
+                  <div className="flex gap-4 items-center">
+                    <div className="flex items-center border  font-bold rounded-full px-2 h-10">
+                      <button
+                        onClick={() => decrement(fav.id)}
+                        className="w-8 h-8 rounded-full hover:bg-black/20"
+                      >
+                        -
+                      </button>
 
-                          <button className="w-8 h-8 rounded-full text-2xl flex items-center justify-center cursor-pointer hover:bg-black/20">
-                            +
-                          </button>
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-[#0057a3ef] flex items-center justify-center cursor-pointer hover:bg-[#0058A3]">
-                          <HugeiconsIcon
-                            icon={ShoppingCartAdd02Icon}
-                            className="text-white/75"
-                          />
-                        </div>
-                      </div>
-                      <div className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/20">
-                        <HugeiconsIcon icon={Ellipsis} className="" />
-                      </div>
+                      <input
+                        type="number"
+                        value={counts[fav.id] ?? 1}
+                        onChange={(e) => handleChange(fav.id, e.target.value)}
+                        className="w-10 text-center outline-none"
+                      />
+
+                      <button
+                        onClick={() => increment(fav.id)}
+                        className="w-8 h-8 rounded-full hover:bg-black/20"
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    <div className="w-10 h-10 flex items-center justify-center bg-blue-600 rounded-full">
+                      <HugeiconsIcon
+                        icon={ShoppingCartAdd02Icon}
+                        className="text-white"
+                      />
                     </div>
                   </div>
                 </div>
-                
-                <Separator className="data-horizontal"></Separator>
               </div>
-            ))}
-          </div>
+
+              <Separator />
+            </div>
+          ))}
         </div>
 
-        <div className="space-y-6 lg:w-1/3">
+        {/* RIGHT */}
+        <div className="lg:w-1/3 space-y-6">
           <h2 className="font-bold">Summary</h2>
+
           <div className="flex justify-between">
-            <p className="text-black/70 text-sm font-semibold">Products</p>
-            <p className="text-black/70 text-sm font-semibold">EGP{total}</p>
+            <span>Products</span>
+            <span>EGP {total}</span>
           </div>
-          <Separator className="data-horizontal:h-0.5 data-horizontal:w-full data-horizontal:bg-black my-6" />
+
+          <Separator />
+
           <div className="flex justify-between">
-            <p className="font-bold text-black/70">Total incl. VAT</p>
-            <div className="flex">
-              <span className="font-extrabold">EGP</span>
-              <span className="font-extrabold text-4xl">{total}</span>
-            </div>
+            <span className="font-bold">Total incl. VAT</span>
+            <span className="text-3xl font-extrabold">EGP {total}</span>
           </div>
         </div>
       </div>

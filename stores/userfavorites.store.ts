@@ -85,6 +85,7 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
         return state.usersFavorites
           .find((uf: UserFavorites) => uf.userId === user)
       }
+      
     }),
     { name: "users-favorites-store" },
   ),

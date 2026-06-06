@@ -6,7 +6,7 @@ type props={
 }
 const ContainerProvider = ({children ,className}:props) => {
   return (
-    <main className={cn('lg:p-12 p-6 ',className)}>{children}</main>
+    <main className={cn('lg:p-12 p-6',className)}>{children}</main>
   )
 }
 
