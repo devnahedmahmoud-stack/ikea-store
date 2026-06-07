@@ -55,7 +55,7 @@ const NowinIKEA = () => {
           className="pb-28 h-[110vh]"
         >
           {Now_in_IKEA.map((card) => (
-            <SwiperSlide key={card.id} className="h-[110vh] border pb-10">
+            <SwiperSlide key={card.id} className="h-[110vh] pb-10">
               <Link href={card.href} className={`hover:cursor-pointer group h-[110vh]`}>
                 <div className={`bg-[${card.color}] h-[110vh] flex flex-col justify-between py-4 `}>
                   <div className="">
