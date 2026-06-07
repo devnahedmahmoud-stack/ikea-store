@@ -2,13 +2,15 @@ import { ProductCard } from "@/types/types";
 import TopSellerCard from "../products/TopSellerCard";
 import { AppSidebar } from "./app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "../ui/sidebar";
+import ContainerProvider from "../Providers/ContainerProvider";
 type NewCollectionProps = {
   items: ProductCard[];
 };
 const NewCollection = ({ items }: NewCollectionProps) => {
   return (
+    <ContainerProvider>
     <section className="flex gap-6 w-full">
-      <SidebarProvider className="lg:w-20 p-2 w-0 bg-yellow-300">
+      <SidebarProvider className="lg:w-1/4 p-2 w-0">
       <AppSidebar />      
         
         <p>jjjjjjjjjjjjjnnnnnnnnnnnnnnnnnnnnnnnnnnmmmmmmmmmmmmmmmmmmmmmmmmjjj</p>
@@ -16,7 +18,7 @@ const NewCollection = ({ items }: NewCollectionProps) => {
     </SidebarProvider>
 
 
-  <div className="w-3/4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 bg-red-500">
+  <div className="w-3/4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
     {items.map((card) => (
       <TopSellerCard
         key={card.id}
@@ -41,6 +43,7 @@ const NewCollection = ({ items }: NewCollectionProps) => {
     ))}
   </div>
 </section>
+</ContainerProvider>
   );
 };
 

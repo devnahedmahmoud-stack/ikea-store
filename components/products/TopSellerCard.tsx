@@ -98,7 +98,7 @@ const TopSellerCard = ({
     <Card
       className={cn(
         "ring-0 rounded-none relative",
-        favorites ? "w-75" : "w-50  bg-amber-100",
+        favorites ? "w-75" : "w-50",
       )}
     >
       <div className=" hover:cursor-pointer group ">

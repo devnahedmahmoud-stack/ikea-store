@@ -9,31 +9,57 @@ import {
 } from "@/data/data";
 import { ProductCard } from "@/types/types";
 import Image from "next/image";
-import { Suspense } from "react";
+import { cache, Suspense } from "react";
 
-const ProductDetailsPage = async ({
-  params,
-}: {
+import type { Metadata, ResolvingMetadata } from "next";
+import ProductGallery from "@/components/products/ProductGallery";
+type Props = {
   params: Promise<{ product_details: string }>;
-}) => {
+};
+
+const getProductDetails = cache(async (productId: number) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  let product: ProductCard | undefined;
+  product =
+    productCards.find((product) => product.id === productId) ??
+    AccessoriesProducts.find((product) => product.id === productId) ??
+    FurnitureProducts.find((product) => product.id === productId);
+
+  return product;
+});
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  // read route params
+  const { product_details } = await params;
+
+  const product =
+    (await getProductDetails(Number(product_details))) || undefined;
+
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: product?.title ?? "Product Not Found",
+    description: product?.description,
+    openGraph: {
+      title: product?.title,
+      description: product?.description,
+      images: [
+        product?.images?.[0] || "",
+        ...previousImages,
+      ],
+    },
+  };
+}
+
+const ProductDetailsPage = async ({ params }: Props) => {
   //await new Promise((resolve) => setTimeout(resolve, 2000));
   const { product_details } = await params;
   console.log(product_details);
   // const productParam: string[] = product_details.split("-");
 
-  async function getProductDetails(productId: number) {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    let product: ProductCard | undefined;
-    product = productCards.find((product) => product.id === productId);
-    if (!product) {
-      product = AccessoriesProducts.find((product) => product.id === productId);
-      if (!product) {
-        product = FurnitureProducts.find((product) => product.id === productId);
-      }
-    }
-
-    return product;
-  }
   const product =
     (await getProductDetails(Number(product_details))) || undefined;
   console.log(product);
@@ -44,7 +70,8 @@ const ProductDetailsPage = async ({
       </div>
     );
   }
-  return (    
+  
+  return (
     <ContainerProvider className="">
       {/* <Suspense>
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
@@ -54,19 +81,7 @@ const ProductDetailsPage = async ({
       <section className="flex flex-col gap-10 p-10">
         <h2 className="">{product?.title}</h2>
         <div className="flex gap-8  bg-amber-800">
-          <div className="flex py gap-6 w-2/3 ">
-            <ProductImagesSlider images={product.images} isThumbnail={true} />
-            <div className=" relative w-full  min-w-0">
-              {product.topSeller && (
-                <div
-                  className="h-4 w-fit z-20  bg-red-600 text-white font-semibold flex items-center px-2 py-3 absolute top-0 left-0"
-                >
-                  Top seller
-                </div>
-              )}
-              <ProductImagesSlider images={product.images}  isThumbnail={false}/>
-            </div>
-          </div>
+<ProductGallery images={product.images} topSeller={product.topSeller} />          
           <div className="w-1/3">
             <ProductDetails productData={product} />
           </div>

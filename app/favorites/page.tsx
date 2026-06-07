@@ -2,6 +2,14 @@ import Favorites from '@/components/favorites/Favorites'
 import ContainerProvider from '@/components/Providers/ContainerProvider'
 import React from 'react'
 
+export async function generateMetadata()
+{
+  return {
+    title: "IKEA Favorites",
+    metadataBase:new URL("https://ikea-store.vercel.app/"),
+    keywords:["Next.ts"]
+      };
+}
 const FavoritesPage = () => {
   return (
     <ContainerProvider>

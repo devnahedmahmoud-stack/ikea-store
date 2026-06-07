@@ -22,7 +22,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Furniture & Home Decore - IKEA",
-  description: "Next.ts App",
+  description: "Next.ts App for Furniture & Home Decore",
+  metadataBase:new URL("https://ikea-store.vercel.app/"),
+    alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+    keywords:["Next.ts"]
+    
   
 };
 
