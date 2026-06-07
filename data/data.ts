@@ -1378,3 +1378,54 @@ export const NewCollectionsItems: NavLink[] = [
     image: "",
   },
 ];
+
+export const Now_in_IKEA: NavLink[] = [
+  {
+    id: 1,
+    title: "Discover this month's offer",
+    desc:"IKEA Family members get more for less",
+    href: "",
+    image: "/now-in-ikea/family-offer.png",
+    color:"#007CC1"
+  },
+  {
+    id: 2,
+    title: "Trending this season",
+    desc:"Make the best of summer holiday",
+    href: "",
+    image: "/now-in-ikea/outdoor.png",
+    color:"#DEBC9C"
+  },
+  {
+    id: 3,
+    title: "Living room magazine",
+    desc:"Browse our Living room magazine for ideas & inspiration",
+    href: "",
+    image: "/now-in-ikea/living-room.png",
+    color:"#F5F5F5"
+  },
+  {
+    id: 4,
+    title: "Play is for everyone, let the fun begin",
+    desc:"GREJSIMOJS collection brings play beyond the playroom, encouraging creativity, movement, and joy across the entire home.",
+    href: "",
+    image: "/now-in-ikea/kids-room.png",
+    color:"#CA5008"
+  },
+  {
+    id: 5,
+    title: "Affordable Essentials",
+    desc:"Discover everyday essential products for all your rooms with affordable prices",
+    href: "",
+    image: "/now-in-ikea/essentials.png",
+    color:"#F5F5F5"
+  },
+  {
+    id: 6,
+    title: "Free delivery to your doorstep across Egypt",
+    desc:"on accessory purchases over 250 EGP and up to 20 KGs per order.",
+    href: "",
+    image: "/now-in-ikea/free-delivery.png",
+    color:"#F5F5F5"
+  },
+];

@@ -8,6 +8,7 @@ import NewCollections from "../home/NewCollections";
 import { NewCollectionsItems } from "@/data/data";
 import NoworNever from "../home/NoworNever";
 import DesignSpace from "../home/DesignSpace";
+import NowinIKEA from "../home/NowinIKEA";
 
 
 const HomePageContainer = () => {
@@ -34,7 +35,7 @@ const HomePageContainer = () => {
         <NewCollections newCollectionsData={NewCollectionsItems}/>
         <NoworNever/>
         <DesignSpace/>
-        
+        <NowinIKEA/>
       </ContainerProvider>      
     </>
   );

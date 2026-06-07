@@ -22,11 +22,13 @@ export type ProductCard = {
 export type NavLink = {
   id: number;
   title: string;
+  desc?:string;
   href: string;
   image?: string;
   products?: ProductCard[];
   nestedLinks?:NavLink[],
-  gallery?:NavLink[]
+  gallery?:NavLink[],
+  color?:string
 };
 
 export type HomeSection = {

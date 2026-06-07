@@ -166,6 +166,7 @@ console.log(activeIndex)
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
+                    
                   />
                 </div>
               </SwiperSlide>

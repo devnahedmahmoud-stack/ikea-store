@@ -11,10 +11,7 @@ const NewCollection = ({ items }: NewCollectionProps) => {
     <ContainerProvider>
     <section className="flex gap-6 w-full">
       <SidebarProvider className="lg:w-1/4 p-2 w-0">
-      <AppSidebar />      
-        
-        <p>jjjjjjjjjjjjjnnnnnnnnnnnnnnnnnnnnnnnnnnmmmmmmmmmmmmmmmmmmmmmmmmjjj</p>
-      
+      <AppSidebar />           
     </SidebarProvider>
 
 

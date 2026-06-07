@@ -80,7 +80,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
       </Suspense> */}
       <section className="flex flex-col gap-10 p-10">
         <h2 className="">{product?.title}</h2>
-        <div className="flex gap-8  bg-amber-800">
+        <div className="flex gap-8">
 <ProductGallery images={product.images} topSeller={product.topSeller} />          
           <div className="w-1/3">
             <ProductDetails productData={product} />

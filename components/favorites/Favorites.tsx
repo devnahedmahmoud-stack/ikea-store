@@ -27,8 +27,10 @@ const Favorites = () => {
   const userFavorites = currentUser
     ? usersFavorites.find((uf) => uf.userId === currentUser.id)
     : usersFavorites.find((uf) => uf.userId === "");
-const userId:string=userFavorites?.userId||""
-if(userId==="") return
+const userId:string=userFavorites?.userId||"guest"
+console.log(currentUser?.id)
+
+//if(userId==="") return
 console.log(userId)
   return (
     <>
