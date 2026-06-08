@@ -4,7 +4,6 @@ import { Button } from "../ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   Back,
-  Ellipsis,
   ShoppingCartAdd02Icon,
 } from "@hugeicons/core-free-icons";
 import { useRouter } from "next/navigation";
@@ -13,6 +12,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useEffect, useState } from "react";
+import CardsSlider from "./CardsSlider";
+import { productCards } from "@/data/data";
 
 type FavoritesListProps = {
   userID: string;
@@ -112,7 +113,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
     <section className="space-y-6">
       <h1 className="text-3xl font-bold">Favourites</h1>
 
-      <div className="flex lg:flex-row lg:gap-20 gap-10 flex-col">
+      <div className="flex lg:flex-row lg:gap-20 gap-10 flex-col pb-10">
         {/* LEFT */}
         <div className="lg:w-2/3 w-full space-y-10">
           <Button variant="outline" onClick={backtoFavorites}>
@@ -202,6 +203,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
           </div>
         </div>
       </div>
+      <CardsSlider products={productCards} favorites={true} />
     </section>
   );
 };

@@ -46,10 +46,7 @@ export async function generateMetadata(
     openGraph: {
       title: product?.title,
       description: product?.description,
-      images: [
-        product?.images?.[0] || "",
-        ...previousImages,
-      ],
+      images: [product?.images?.[0] || "", ...previousImages],
     },
   };
 }
@@ -70,7 +67,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
       </div>
     );
   }
-  
+
   return (
     <ContainerProvider className="">
       {/* <Suspense>
@@ -81,7 +78,10 @@ const ProductDetailsPage = async ({ params }: Props) => {
       <section className="flex flex-col gap-10 p-10">
         <h2 className="">{product?.title}</h2>
         <div className="flex gap-8">
-<ProductGallery images={product.images} topSeller={product.topSeller} />          
+          <ProductGallery
+            images={product.images}
+            topSeller={product.topSeller}
+          />
           <div className="w-1/3">
             <ProductDetails productData={product} />
           </div>

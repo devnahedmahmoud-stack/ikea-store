@@ -9,6 +9,8 @@ import { NewCollectionsItems } from "@/data/data";
 import NoworNever from "../home/NoworNever";
 import DesignSpace from "../home/DesignSpace";
 import NowinIKEA from "../home/NowinIKEA";
+import { Homemade_Apple } from "next/font/google";
+import HomeMatch from "../home/HomeMatch";
 
 
 const HomePageContainer = () => {
@@ -32,10 +34,11 @@ const HomePageContainer = () => {
         />
         <OffersSection/>  
         <CategoryTab/>
+        <HomeMatch/>
         <NewCollections newCollectionsData={NewCollectionsItems}/>
         <NoworNever/>
-        <DesignSpace/>
         <NowinIKEA/>
+        <DesignSpace/>        
       </ContainerProvider>      
     </>
   );

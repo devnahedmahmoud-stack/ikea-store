@@ -1,8 +1,5 @@
 import FavoritesList from "@/components/favorites/FavoritesList"
 import ContainerProvider from "@/components/Providers/ContainerProvider"
-import { Button } from "@/components/ui/button"
-import {  Back } from "@hugeicons/core-free-icons"
-import { HugeiconsIcon } from "@hugeicons/react"
 
 type FavoritesListPageProps=
 {
@@ -11,8 +8,8 @@ type FavoritesListPageProps=
   }
 }
 const FavoritesListPage =  async ({params}:FavoritesListPageProps) => {
-  const {userId}=await params
-  console.log(userId,params)
+  const {userId}=await params 
+
   return (
     
     <ContainerProvider>

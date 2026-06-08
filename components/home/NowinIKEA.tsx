@@ -20,7 +20,7 @@ import Image from "next/image";
 
 const NowinIKEA = () => {
   return (
-    <section className="space-y-10 h-[120vh]">
+    <section className="space-y-10 h-[120vh] py-20">
       <h2 className="text-2xl font-bold">Now in IKEA Egypt</h2>
 
       <div className="h-[110vh] relative">
@@ -43,6 +43,9 @@ const NowinIKEA = () => {
           }}
           pagination={{ clickable: true }}
           breakpoints={{
+            425:{
+              slidesPerView:1
+            },
             640: {
               slidesPerView: 2,
             },

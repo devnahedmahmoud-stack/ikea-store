@@ -1,11 +1,15 @@
-
 import { ProductCard } from "@/types/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+export type FavoriteItemQty={
+  productID:number,
+  Qty:number
+}
 export type UserFavorites = {
   userId: string;
   favoriteItems: ProductCard[];
+  FavoriteItemsQty:FavoriteItemQty[]
 };
 type Result = {
   message: string;
@@ -21,7 +25,7 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
   persist(
     (set, get) => ({
       usersFavorites: [],
-      addToFavorite: (user, favItem): Result => {
+      addToFavorite: (user, favItem:ProductCard): Result => {
         set((state) => {
           const existUser = state.usersFavorites.find((u) => u.userId === user);
 
@@ -32,6 +36,7 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
                   ? {
                       ...uv,
                       favoriteItems: [...uv.favoriteItems, favItem],
+                      FavoriteItemsQty:[{productID: favItem.id,Qty:1}]
                     }
                   : uv,
               ),
@@ -44,6 +49,7 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
               {
                 userId: user,
                 favoriteItems: [favItem],
+                FavoriteItemsQty:[{productID: favItem.id,Qty:1}]
               },
             ],
           };

@@ -1,6 +1,7 @@
 import NewCollection from "@/components/category/NewCollection";
 import ContainerProvider from "@/components/Providers/ContainerProvider";
 import { NewCollectionsItems } from "@/data/data";
+import NotFound from "./not-found";
 
 export default async function NewCollectionsPage({
   params,
@@ -14,7 +15,7 @@ export default async function NewCollectionsPage({
   )?.products;
   console.log(catParams, products);
   if (!products) {
-    return <div>Products not found</div>;
+    return <NotFound/>;
   }
   return (
     <ContainerProvider>
