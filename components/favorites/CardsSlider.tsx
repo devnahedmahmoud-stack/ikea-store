@@ -7,18 +7,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import TopSellerCard from "../products/TopSellerCard";
-import { productCards } from "@/data/data";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft, ArrowRight } from "@hugeicons/core-free-icons";
 import { ProductCard } from "@/types/types";
 
-type CardsSliderProps={
-  products:ProductCard[]
-  favorites?:boolean;
-  recommended?:boolean
-}
-export default function CardsSlider({products,favorites,recommended}:CardsSliderProps) {
-  const slidesCountView:number=(favorites?4:6)
+type CardsSliderProps = {
+  products: ProductCard[];
+  favorites?: boolean;
+  recommended?: boolean;
+};
+export default function CardsSlider({ products, favorites }: CardsSliderProps) {
+  const slidesCountView: number = favorites ? 4 : 6;
   return (
     <section className=" py-4 px-10 relative">
       <button className="button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-black text-white p-2 rounded-full cursor-pointer hover:bg-black/80">
@@ -32,31 +31,39 @@ export default function CardsSlider({products,favorites,recommended}:CardsSlider
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
-        slidesPerView={1}
+        //slidesPerView={1}
         navigation={{
           prevEl: ".button-prev",
           nextEl: ".button-next",
-          disabledClass: "hidden",          
+          disabledClass: "hidden",
         }}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 3000 }}
         breakpoints={{
-          640: {
-            slidesPerView: 2,
+          0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
           },
-          
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
           1024: {
-            slidesPerView: slidesCountView,
+            slidesPerView: favorites ? 4 : 4,
+            slidesPerGroup: favorites ? 4 : 4,
+          },
+          1280: {
+            slidesPerView: favorites ? 4 : 6,
+            slidesPerGroup: favorites ? 4 : 6,
           },
         }}
-        slidesPerGroup={4}
+        //slidesPerGroup={4}
         className="pb-20"
       >
         {products.map((card) => (
           <SwiperSlide key={card.id} className=" px-2 pb-10 bg-amber">
-            <TopSellerCard key={card.id}
-            productId={card.id}
-              images={[card.images[0], card.images[1]]}
+            <TopSellerCard
+              productId={card.id}
+              images={[card.images[0], card.images[1] ?? card.images[0]]}
               title={card.title}
               subtitle={card.subtitle}
               price={card.price}

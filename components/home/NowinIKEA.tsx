@@ -20,10 +20,10 @@ import Image from "next/image";
 
 const NowinIKEA = () => {
   return (
-    <section className="space-y-10 h-[120vh] py-20">
+    <section className="space-y-10 h-200 py-20">
       <h2 className="text-2xl font-bold">Now in IKEA Egypt</h2>
 
-      <div className="h-[110vh] relative">
+      <div className="h-190 relative">
         <button className="button-prev absolute left-0 -translate-x-1/2 top-1/2 z-10 -translate-y-1/2 bg-black text-white p-2 rounded-full cursor-pointer hover:bg-black/80">
           <HugeiconsIcon icon={ArrowLeft} />
         </button>
@@ -35,7 +35,7 @@ const NowinIKEA = () => {
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={10}
-          slidesPerView={3}
+          //slidesPerView={3}
           navigation={{
             prevEl: ".button-prev",
             nextEl: ".button-next",
@@ -43,24 +43,30 @@ const NowinIKEA = () => {
           }}
           pagination={{ clickable: true }}
           breakpoints={{
-            425:{
-              slidesPerView:1
-            },
-            640: {
-              slidesPerView: 2,
-            },
-
-            1024: {
-              slidesPerView: 3,
-            },
+             0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1280: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
           }}
-          slidesPerGroup={3}
-          className="pb-28 h-[110vh]"
+          //slidesPerGroup={3}
+          className="pb-28 h-190"
         >
           {Now_in_IKEA.map((card) => (
-            <SwiperSlide key={card.id} className="h-[110vh] pb-10">
-              <Link href={card.href} className={`hover:cursor-pointer group h-[110vh]`}>
-                <div className={`bg-[${card.color}] h-[110vh] flex flex-col justify-between py-4 `}>
+            <SwiperSlide key={card.id} className="h-190 pb-10">
+              <Link href={card.href} className={`hover:cursor-pointer group h-190`}>
+                <div className={`bg-[${card.color}] h-full flex flex-col justify-between py-4 `}>
                   <div className="">
                     <div className="overflow-hidden group/image">
                       <Image

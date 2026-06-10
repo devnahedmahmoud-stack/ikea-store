@@ -139,17 +139,14 @@ console.log(activeIndex)
           nextEl: `.${btn_Next}`,
           disabledClass: navBtn,
         }}
-        slidesPerView={isThumbnail ? 2 : 1}
+        //slidesPerView={isThumbnail ? 2 : 1}
         breakpoints={{
-          640: {
-            slidesPerView: isThumbnail ? 2 : 1,
-          },
-
           1024: {
-            slidesPerView: slidesCountView,
-          },
+            slidesPerView: isThumbnail ? 7 : 1,
+            slidesPerGroup: isThumbnail ? 7 : 1,
+          }
         }}
-        slidesPerGroup={isThumbnail ? 4 : 1}
+        //slidesPerGroup={isThumbnail ? 4 : 1}
         direction={isThumbnail ? "vertical" : "horizontal"}
         className={isThumbnail ? "w-28 h-screen" : "w-full h-full"}
       >
@@ -157,7 +154,7 @@ console.log(activeIndex)
           ? images.map((image, index) => (
               <SwiperSlide
                 key={`${image.split("/").pop()?.split(".")[0]}-${index}`}
-                className=""
+                className="w-full"
               >
                 <div className="relative w-full h-full overflow-hidden hover:cursor-zoom-in">
                   <Image
@@ -174,7 +171,7 @@ console.log(activeIndex)
           : images.map((image, index) => (
               <SwiperSlide
                 key={`${image.split("/").pop()?.split(".")[0]}-${index}`}
-                className=""
+                className="lg:opacity-100 opacity-0"
               >
                 <div
                   className={cn(

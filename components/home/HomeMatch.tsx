@@ -11,22 +11,22 @@ const HomeMatch = () => {
         solutions made for busy homes and big match energy.
       </p>
       <div className="h-[110vh] grid md:grid-cols-2  gap-4">
-        <Link href={""} className="relative h-175">
+        <Link href={""} className="relative h-175 ">
           <Image
-            src={"/HomeMatch/home-match-1.png"}
+            src={"/homematch/home-match-1.png"}
             alt="home-match-1"
             fill
             sizes="50vw,100vw,(max-width:768px)"
-            className="object-contain"
+            className="object-fill"
           />
         </Link>
         <Link href={""} className="relative h-175">
           <Image
-            src={"/HomeMatch/home-match-2.png"}
+            src={"/homematch/home-match-2.png"}
             alt="home-match-2"
             fill
             sizes="50vw,100vw,(max-width:768px)"
-            className="object-contain"
+            className="object-fill"
           />
         </Link>
       </div>

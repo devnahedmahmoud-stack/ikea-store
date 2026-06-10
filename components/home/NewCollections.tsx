@@ -38,7 +38,7 @@ const NewCollections = ({newCollectionsData}:NewCollectionsProps) => {
 
             <Swiper
               modules={[Navigation, Pagination]}
-              spaceBetween={space}
+              spaceBetween={4}
               //slidesPerView={2}
               navigation={{
                 prevEl: `.${prevBtn}`,
@@ -48,27 +48,24 @@ const NewCollections = ({newCollectionsData}:NewCollectionsProps) => {
               pagination={{ clickable: true }}
              
               breakpoints={{
-                320: {
-                  slidesPerView:1.25,
-                  slidesPerGroup:1.25,
-                  spaceBetween:4
-                },
-                768: {
-                  slidesPerView:2.7,
-                  slidesPerGroup:2.7,
-                  spaceBetween:4
-                },
-                1024: {
-                  slidesPerView:3.5,
-                  slidesPerGroup:3.5,
-                  spaceBetween:4
-                },
-                
-                1440: {
-                  slidesPerView:5,
-                  slidesPerGroup:5,
-                  spaceBetween:4
-                },
+                0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+          1280: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+
+               
               }}
               //slidesPerGroup={6}
               className="pb-20"
@@ -76,7 +73,7 @@ const NewCollections = ({newCollectionsData}:NewCollectionsProps) => {
               {newCollectionsData.map((cat,index) => (
                 <SwiperSlide key={cat.id} className=" pb-10" >
                     {index===newCollectionsData.length-1?
-                    <div className=" w-64 h-75 bg-orange-700 group">
+                    <div className=" md:w-64 w-full h-75 bg-orange-700 group">
                     <Link
                       href={""}
                       className="flex flex-col items-center gap-1  w-full h-full p-1 text-white"

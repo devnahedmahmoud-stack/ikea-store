@@ -22,7 +22,7 @@ const NoworNever = () => {
           </div>
         </Link>
         <div className="grid col-span-2 gap-4 grid-cols-2">
-        <div className="grid gap-4">
+          <div className="grid gap-4">
             <Link href="">
               <div className=" relative xl:h-[59vh] h-[44vh]  overflow-hidden">
                 <Image
@@ -70,7 +70,7 @@ const NoworNever = () => {
               </div>
             </Link>
           </div>
-          </div>
+        </div>
       </div>
     </section>
   );
