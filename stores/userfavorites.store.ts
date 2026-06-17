@@ -2,14 +2,14 @@ import { ProductCard } from "@/types/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type FavoriteItemQty={
-  productID:number,
-  Qty:number
-}
+export type FavoriteItemQty = {
+  productID: number;
+  Qty: number;
+};
 export type UserFavorites = {
   userId: string;
   favoriteItems: ProductCard[];
-  FavoriteItemsQty:FavoriteItemQty[]
+  FavoriteItemsQty: FavoriteItemQty[];
 };
 type Result = {
   message: string;
@@ -19,13 +19,14 @@ type UsersFavoritesStore = {
   addToFavorite: (user: string, favItem: ProductCard) => Result;
   removeFromFavorite: (user: string, favItem: ProductCard) => Result;
   existFavorite: (user: string, favItem: ProductCard) => boolean;
-  getUserFavorites:(user:string)=>UserFavorites | undefined
+  getUserFavorites: (user: string) => UserFavorites | undefined;
+  updateItemQty: (userId: string, id: number, qty: number) => void;
 };
 export const useUserFavorites = create<UsersFavoritesStore>()(
   persist(
     (set, get) => ({
       usersFavorites: [],
-      addToFavorite: (user, favItem:ProductCard): Result => {
+      addToFavorite: (user, favItem: ProductCard): Result => {
         set((state) => {
           const existUser = state.usersFavorites.find((u) => u.userId === user);
 
@@ -36,7 +37,10 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
                   ? {
                       ...uv,
                       favoriteItems: [...uv.favoriteItems, favItem],
-                      FavoriteItemsQty:[{productID: favItem.id,Qty:1}]
+                      FavoriteItemsQty: [
+                        ...uv.FavoriteItemsQty,
+                        { productID: favItem.id, Qty: 1 },
+                      ],
                     }
                   : uv,
               ),
@@ -49,7 +53,7 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
               {
                 userId: user,
                 favoriteItems: [favItem],
-                FavoriteItemsQty:[{productID: favItem.id,Qty:1}]
+                FavoriteItemsQty: [{ productID: favItem.id, Qty: 1 }],
               },
             ],
           };
@@ -69,6 +73,11 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
                     favoriteItems: [
                       ...u.favoriteItems.filter((fi) => fi.id !== favItem.id),
                     ],
+                    FavoriteItemsQty: [
+                      ...u.FavoriteItemsQty.filter(
+                        (i) => i.productID != favItem.id,
+                      ),
+                    ],
                   }
                 : u,
             ),
@@ -85,13 +94,36 @@ export const useUserFavorites = create<UsersFavoritesStore>()(
           .find((uf: UserFavorites) => uf.userId === user)
           ?.favoriteItems.find((item: ProductCard) => item.id === favItem.id);
       },
-      getUserFavorites:(user):UserFavorites | undefined=>{
-        const state=get()
-        
-        return state.usersFavorites
-          .find((uf: UserFavorites) => uf.userId === user)
-      }
-      
+      getUserFavorites: (user): UserFavorites | undefined => {
+        const state = get();
+
+        return state.usersFavorites.find(
+          (uf: UserFavorites) => uf.userId === user,
+        );
+      },
+      updateItemQty: (userId, id: number, qty: number) => {
+        set((state) => ({
+          usersFavorites: state.usersFavorites.map((uv: UserFavorites) =>
+            uv.userId == userId
+              ? {
+                  ...uv,
+                  favoriteItems:
+                    qty === 0
+                      ? uv.favoriteItems.filter((item) => item.id !== id)
+                      : uv.favoriteItems,
+                  FavoriteItemsQty:
+                    qty === 0
+                      ? uv.FavoriteItemsQty.filter(
+                          (item) => item.productID !== id,
+                        )
+                      : uv.FavoriteItemsQty.map((fiq) =>
+                          fiq.productID === id ? { ...fiq, Qty: qty } : fiq,
+                        ),
+                }
+              : uv,
+          ),
+        }));
+      },
     }),
     { name: "users-favorites-store" },
   ),

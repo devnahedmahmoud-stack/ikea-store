@@ -2,10 +2,7 @@
 
 import { Button } from "../ui/button";
 import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  Back,
-  ShoppingCartAdd02Icon,
-} from "@hugeicons/core-free-icons";
+import { Back, ShoppingCartAdd02Icon } from "@hugeicons/core-free-icons";
 import { useRouter } from "next/navigation";
 import { useUserFavorites } from "@/stores/userfavorites.store";
 import Link from "next/link";
@@ -14,6 +11,7 @@ import { Separator } from "../ui/separator";
 import { useEffect, useState } from "react";
 import CardsSlider from "./CardsSlider";
 import { productCards } from "@/data/data";
+import { cn } from "@/lib/utils";
 
 type FavoritesListProps = {
   userID: string;
@@ -30,13 +28,15 @@ type FavoriteItem = {
 };
 
 const FavoritesList = ({ userID }: FavoritesListProps) => {
-  const { usersFavorites } = useUserFavorites();
+  const { usersFavorites, updateItemQty } = useUserFavorites();
+
   const router = useRouter();
 
   const userFavorites = usersFavorites.find((uf) => uf.userId === userID);
 
   const [items, setItems] = useState<FavoriteItem[]>([]);
   const [counts, setCounts] = useState<Record<number, number>>({});
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   useEffect(() => {
     if (!userFavorites) return;
@@ -45,51 +45,64 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
 
     const initial: Record<number, number> = {};
 
-    userFavorites.favoriteItems.forEach((item) => {
-      initial[item.id] = 1;
+    userFavorites.FavoriteItemsQty.forEach((item) => {
+      initial[item.productID] = item.Qty;
     });
 
     setCounts(initial);
   }, [userFavorites]);
 
   function increment(id: number) {
+    const qty: number = (counts[id] ?? 1) + 1;
+    if (qty > 99) return;
     setCounts((prev) => ({
       ...prev,
-      [id]: (prev[id] ?? 1) + 1,
+      [id]: qty,
     }));
+
+    updateItemQty(userID, id, qty);
   }
 
   function decrement(id: number) {
-    setCounts((prev) => {
-      const next = (prev[id] ?? 1) - 1;
+    const qty = (counts[id] ?? 1) - 1;
 
-      if (next <= 0) {
-        setItems((items) => items.filter((item) => item.id !== id));
+    if (qty <= 0) {
+      setItems(
+        userFavorites?.favoriteItems.filter((item) => item.id !== id) || [],
+      );
 
+      setCounts((prev) => {
         const { [id]: _, ...rest } = prev;
         return rest;
-      }
+      });
+      updateItemQty(userID, id, 0);
+      return;
+    }
 
-      return {
-        ...prev,
-        [id]: next,
-      };
-    });
+    setCounts((prev) => ({
+      ...prev,
+      [id]: qty,
+    }));
+
+    updateItemQty(userID, id, qty);
   }
 
   function handleChange(id: number, value: string) {
     const num = Number(value);
 
     if (isNaN(num)) return;
+    if (num > 99) return;
 
     if (num <= 0) {
-      setItems((items) => items.filter((item) => item.id !== id));
+      setItems(
+        userFavorites?.favoriteItems.filter((item) => item.id !== id) || [],
+      );
 
       setCounts((prev) => {
         const { [id]: _, ...rest } = prev;
         return rest;
       });
-
+      updateItemQty(userID, id, 0);
       return;
     }
 
@@ -97,6 +110,8 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
       ...prev,
       [id]: num,
     }));
+
+    updateItemQty(userID, id, num);
   }
 
   function backtoFavorites() {
@@ -114,7 +129,6 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
       <h1 className="text-3xl font-bold">Favourites</h1>
 
       <div className="flex lg:flex-row lg:gap-20 gap-10 flex-col pb-10">
-        {/* LEFT */}
         <div className="lg:w-2/3 w-full space-y-10">
           <Button variant="outline" onClick={backtoFavorites}>
             <HugeiconsIcon icon={Back} strokeWidth={3} />
@@ -124,21 +138,31 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
           {items.map((fav) => (
             <div key={fav.id}>
               <div className="grid md:grid-cols-5 gap-4 items-center p-2">
-                <Link href="#">
-                  <div className="relative w-20 h-20 lg:w-30 lg:h-30">
-                    <Image
-                      src={fav.images[0]}
-                      alt={fav.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Link
+                  href="#"
+                  className="relative w-20 h-20 lg:w-30 lg:h-30"
+                  onMouseEnter={() => setHoveredId(fav.id)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <Image
+                    src={fav.images[0]}
+                    alt={fav.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 </Link>
 
                 <div className="col-span-4 space-y-4">
                   <div className="flex justify-between gap-2">
                     <div>
-                      <Link href="#" className="text-lg font-bold">
+                      <Link
+                        href="#"
+                        className={cn(
+                          "text-lg font-bold hover:underline",
+                          fav.id === hoveredId && "underline",
+                        )}
+                      >
                         {fav.title}
                       </Link>
 
@@ -146,7 +170,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
                     </div>
                     <p className="font-bold">EGP {fav.price}</p>
                   </div>
-                  {/* QUANTITY */}
+
                   <div className="flex gap-4 items-center">
                     <div className="flex items-center border  font-bold rounded-full px-2 h-10">
                       <button
@@ -186,7 +210,6 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
           ))}
         </div>
 
-        {/* RIGHT */}
         <div className="lg:w-1/3 space-y-6">
           <h2 className="font-bold">Summary</h2>
 
@@ -203,7 +226,6 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
           </div>
         </div>
       </div>
-      <CardsSlider products={productCards} favorites={true} />
     </section>
   );
 };

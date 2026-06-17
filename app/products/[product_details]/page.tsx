@@ -77,7 +77,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
       </Suspense> */}
       <section className="flex flex-col gap-10 p-10">
         <h2 className="">{product?.title}</h2>
-        <div className="flex lg:flex-row lg:w-2/3 flex-col gap-8">
+        <div className="flex lg:flex-row flex-col  gap-8">
           <ProductGallery
             images={product.images}
             topSeller={product.topSeller}

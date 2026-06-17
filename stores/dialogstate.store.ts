@@ -1,12 +1,17 @@
+import { fa } from "zod/v4/locales";
 import { create } from "zustand";
 type DialogStateStore={
     isOpen:boolean,
-    setIsOpen:(state:boolean)=>void
+    setIsOpen:(state:boolean)=>void,
+    isMenuOpen:boolean,
+    setIsMenuOpen:(state:boolean)=>void
 }
 
 export const useDialogStateStore = create<DialogStateStore>()(
   (set)=>({
     isOpen: false,
-    setIsOpen:(newState)=>set({isOpen:newState})
+    isMenuOpen:false,
+    setIsOpen:(newState)=>set({isOpen:newState}),
+    setIsMenuOpen:(newState)=>set({isMenuOpen:newState})
   }),
 );

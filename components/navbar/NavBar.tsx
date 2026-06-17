@@ -6,17 +6,25 @@ import { useEffect, useState } from "react";
 import LinkMenu from "../productsmenu/LinkMenu";
 
 import { navBarLinks } from "@/data/data";
-import { Heart, Menu, Search, ShoppingCart02Icon } from "@hugeicons/core-free-icons";
+import {
+  Heart,
+  Menu,
+  Search,
+  ShoppingCart02Icon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonPhoto from "../home/ButtonPhoto";
 import NavLinks from "../navlinks/NavLinks";
 import LoginLink from "../user/LoginLink";
+import { useDialogStateStore } from "@/stores/dialogstate.store";
+import MenuLinks from "./MenuLinks";
 
 const NavBar = () => {
   const [activeOpenItem, setActiveOpenItem] = useState<string | null>(null);
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const { setIsOpen,setIsMenuOpen } = useDialogStateStore();
 
   function showMenu(item: string) {
     setActiveItem(item);
@@ -26,6 +34,7 @@ const NavBar = () => {
     setActiveOpenItem(null);
     setActiveItem(null);
   }
+  
   useEffect(() => {
     document.body.style.overflow = activeOpenItem ? "hidden" : "auto";
 
@@ -37,7 +46,7 @@ const NavBar = () => {
     <>
       {activeOpenItem && (
         <div
-          className="fixed inset-0 z-40 bg-black/40 duration-100  data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 "
+          className="xl:flex hidden fixed inset-0 z-40 bg-black/40 duration-100  data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 "
           onClick={() => {
             closeMenu();
           }}
@@ -94,8 +103,7 @@ const NavBar = () => {
                             menuId={l.id}
                             isProducts={l.title.toLowerCase() === "products"}
                             isRooms={l.title.toLowerCase() === "rooms"}
-                            isOffers={l.title.toLowerCase() === "offers"
-                            }
+                            isOffers={l.title.toLowerCase() === "offers"}
                             onClick={closeMenu}
                           />
                         </div>
@@ -104,9 +112,6 @@ const NavBar = () => {
                   );
                 })}
               </ul>
-            </div>
-            <div className="xl:hidden">
-              <HugeiconsIcon icon={Menu}/>
             </div>
           </div>
         </nav>
@@ -145,6 +150,14 @@ const NavBar = () => {
                 strokeWidth={2.5}
               />
             </Link>
+            <div className="xl:hidden">
+              <HugeiconsIcon
+                icon={Menu}
+                onClick={() => {
+                  setIsMenuOpen(true)}}
+              />
+              <MenuLinks />
+            </div>
           </div>
         </div>
       </header>

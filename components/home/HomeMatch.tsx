@@ -10,23 +10,25 @@ const HomeMatch = () => {
         tables and TV units with storage, discover multifunctional living room
         solutions made for busy homes and big match energy.
       </p>
-      <div className="h-[110vh] grid md:grid-cols-2  gap-4">
-        <Link href={""} className="relative h-175 ">
+      <div className="h-200 w-full grid md:grid-cols-2 grid-cols-1 gap-4">        
+      <Link href={""} className="">
           <Image
-            src={"/homematch/home-match-1.png"}
-            alt="home-match-1"
-            fill
-            sizes="50vw,100vw,(max-width:768px)"
-            className="object-fill"
+            src={"/homematch/homematch1.png"}
+            alt="homematch1"
+            width={680}
+            height={500}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover w-1/2"
           />
-        </Link>
-        <Link href={""} className="relative h-175">
+        </Link>        
+        <Link href={""} className="">
           <Image
-            src={"/homematch/home-match-2.png"}
-            alt="home-match-2"
-            fill
-            sizes="50vw,100vw,(max-width:768px)"
-            className="object-fill"
+            src={"/homematch/homematch2.png"}
+            alt="homematch2"
+            width={680}
+            height={500}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover w-1/2"
           />
         </Link>
       </div>

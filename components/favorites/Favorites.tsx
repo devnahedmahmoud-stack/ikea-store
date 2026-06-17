@@ -154,9 +154,7 @@ console.log(userId)
               Create a new list
             </Button>
           </div>
-        </div>
-
-        <CardsSlider products={productCards} favorites={true} />
+        </div>        
       </section>
       <LoginProfileDialog />
     </>

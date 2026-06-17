@@ -103,7 +103,7 @@ console.log(activeIndex)
     <div
       className={cn(
         " relative",
-        isThumbnail ? "w-28 h-full " : " h-full w-full",
+        isThumbnail ? "w-28 h-full" : " h-full w-full",
         className,
       )}
     >
@@ -140,11 +140,17 @@ console.log(activeIndex)
           disabledClass: navBtn,
         }}
         //slidesPerView={isThumbnail ? 2 : 1}
+
         breakpoints={{
+          0:{
+            slidesPerView:isThumbnail?0:1,
+            slidesPerGroup: isThumbnail ? 0 : 1,
+          },
           1024: {
             slidesPerView: isThumbnail ? 7 : 1,
             slidesPerGroup: isThumbnail ? 7 : 1,
           }
+          
         }}
         //slidesPerGroup={isThumbnail ? 4 : 1}
         direction={isThumbnail ? "vertical" : "horizontal"}
@@ -171,7 +177,7 @@ console.log(activeIndex)
           : images.map((image, index) => (
               <SwiperSlide
                 key={`${image.split("/").pop()?.split(".")[0]}-${index}`}
-                className="lg:opacity-100 opacity-0"
+                className=""
               >
                 <div
                   className={cn(

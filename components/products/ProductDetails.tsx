@@ -64,7 +64,7 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
   return (
     <Card
       className={cn(
-        "ring-0 rounded-none relative p-0", "w-64"
+        "ring-0 rounded-none relative p-0", ""
       )}
     >
       <div className="">        

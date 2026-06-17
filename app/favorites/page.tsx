@@ -1,6 +1,5 @@
 import Favorites from '@/components/favorites/Favorites'
 import ContainerProvider from '@/components/Providers/ContainerProvider'
-import React from 'react'
 
 export async function generateMetadata()
 {
