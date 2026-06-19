@@ -1,5 +1,5 @@
 import ProductDetails from "@/components/products/ProductDetails";
-import ProductImageSlider from "@/components/products/ProductImageSlider";
+import ProductImageSlider from "@/components/products/ProductThumbnailSlider";
 import ProductImagesSlider from "@/components/products/ProductImagesSlider";
 import ContainerProvider from "@/components/Providers/ContainerProvider";
 import {
