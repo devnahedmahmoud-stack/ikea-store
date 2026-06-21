@@ -23,15 +23,15 @@ const Favorites = () => {
   const { currentUser } = useAuthUserStore();
   const { usersFavorites } = useUserFavorites();
   const { setIsOpen } = useDialogStateStore();
-  
+
   const userFavorites = currentUser
     ? usersFavorites.find((uf) => uf.userId === currentUser.id)
     : usersFavorites.find((uf) => uf.userId === "");
-const userId:string=userFavorites?.userId||"guest"
-console.log(currentUser?.id)
+  const userId: string = userFavorites?.userId || "guest";
+  console.log(currentUser?.id);
 
-//if(userId==="") return
-console.log(userId)
+  //if(userId==="") return
+  console.log(userId);
   return (
     <>
       <section className="flex flex-col gap-10">
@@ -113,29 +113,67 @@ console.log(userId)
                 <span className="text-black/70 text-sm">
                   {userFavorites.favoriteItems.length} items{" "}
                 </span>
-                <Link href={`/favorites/list/${userId}`}>
+                <Link
+                  href={`/favorites/list/${userId}`}
+                  className=""
+                >
                   <div className="flex my-2 relative">
                     <div className="w-14 h-14 rounded-full flex items-center justify-center absolute right-0 hover:bg-black/20">
                       <HugeiconsIcon icon={Ellipsis} className="" />
                     </div>
-                    {userFavorites.favoriteItems.slice(0, 5).map((fav) => (
-                      <div
-                        key={fav.id}
-                        className="relative w-60 h-60 border-4 border-gray-100"
-                      >
-                        <Image
-                          src={fav.images[0]}
-                          alt={fav.images[0]}
-                          fill
-                          quality={75}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className=" object-cover"
-                        />
+                    <div className="lg:grid hidden grid-cols-5  ">
+                      {userFavorites.favoriteItems.slice(0, 5).map((fav) => (
+                        <div key={fav.id} className=" border-4 border-gray-100">
+                          <Image
+                            src={fav.images[0]}
+                            alt={fav.images[0]}
+                            width={200}
+                            height={200}
+                            quality={75}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className=" object-contain"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-2 lg:hidden">
+                      {userFavorites.favoriteItems.slice(0, 1).map((fav) => (
+                        <div
+                          key={fav.id}
+                          className=" border-4  border-gray-100"
+                        >
+                          <Image
+                            src={fav.images[0]}
+                            alt={fav.images[0]}
+                            width={200}
+                            height={200}
+                            quality={75}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className=" object-contain row-span-2 w-full"
+                          />
+                        </div>
+                      ))}
+                      <div className="grid grid-cols-2 grid-rows-2">
+                        {userFavorites.favoriteItems.slice(1, 5).map((fav) => (
+                          <div
+                            key={fav.id}
+                            className="relative border-4 border-gray-100"
+                          >
+                            <Image
+                              src={fav.images[0]}
+                              alt={fav.images[0]}
+                              width={200}
+                              height={200}
+                              quality={75}
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className=" object-contain"
+                            />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
                 </Link>
-                
               </div>
             </div>
           )}
@@ -154,7 +192,7 @@ console.log(userId)
               Create a new list
             </Button>
           </div>
-        </div>        
+        </div>
       </section>
       <LoginProfileDialog />
     </>

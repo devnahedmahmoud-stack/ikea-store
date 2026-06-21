@@ -77,7 +77,8 @@ const RoomsSlider = ({roomData,nestedLinks}:RoomsSliderProps) => {
                             <SwiperSlide key={roomData.id} className="px-2 py-2 pb-10">
                   <div className="p-2 w-full h-45  bg-gray-100 rounded-sm hover:underline hover:border hover:border-black">
                     <Link
-                      href={`/cat/${roomData.href}-${roomData.id}`}
+                      //href={`/cat/${roomData.href}-${roomData.id}`}
+                      href={"/rooms"}
                       className="flex flex-col items-center gap-1  w-full h-full p-1 "
                       //onClick={()=>{setMainMenu([])}}
                     >
@@ -85,8 +86,7 @@ const RoomsSlider = ({roomData,nestedLinks}:RoomsSliderProps) => {
                         <HugeiconsIcon icon={ArrowUp03Icon}/>
                       </div>
                       <p className="text-center ">
-                        {roomData.title.charAt(0).toUpperCase()}
-                        {roomData.title.slice(1)}
+                        Rooms
                       </p>
                     </Link>
                   </div>

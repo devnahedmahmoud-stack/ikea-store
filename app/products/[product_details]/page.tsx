@@ -75,7 +75,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
           <div className="h-14 w-14 animate-spin rounded-full border-4 border-white border-t-transparent" />
         </div>        
       </Suspense> */}
-      <section className="flex flex-col gap-10 p-10">
+      <section className="flex flex-col gap-10 md:p-10">
         <h2 className="">{product?.title}</h2>
         <div className="flex lg:flex-row flex-col  gap-8">
           <ProductGallery

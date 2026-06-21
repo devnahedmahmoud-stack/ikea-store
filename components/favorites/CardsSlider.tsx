@@ -30,7 +30,7 @@ export default function CardsSlider({ products, favorites }: CardsSliderProps) {
 
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={20}
+        spaceBetween={2}
         //slidesPerView={1}
         navigation={{
           prevEl: ".button-prev",
@@ -60,7 +60,7 @@ export default function CardsSlider({ products, favorites }: CardsSliderProps) {
         className="pb-20"
       >
         {products.map((card) => (
-          <SwiperSlide key={card.id} className=" px-2 pb-10 bg-amber">
+          <SwiperSlide key={card.id} className=" px-2 pb-10">
             <TopSellerCard
               productId={card.id}
               images={[card.images[0], card.images[1] ?? card.images[0]]}

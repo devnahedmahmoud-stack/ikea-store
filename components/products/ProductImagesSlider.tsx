@@ -168,7 +168,7 @@ console.log(activeIndex)
                     alt={images[currentImageIndex]}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover w-full h-auto transition-transform duration-300 hover:scale-110"
+                    className="md:object-cover object-contain w-full h-full transition-transform duration-300 hover:scale-110"
                     
                   />
                 </div>

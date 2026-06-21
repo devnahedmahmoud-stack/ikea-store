@@ -21,6 +21,7 @@ type FavoriteItem = {
   id: number;
   price: number;
   title: string;
+  subtitle?:string;
   description?: string;
   images: string[];
   pack?: string;
@@ -130,7 +131,8 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
 
       <div className="flex lg:flex-row lg:gap-20 gap-10 flex-col pb-10">
         <div className="lg:w-2/3 w-full space-y-10">
-          <Button variant="outline" onClick={backtoFavorites}>
+          <Button variant="outline" onClick={backtoFavorites} className="border border-black cursor-pointer 
+          transition ease-in-out duration-300 box-border hover:border-2 ">
             <HugeiconsIcon icon={Back} strokeWidth={3} />
             Back to Favorites
           </Button>
@@ -139,7 +141,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
             <div key={fav.id}>
               <div className="grid md:grid-cols-5 gap-4 items-center p-2">
                 <Link
-                  href="#"
+                  href={`/products/${fav.id}`}
                   className="relative w-20 h-20 lg:w-30 lg:h-30"
                   onMouseEnter={() => setHoveredId(fav.id)}
                   onMouseLeave={() => setHoveredId(null)}
@@ -157,7 +159,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
                   <div className="flex justify-between gap-2">
                     <div>
                       <Link
-                        href="#"
+                        href={`/products/${fav.id}`}
                         className={cn(
                           "text-lg font-bold hover:underline",
                           fav.id === hoveredId && "underline",
@@ -166,7 +168,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
                         {fav.title}
                       </Link>
 
-                      <p className="text-sm text-black/70">{fav.description}</p>
+                      <p className="text-sm text-black/70 ">{fav.subtitle}</p>
                     </div>
                     <p className="font-bold">EGP {fav.price}</p>
                   </div>

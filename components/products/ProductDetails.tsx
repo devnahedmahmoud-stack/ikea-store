@@ -79,8 +79,8 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
                 <span className="font-extrabold text-sm tracking-wide uppercase text-black/80 ">
                   {productData.title}
                 </span>
-                
-                <p className="text-black/75 text-sm">
+                <p>{productData.subtitle}</p>
+                <p className="text-black/75 text-sm mt-4">
                   {productData.description}
                 </p>
               </CardTitle>
