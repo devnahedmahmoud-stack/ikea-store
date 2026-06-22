@@ -79,6 +79,7 @@ const ProductDetailsPage = async ({ params }: Props) => {
         <h2 className="">{product?.title}</h2>
         <div className="flex lg:flex-row flex-col  gap-8">
           <ProductGallery
+          productData={product} 
             images={product.images}
             topSeller={product.topSeller}
           />

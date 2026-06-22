@@ -151,7 +151,7 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
               strokeWidth={2.5}
             />
           </button>
-          <button className=" w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20  rounded-full hover:cursor-pointer">
+          <button className=" w-10 h-10 lg:flex hidden items-center justify-center p-3 hover:bg-black/20  rounded-full hover:cursor-pointer">
             <HugeiconsIcon
               icon={Heart}
               className={cn(
