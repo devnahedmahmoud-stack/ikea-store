@@ -6,11 +6,11 @@ import { AccessoriesProducts, FurnitureProducts, productCards } from "@/data/dat
 const CategoryTab = () => {
   return (
     <div className="w-full my-10">
-      <Tabs defaultValue="recommended">
-        <TabsList variant={"line"} className="border-b ">
-          <TabsTrigger value="recommended"  className="font-bold">Recommended for you</TabsTrigger>
-          <TabsTrigger value="accessories"  className="font-bold">Accessories</TabsTrigger>
-          <TabsTrigger value="furniture"  className="font-bold">Furniture</TabsTrigger>
+      <Tabs defaultValue="recommended" className="w-full">
+        <TabsList variant={"line"} className="border-b w-full justify-start overflow-x-auto overflow-y-hidden">
+          <TabsTrigger value="recommended"  className="font-bold text-sm sm:text-base whitespace-nowrap">Recommended for you</TabsTrigger>
+          <TabsTrigger value="accessories"  className="font-bold text-sm sm:text-base whitespace-nowrap">Accessories</TabsTrigger>
+          <TabsTrigger value="furniture"  className="font-bold text-sm sm:text-base whitespace-nowrap">Furniture</TabsTrigger>
         </TabsList>
         <TabsContent value="recommended">
           <CardsSlider products={productCards} />

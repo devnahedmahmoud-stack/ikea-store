@@ -98,7 +98,7 @@ const TopSellerCard = ({
     <Card
       className={cn(
         "ring-0 rounded-none relative",
-        favorites ? "w-75" : "w-50",
+        favorites ? "w-full" : "w-full",
       )}
     >
       <div className=" hover:cursor-pointer group ">
@@ -121,7 +121,7 @@ const TopSellerCard = ({
                 fill
                 quality={75}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className=" object-cover absolute inset-0"
+                className=" object-contain absolute inset-0"
               />
               <Image
                 src={images[0]}
@@ -130,7 +130,7 @@ const TopSellerCard = ({
                 quality={75}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className={
-                  "object-cover absolute inset-0 transition-opacity duration-500 opacity-100 group-hover/image:opacity-0"
+                  "object-contain absolute inset-0 transition-opacity duration-500 opacity-100 group-hover/image:opacity-0"
                 }
               />
             </div>

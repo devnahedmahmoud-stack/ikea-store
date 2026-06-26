@@ -20,10 +20,10 @@ import Image from "next/image";
 
 const NowinIKEA = () => {
   return (
-    <section className="space-y-10 h-200 py-20">
+    <section className="space-y-10 py-20">
       <h2 className="text-2xl font-bold">Now in IKEA Egypt</h2>
 
-      <div className="h-190 relative">
+      <div className="relative h-200">
         <button className="button-prev absolute left-0 -translate-x-1/2 top-1/2 z-10 -translate-y-1/2 bg-black text-white p-2 rounded-full cursor-pointer hover:bg-black/80">
           <HugeiconsIcon icon={ArrowLeft} />
         </button>
@@ -61,31 +61,31 @@ const NowinIKEA = () => {
           },
           }}
           //slidesPerGroup={3}
-          className="pb-28 h-190"
+          className="pb-28 h-full"
         >
           {Now_in_IKEA.map((card) => (
-            <SwiperSlide key={card.id} className="h-190 pb-10">
-              <Link href={card.href} className={`hover:cursor-pointer group h-190`}>
-                <div className={`bg-[${card.color}] h-full flex flex-col justify-between py-4 `}>
-                  <div className="">
-                    <div className="overflow-hidden group/image">
+            <SwiperSlide key={card.id} className="h-170 pb-10 flex items-stretch min-h-0">
+              <Link href={card.href} className="group block h-full">
+                <div style={{ backgroundColor: card.color }} className="h-full flex flex-col justify-between pb-4 pt-0">
+                  <div className="flex-1 min-h-0 flex flex-col">
+                    <div className="overflow-hidden group/image h-2/3 min-h-0">
                       <Image
                         src={card.image || ""}
                         alt={card.image || ""}
                         width={500}
                         height={700}
                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className=" object-contain"
+                        className="block object-cover h-full w-full"
                       />
                     </div>
-                    <div className="px-4 mt-8">
+                    <div className="px-4 mt-4 bg-white/90 p-4 text-black">
                       <p className="text-2xl font-bold mb-2 group-hover:underline">
                         {card.title}
                       </p>
                       <p>{card.desc}</p>
                     </div>
                   </div>
-                  <div className="w-14 h-14 ml-4 rounded-full bg-black text-white flex items-center justify-center">
+                  <div className="w-14 h-14 ml-4 rounded-full bg-black text-white flex items-center justify-center self-end">
                     <HugeiconsIcon icon={ArrowRight02Icon} />
                   </div>
                 </div>

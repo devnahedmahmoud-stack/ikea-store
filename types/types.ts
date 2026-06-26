@@ -39,6 +39,8 @@ export type HomeSection = {
   href: string;
   desc?: string;
   categries?: NavLink[];
+  heading?:string;
+  brief?:string;
 };
 
 export type FooterLink = {
@@ -47,6 +49,7 @@ export type FooterLink = {
   links: {
     id?: number;
     title?: string;
+    image?:string;
     relLinks: HomeSection[];
     secondLinks?: { header?: string; links: HomeSection[] };
     thirdLinks?: { header?: string; links: HomeSection[] };

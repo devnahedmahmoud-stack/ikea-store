@@ -11,8 +11,7 @@ const CategoriesPage = async ({ params }: CategoryPageProps) => {
   const catParams: string[] = categories.split("-");
   console.log(catParams)
   return (
-    <ContainerProvider>
-      <p>Categories Page {catParams}</p>
+    <ContainerProvider>      
       <Categories catParams={catParams} />
     </ContainerProvider>
   );

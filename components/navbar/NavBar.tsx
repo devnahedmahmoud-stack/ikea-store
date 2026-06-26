@@ -155,9 +155,9 @@ const NavBar = () => {
                 icon={Menu}
                 onClick={() => {
                   setIsMenuOpen(true)}}
-              />
-              <MenuLinks />
+              />              
             </div>
+            <MenuLinks />
           </div>
         </div>
       </header>

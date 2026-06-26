@@ -117,21 +117,21 @@ const Favorites = () => {
                   href={`/favorites/list/${userId}`}
                   className=""
                 >
-                  <div className="flex my-2 relative">
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center absolute right-0 hover:bg-black/20">
+                  <div className="flex my-2 relative w-full">
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center absolute right-0 hover:bg-black/20 z-10">
                       <HugeiconsIcon icon={Ellipsis} className="" />
                     </div>
-                    <div className="lg:grid hidden grid-cols-5  ">
+                    <div className="hidden lg:grid grid-cols-5 gap-0 w-full">
                       {userFavorites.favoriteItems.slice(0, 5).map((fav) => (
-                        <div key={fav.id} className=" border-4 border-gray-100">
+                        <div key={fav.id} className="border-4 border-gray-100 w-full h-40">
                           <Image
                             src={fav.images[0]}
                             alt={fav.images[0]}
                             width={200}
                             height={200}
                             quality={75}
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className=" object-contain"
+                            sizes="(max-width: 1024px) 20vw, 16vw"
+                            className="object-contain w-full h-full"
                           />
                         </div>
                       ))}

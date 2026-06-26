@@ -19,17 +19,16 @@ import { useEffect, useState } from "react";
 type CategorySliderProps = {
   catParams: string[];
   subCategories?: NavLink[];
-  products?:ProductCard[]
+  products?: ProductCard[];
 };
 export default function CategorySlider({
   catParams,
   subCategories,
 }: CategorySliderProps) {
   const slidesCountView: number = 7;
-  const { mainMenu, catTitle,setMainMenu } = useActiveOpenMenu();
+  const { mainMenu, catTitle, setMainMenu } = useActiveOpenMenu();
   //const [categoryData, setCategoryData] = useState<HomeSection | null>(null);
   console.log(mainMenu, catParams);
-  
 
   /* useEffect(() => {
    setCategoryProducts(getCategryProducts(parseInt(catParams[catParams.length - 1])))
@@ -89,7 +88,7 @@ const { mainMenu, catTitle, menuLinksCol } = useActiveOpenMenu();
   }, [catParams, mainMenu, menuLinksCol]);
  */
 
-  return (subCategories?
+  return subCategories ? (
     <div className=" py-4 relative ">
       <button className="button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-black text-white p-2 rounded-full cursor-pointer hover:bg-black/80">
         <HugeiconsIcon icon={ArrowLeft} />
@@ -102,7 +101,7 @@ const { mainMenu, catTitle, menuLinksCol } = useActiveOpenMenu();
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={20}
-        slidesPerView={1}
+        //slidesPerView={1}
         navigation={{
           prevEl: ".button-prev",
           nextEl: ".button-next",
@@ -111,44 +110,60 @@ const { mainMenu, catTitle, menuLinksCol } = useActiveOpenMenu();
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         breakpoints={{
-          640: {
+          0: {
+            slidesPerView: 1.5,
+            slidesPerGroup: 1.5,
+          },
+          425: {
             slidesPerView: 2,
+            slidesPerGroup: 2,
           },
 
-          1024: {
-            slidesPerView: slidesCountView,
+          768: {
+            slidesPerView: 3.5,
+            slidesPerGroup: 3.5,
           },
+          1024: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          1280: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+          }
         }}
-        slidesPerGroup={4}
         className="pb-20"
       >
         {subCategories.map((cat) => (
-              <SwiperSlide key={cat.id} className="px-2 py-2 pb-10">
-                <div className="p-2 w-full h-45  bg-gray-100 rounded-sm hover:underline hover:border hover:border-black">
-                  <Link
-                    href={`/cat/${cat.href}-${cat.id}`}
-                    className="flex flex-col items-center gap-1  w-full h-full p-1 "
-                    onClick={()=>{setMainMenu([])}}
-                  >
-                    <div className="w-24 h-24 relative bg-transparent">
-                      <Image
-                        src={cat.image || ""}
-                        alt={cat.image || ""}
-                        fill
-                         sizes="(max-width: 768px) 100vw, 50vw"
-                        className="object-fill fill-gray-100"
-                      ></Image>
-                    </div>
-                    <p className="text-center ">
-                      {cat.title.charAt(0).toUpperCase()}
-                      {cat.title.slice(1)}
-                    </p>
-                  </Link>
+          <SwiperSlide key={cat.id} className="px-2 py-2 pb-10">
+            <div className="p-2 w-full h-45  bg-gray-100 rounded-sm hover:underline hover:border hover:border-black">
+              <Link
+                href={`/cat/${cat.href}-${cat.id}`}
+                className="flex flex-col items-center gap-1  w-full h-full p-1 "
+                onClick={() => {
+                  setMainMenu([]);
+                }}
+              >
+                <div className="w-24 h-24 relative bg-transparent">
+                  <Image
+                    src={cat.image || ""}
+                    alt={cat.image || ""}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-fill fill-gray-100"
+                  ></Image>
                 </div>
-              </SwiperSlide>
-            ))
-          }
+                <p className="text-center ">
+                  {cat.title.charAt(0).toUpperCase()}
+                  {cat.title.slice(1)}
+                </p>
+              </Link>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
-    </div>:<p>ddddddddd</p>
+    </div>
+  ) : (
+    <p>ddddddddd</p>
   );
 }

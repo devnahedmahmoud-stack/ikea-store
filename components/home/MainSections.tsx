@@ -35,7 +35,8 @@ const MainSections = () => {
             {homeMainSections.map((sec) => (
               <CarouselItem
                 key={sec.id}
-                className={`basis-1/2   xl:basis-1/8 md:basis-1/5`}
+                className={`xl:basis-1/8 lg:basis-1/5 
+                  md:basis-1/4 basis-1/2 `}
               >
                 <div className="p-2 w-full h-full bg-gray-100 rounded-sm hover:underline hover:border hover:border-black">
                   <Link

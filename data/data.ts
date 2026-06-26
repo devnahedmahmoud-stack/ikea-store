@@ -44,14 +44,15 @@ export const productCards: ProductCard[] = [
     topSeller: true,
     images: ["/pokalglass-1.png", "/pokalglass-2.png", "/pokalglass-3.png"],
     title: "pokal",
-    subtitle:"Glass, pink, 35 cl 104.177.10",
+    subtitle: "Glass, pink, 35 cl 104.177.10",
     price: 69,
     ratingCount: 24,
     store: "Cairo",
     priceLowered: "price Lowered",
     lastChance: "Last chance",
     previousPrice: 99,
-    description: "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
+    description:
+      "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
   },
   {
     id: 4,
@@ -98,7 +99,8 @@ export const productCards: ProductCard[] = [
     ratingCount: 16,
     store: "Cairo",
     moreOptions: "More options",
-    description: "RINNIG dish-washing brush has a comfortable handle and stiff bristles that make it easy to clean even the toughest stains. The brush head can be removed and replaced when needed, making it a long-lasting and sustainable choice for your kitchen.",
+    description:
+      "RINNIG dish-washing brush has a comfortable handle and stiff bristles that make it easy to clean even the toughest stains. The brush head can be removed and replaced when needed, making it a long-lasting and sustainable choice for your kitchen.",
   },
   {
     id: 7,
@@ -127,6 +129,9 @@ export const homeMainSections: HomeSection[] = [
       "https://www.ikea.com/global/assets/range-categorisation/images/product/storage-organisation-st001.jpeg?imwidth=160",
     href: "storage-furniture",
     desc: "IKEA's comprehensive furniture storage collection, including wardrobes, bookcases, display cabinets, and shelves, provides the perfect solution for organizing. From boxes to baskets, we offer a variety of options for small storage needs, all of which can be customized to match your unique style.",
+    heading: "A hideout for bedtime essentials",
+    brief:
+      "When you’re ready to sleep, let your nightstand necessities drift off in the new PLÖJKER bedside table. Behind its minimal box-like exterior, it’s much more than just a cube, with a drawer within a drawer providing lots of versatile space. Happy placed on the floor or attached to the wall, its clean, modern style fits into lots of bedroom looks – as well as perfectly coordinating with a PAX wardrobe and FORSAND doors.",
     categries: [
       {
         id: 1,
@@ -580,6 +585,7 @@ export const MenuMainLinks: FooterLink[] = [
       {
         id: 1,
         title: "Now at IKEA",
+        image: "/MenuImages/new.png",
         relLinks: [
           {
             id: 1,
@@ -643,6 +649,8 @@ export const MenuMainLinks: FooterLink[] = [
       {
         id: 2,
         title: "storage furniture",
+        image:
+          "https://www.ikea.com/global/assets/range-categorisation/images/product/storage-organisation-st001.jpeg?imwidth=160",
         relLinks: [
           {
             id: 1,
@@ -714,7 +722,9 @@ export const MenuMainLinks: FooterLink[] = [
       },
       {
         id: 3,
-        title: "Desk",
+        title: "desk & desk chairs",
+        image:
+          "https://www.ikea.com/global/assets/range-categorisation/images/product/desk-desk-chairs-fu004.jpeg?imwidth=160",
         relLinks: [
           {
             id: 1,
@@ -744,6 +754,8 @@ export const MenuMainLinks: FooterLink[] = [
       {
         id: 4,
         title: "outdoor products",
+        image:
+          "https://www.ikea.com/global/assets/range-categorisation/images/product/outdoor-products-od001.jpeg?imwidth=160",
         relLinks: [
           {
             id: 1,
@@ -794,6 +806,27 @@ export const MenuMainLinks: FooterLink[] = [
             },
           ],
         },
+      },
+      {
+        id: 5,
+        title: "sofas & armchairs",
+        image:
+          "https://www.ikea.com/eg/ar/range-categorisation/images/product/sofas-armchairs-700640.jpeg?imwidth=160",
+        relLinks:[]        
+      },
+      {
+        id: 6,
+        title: "beds",
+        image:
+          "https://www.ikea.com/global/assets/range-categorisation/images/product/beds-mattresses-bm001.jpeg?imwidth=160",
+        relLinks:[]
+      },
+      {
+        id: 7,
+        title: "lightning",
+        image:
+          "https://www.ikea.com/eg/ar/range-categorisation/images/product/lighting-li001.jpeg?imwidth=160",
+        relLinks:[]
       },
     ],
   },
@@ -1148,7 +1181,8 @@ export const AccessoriesProducts: ProductCard[] = [
     ],
     title: "BORRBY Lantern",
     subtitle: "Waste bin, white, 10 l 402.954.39",
-    description: "The stackable DAMMÄNG bins help you save space and allow waste sorting to be part of the home interior. This one is perfect for larger waste like packages made of plastic or paper.",
+    description:
+      "The stackable DAMMÄNG bins help you save space and allow waste sorting to be part of the home interior. This one is perfect for larger waste like packages made of plastic or paper.",
     price: 349,
     ratingCount: 97,
     store: "Cairo Festival City",
@@ -1226,7 +1260,7 @@ export const AccessoriesProducts: ProductCard[] = [
       "/accessories/bin-5.png",
     ],
     title: "VARIERA Box",
-    subtitle: "Practical storage box for shelves and cabinets.",  
+    subtitle: "Practical storage box for shelves and cabinets.",
     description: "Practical storage box for shelves and cabinets.",
     price: 129,
     pack: "pc",
@@ -1383,49 +1417,49 @@ export const Now_in_IKEA: NavLink[] = [
   {
     id: 1,
     title: "Discover this month's offer",
-    desc:"IKEA Family members get more for less",
+    desc: "IKEA Family members get more for less",
     href: "",
     image: "/now-in-ikea/family-offer.png",
-    color:"#007CC1"
+    color: "#007CC1",
   },
   {
     id: 2,
     title: "Trending this season",
-    desc:"Make the best of summer holiday",
+    desc: "Make the best of summer holiday",
     href: "",
     image: "/now-in-ikea/outdoor.png",
-    color:"#DEBC9C"
+    color: "#DEBC9C",
   },
   {
     id: 3,
     title: "Living room magazine",
-    desc:"Browse our Living room magazine for ideas & inspiration",
+    desc: "Browse our Living room magazine for ideas & inspiration",
     href: "",
     image: "/now-in-ikea/living-room.png",
-    color:"#F5F5F5"
+    color: "#F5F5F5",
   },
   {
     id: 4,
     title: "Play is for everyone, let the fun begin",
-    desc:"GREJSIMOJS collection brings play beyond the playroom, encouraging creativity, movement, and joy across the entire home.",
+    desc: "GREJSIMOJS collection brings play beyond the playroom, encouraging creativity, movement, and joy across the entire home.",
     href: "",
     image: "/now-in-ikea/kids-room.png",
-    color:"#CA5008"
+    color: "#CA5008",
   },
   {
     id: 5,
     title: "Affordable Essentials",
-    desc:"Discover everyday essential products for all your rooms with affordable prices",
+    desc: "Discover everyday essential products for all your rooms with affordable prices",
     href: "",
     image: "/now-in-ikea/essentials.png",
-    color:"#F5F5F5"
+    color: "#F5F5F5",
   },
   {
     id: 6,
     title: "Free delivery to your doorstep across Egypt",
-    desc:"on accessory purchases over 250 EGP and up to 20 KGs per order.",
+    desc: "on accessory purchases over 250 EGP and up to 20 KGs per order.",
     href: "",
     image: "/now-in-ikea/free-delivery.png",
-    color:"#F5F5F5"
+    color: "#F5F5F5",
   },
 ];

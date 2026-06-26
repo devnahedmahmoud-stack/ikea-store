@@ -138,11 +138,11 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
           </Button>
 
           {items.map((fav) => (
-            <div key={fav.id}>
-              <div className="grid md:grid-cols-5 gap-4 items-center p-2">
+            <div key={fav.id} className="">
+              <div className="grid md:gap-6 gap-2 items-center p-2 md:grid-cols-5">
                 <Link
                   href={`/products/${fav.id}`}
-                  className="relative w-20 h-20 lg:w-30 lg:h-30"
+                  className="relative w-24 h-24 lg:w-28 lg:h-28 "
                   onMouseEnter={() => setHoveredId(fav.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
@@ -155,7 +155,7 @@ const FavoritesList = ({ userID }: FavoritesListProps) => {
                   />
                 </Link>
 
-                <div className="col-span-4 space-y-4">
+                <div className="md:col-span-4 space-y-4">
                   <div className="flex justify-between gap-2">
                     <div>
                       <Link

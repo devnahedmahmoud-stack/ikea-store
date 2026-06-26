@@ -96,9 +96,10 @@ const Categories = ({ catParams }: CategoryParams) => {
             subCategories={categoryData.categries}
           />
 
-          <p className="text-black/70 w-2/3">{categoryData.desc}</p>
+          <p className="text-black/70 text-[15px] lg:max-w-xl w-full">{categoryData.desc}</p>
 
-          <div className="text-blue-500">{catTitle} page</div>
+          <h2 className="text-3xl font-bold my-6">{categoryData.heading} </h2>
+          <p className="text-black/70 text-[15px] lg:max-w-xl md:max-w-lg w-full">{categoryData.brief}</p>
         </div>
       ) : categoryProducts ? (
         <CardsSlider products={categoryProducts} favorites={false} />
