@@ -169,41 +169,6 @@ export const homeMainSections: HomeSection[] = [
   },
   {
     id: 3,
-    title: "kitchenware & tableware",
-    image:
-      "https://www.ikea.com/eg/ar/range-categorisation/images/product/kitchenware-tableware-kt001.jpeg?imwidth=160",
-    href: "Kitchenware-tableware",
-  },
-  {
-    id: 4,
-    title: "decoration",
-    image:
-      "https://www.ikea.com/eg/ar/range-categorisation/images/product/decoration-de001.jpeg?imwidth=160",
-    href: "decoration",
-  },
-  {
-    id: 5,
-    title: "sofas & armchairs",
-    image:
-      "https://www.ikea.com/eg/ar/range-categorisation/images/product/sofas-armchairs-700640.jpeg?imwidth=160",
-    href: "sofas-armchairs",
-  },
-  {
-    id: 6,
-    title: "beds",
-    image:
-      "https://www.ikea.com/global/assets/range-categorisation/images/product/beds-mattresses-bm001.jpeg?imwidth=160",
-    href: "",
-  },
-  {
-    id: 7,
-    title: "lightning",
-    image:
-      "https://www.ikea.com/eg/ar/range-categorisation/images/product/lighting-li001.jpeg?imwidth=160",
-    href: "",
-  },
-  {
-    id: 8,
     title: "outdoor products",
     image:
       "https://www.ikea.com/global/assets/range-categorisation/images/product/outdoor-products-od001.jpeg?imwidth=160",
@@ -230,6 +195,42 @@ export const homeMainSections: HomeSection[] = [
       },
     ],
   },
+  {
+    id: 4,
+    title: "kitchenware & tableware",
+    image:
+      "https://www.ikea.com/eg/ar/range-categorisation/images/product/kitchenware-tableware-kt001.jpeg?imwidth=160",
+    href: "Kitchenware-tableware",
+  },
+  {
+    id: 5,
+    title: "decoration",
+    image:
+      "https://www.ikea.com/eg/ar/range-categorisation/images/product/decoration-de001.jpeg?imwidth=160",
+    href: "decoration",
+  },
+  {
+    id: 6,
+    title: "sofas & armchairs",
+    image:
+      "https://www.ikea.com/eg/ar/range-categorisation/images/product/sofas-armchairs-700640.jpeg?imwidth=160",
+    href: "sofas-armchairs",
+  },
+  {
+    id: 7,
+    title: "beds",
+    image:
+      "https://www.ikea.com/global/assets/range-categorisation/images/product/beds-mattresses-bm001.jpeg?imwidth=160",
+    href: "",
+  },
+  {
+    id: 8,
+    title: "lightning",
+    image:
+      "https://www.ikea.com/eg/ar/range-categorisation/images/product/lighting-li001.jpeg?imwidth=160",
+    href: "",
+  },
+  
   {
     id: 9,
     title: "small storage & organisers",
@@ -608,7 +609,7 @@ export const MenuMainLinks: FooterLink[] = [
           {
             id: 4,
             title: "join IKEA family",
-            href: "ikea-family",
+            href: "/ikea-family",
           },
 
           {

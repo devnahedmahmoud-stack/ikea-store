@@ -9,7 +9,8 @@ const CategoriesPage = async ({ params }: CategoryPageProps) => {
   const { categories } =await  params;
 
   const catParams: string[] = categories.split("-");
-  console.log(catParams)
+  //console.log(catParams)
+  //console.log("sheet")
   return (
     <ContainerProvider>      
       <Categories catParams={catParams} />

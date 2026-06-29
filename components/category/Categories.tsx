@@ -55,6 +55,7 @@ const Categories = ({ catParams }: CategoryParams) => {
   }
   useEffect(() => {
     const id = parseInt(catParams[catParams.length - 1]);
+    console.log("id",id)
     //if (mainMenu.length !== 0) {
     if (!isNaN(id)) {
       const category = getCategory(id, mainMenu);

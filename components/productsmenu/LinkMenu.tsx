@@ -64,6 +64,7 @@ const LinkMenu = ({
     }
   }, [menuItemId]);
 
+  console.log(menuItemId)
   function linkMenuClick(menu: HomeSection[], index: number, title?: string) {
     onClick();
     setMainMenu(menu);
@@ -158,7 +159,7 @@ const LinkMenu = ({
             {mainMenuLinks?.relLinks.map((l) => (
               <Link
                 key={l.id}
-                href={`/cat/${l.href}-${l.id}`}
+                href={menuId===1?menuItemId===1?l.href:`/cat/${l.href}-${l.id}`:l.href}
                 className={cn(
                   "font-bold text-2xl capitalize w-fit hover:underline",
                   isOffers && l.id === 1 ? "underline" : "",
@@ -182,7 +183,11 @@ const LinkMenu = ({
                   {mainMenuLinks?.secondLinks?.links.map((l) => (
                     <Link
                       key={l.id}
-                      href={`/cat/${l.href}-${l.id}`}
+                      href={
+                        l.href.startsWith("/") || l.href.startsWith("http")
+                          ? l.href
+                          : `/cat/${l.href}-${l.id}`
+                      }
                       className=" capitalize w-fit text-sm hover:underline"
                       onClick={() =>
                         linkMenuClick(
