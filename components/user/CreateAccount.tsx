@@ -266,6 +266,7 @@ const CreateAccount = () => {
 
               <Button
                 type="submit"
+                //disabled={!isDirty || !isValid || isSubmitting}
                 className="h-13 lg:max-w-xl w-full text-white font-semibold cursor-pointer my-5"
               >
                 {isSubmitting ? (

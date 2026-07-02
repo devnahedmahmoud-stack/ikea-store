@@ -35,6 +35,7 @@ const Categories = ({ catParams }: CategoryParams) => {
     mainM: HomeSection[],
   ): HomeSection | null {
     if (mainMenu.length !== 0) {
+      console.log("cat id",catId,mainM)
       return mainM.find((sec) => sec.id === catId) || null;
     }
     else {
@@ -55,7 +56,7 @@ const Categories = ({ catParams }: CategoryParams) => {
   }
   useEffect(() => {
     const id = parseInt(catParams[catParams.length - 1]);
-    console.log("id",id)
+    
     //if (mainMenu.length !== 0) {
     if (!isNaN(id)) {
       const category = getCategory(id, mainMenu);
@@ -78,7 +79,7 @@ const Categories = ({ catParams }: CategoryParams) => {
           setCategoryProducts(products);
     } */
   }, [catParams, mainMenu]);
-
+//console.log("id",parseInt(catParams[catParams.length - 1]))
   if (!categoryData) {
     return <p>No Category found</p>;
   }

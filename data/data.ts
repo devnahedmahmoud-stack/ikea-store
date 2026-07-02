@@ -611,12 +611,6 @@ export const MenuMainLinks: FooterLink[] = [
             title: "join IKEA family",
             href: "/ikea-family",
           },
-
-          {
-            id: 5,
-            title: "Download IKEA app",
-            href: "/customer-service/ikea-shopping-app",
-          },
         ],
         secondLinks: {
           header: "Everyday value",
@@ -893,34 +887,28 @@ export const MenuMainLinks: FooterLink[] = [
         relLinks: [
           {
             id: 1,
-            title: "new products",
-            href: "/new",
+            title: "see all ideas",
+            href: "/all-ideas",
           },
 
           {
             id: 2,
-            title: "priced lowered",
-            href: "/cat/lower-price",
+            title: "home inspiration",
+            href: "/home-inspiration",
           },
 
           {
             id: 3,
-            title: "IKEA food",
-            href: "/stores/restaurant",
+            title: "brouchures",
+            href: "/customer-service/brouchures",
           },
 
           {
             id: 4,
-            title: "join IKEA family",
-            href: "ikea-family",
+            title: "campaigns",
+            href: "/compaigns",
           },
-
-          {
-            id: 5,
-            title: "Download IKEA app",
-            href: "/customer-service/ikea-shopping-app",
-          },
-        ],
+                ],
       },
     ],
   },
@@ -932,33 +920,28 @@ export const MenuMainLinks: FooterLink[] = [
         relLinks: [
           {
             id: 1,
-            title: "new products",
-            href: "/new",
+            title: "see all services",
+            href: "/all-services",
           },
 
           {
             id: 2,
-            title: "priced lowered",
-            href: "/cat/lower-price",
+            title: "ikea for business",
+            href: "/ikea-business",
           },
 
           {
             id: 3,
-            title: "IKEA food",
-            href: "/stores/restaurant",
+            title: "join IKEA family",
+            href: "/ikea-family",
           },
 
           {
             id: 4,
-            title: "join IKEA family",
-            href: "ikea-family",
+            title: "customer care",
+            href: "/customer-service",
           },
 
-          {
-            id: 5,
-            title: "Download IKEA app",
-            href: "/customer-service/ikea-shopping-app",
-          },
         ],
       },
     ],
