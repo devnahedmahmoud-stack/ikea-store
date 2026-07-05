@@ -1,9 +1,11 @@
 import {
+  Category,
   FooterLink,
   HomeSection,
   MenuItemButton,
   NavLink,
   ProductCard,
+  RestaurantItem,
   SocialMediaLink,
   User,
 } from "@/types/types";
@@ -230,7 +232,7 @@ export const homeMainSections: HomeSection[] = [
       "https://www.ikea.com/eg/ar/range-categorisation/images/product/lighting-li001.jpeg?imwidth=160",
     href: "",
   },
-  
+
   {
     id: 9,
     title: "small storage & organisers",
@@ -615,7 +617,7 @@ export const MenuMainLinks: FooterLink[] = [
         secondLinks: {
           header: "Everyday value",
           links: [
-            { id: 1, title: "IKEA food", href: "/restaurant" },
+            { id: 1, title: "IKEA food", href: "/stores/restaurant" },
             { id: 2, title: "top seller", href: "" },
             { id: 3, title: "new products", href: "/new" },
             { id: 4, title: "our lowest price", href: "/lowest-price" },
@@ -807,21 +809,21 @@ export const MenuMainLinks: FooterLink[] = [
         title: "sofas & armchairs",
         image:
           "https://www.ikea.com/eg/ar/range-categorisation/images/product/sofas-armchairs-700640.jpeg?imwidth=160",
-        relLinks:[]        
+        relLinks: [],
       },
       {
         id: 6,
         title: "beds",
         image:
           "https://www.ikea.com/global/assets/range-categorisation/images/product/beds-mattresses-bm001.jpeg?imwidth=160",
-        relLinks:[]
+        relLinks: [],
       },
       {
         id: 7,
         title: "lightning",
         image:
           "https://www.ikea.com/eg/ar/range-categorisation/images/product/lighting-li001.jpeg?imwidth=160",
-        relLinks:[]
+        relLinks: [],
       },
     ],
   },
@@ -908,7 +910,7 @@ export const MenuMainLinks: FooterLink[] = [
             title: "campaigns",
             href: "/compaigns",
           },
-                ],
+        ],
       },
     ],
   },
@@ -941,7 +943,6 @@ export const MenuMainLinks: FooterLink[] = [
             title: "customer care",
             href: "/customer-service",
           },
-
         ],
       },
     ],
@@ -1446,4 +1447,231 @@ export const Now_in_IKEA: NavLink[] = [
     image: "/now-in-ikea/free-delivery.png",
     color: "#F5F5F5",
   },
+];
+export const RestaurantCtegories: Category[] = [
+  {
+    id: 1,
+    name: "Breakfast",
+    title: "Breakfast - Available until 11:30 AM",
+    desc: "Wake up and enjoy a proper breakfast.",
+  },
+  {
+    id: 2,
+    name: "Cold dishes",
+    title: "Cold dishes",
+  },
+  {
+    id: 3,
+    name: "Lunch and dinner",
+    title: "Lunch and dinner - Available from 11:30am",
+  },
+  {
+    id: 4,
+    name: "Kids' meals",
+    title: "Kids' meals",
+  },
+  {
+    id: 5,
+    name: "Desserts",
+    title: "Delicious desserts at IKEA",
+    desc: "Because in the end there is still some space ...",
+  },
+  {
+    id: 6,
+    name: "Beverages",
+    title: "Beverages",
+  },
+];
+export const RestaurantItems: RestaurantItem[] = [
+  {
+    id: 1,
+    title: "Egyptian Breakfast",
+    price: 39,
+    categoryId: 1,
+    image: "/IkeaFood/Egyptian-Breakfast.jpg",
+  },
+  {
+    id: 2,
+    title: "Grilled cheese sandwich",
+    price: 29,
+    categoryId: 1,
+    image: "/IkeaFood/Grilled-cheese-sandwich.jpg",
+  },
+  {
+    id: 3,
+    title: "IKEA Breakfast",
+    price: 45,
+    categoryId: 1,
+    image: "/IkeaFood/IKEA-Breakfast.jpg",
+  },
+  {
+    id: 4,
+    title: "Caesar Salad",
+    price: 89,
+    categoryId: 2,
+    image: "/IkeaFood/Caesar-Salad.jpg",
+  },
+  {
+    id: 5,
+    title: "Marinated salmon",
+    price: 99,
+    categoryId: 2,
+    image: "/IkeaFood/Marinated-salmon.jpg",
+  },
+  {
+    id: 6,
+    title: "Greek Salad",
+    price: 69,
+    categoryId: 2,
+    image: "/IkeaFood/Greek-Salad.jpg",
+  },
+  {
+    id: 7,
+    title: "Oriental salad",
+    price: 25,
+    categoryId: 2,
+    image: "/IkeaFood/Oriental-salad.jpg",
+  },
+  {
+    id: 8,
+    title: "Soup of the day",
+    price: 29,
+    categoryId: 2,
+    image: "/IkeaFood/Soup-of-the-day.jpg",
+  },
+  {
+    id: 9,
+    title: "Meatballs - 12 pieces",
+    price: 149,
+    categoryId: 3,
+    image: "/IkeaFood/Meatballs-12pieces.jpg",
+    desc:"with mashed potato and broccoli"
+  },
+  {
+    id: 10,
+    title: "Meatballs - 8 pieces",
+    price: 99,
+    categoryId: 3,
+    image: "/IkeaFood/Meatballs-8pieces.jpg",
+    desc:"with mashed potato and broccoli"
+  },
+  {
+    id: 11,
+    title: "Salmon",
+    price: 299,
+    categoryId: 3,
+    image: "/IkeaFood/Salmon.jpg",
+    desc:"with lemon dill sauce and potato"
+  },
+  {
+    id: 12,
+    title: "Roasted chicken",
+    price: 199,
+    categoryId: 3,
+    image: "/IkeaFood/Roasted-chicken.jpg",
+    desc:"With seasonal mixed vegetable"
+  },
+  {
+    id: 13,
+    title: "Beef striploin",
+    price: 349,
+    categoryId: 3,
+    image: "/IkeaFood/Beef-striploin.jpg",       
+  },
+  {
+    id: 14,
+    title: "Kids meal",
+    price: 69,
+    categoryId: 4,
+    image: "/IkeaFood/Kids-meal.jpg",
+    desc:"Chicken nuggets with fries" 
+  },
+  {
+    id: 15,
+    title: "Kid's Spaghetti with tomato sauce",
+    price: 69,
+    categoryId: 4,
+    image: "/IkeaFood/Kid's-Spaghetti.jpg",
+  },
+{
+    id: 16,
+    title: "Carrot Cake ",
+    price: 69,
+    categoryId: 5,
+    image: "/IkeaFood/Carrot-Cake .jpg",
+    
+  },
+  {
+    id: 17,
+    title: "Cinnamon bun",
+    price: 49,
+    categoryId: 5,
+    image: "/IkeaFood/Cinnamon-bun.jpg",    
+  },
+  {
+    id: 18,
+    title: "Rice Pudding",
+    price: 29,
+    categoryId: 5,
+    image: "/IkeaFood/Rice-Pudding.jpg",    
+  },
+  {
+    id: 19,
+    title: "Fruit salad Assorted fruits",
+    price: 49,
+    categoryId: 5,
+    image: "/IkeaFood/Fruit-salad.jpg",    
+  },
+  {
+    id: 20,
+    title: "Assorted muffins",
+    price: 49,
+    categoryId: 5,
+    image: "/IkeaFood/Assorted-muffins.jpg",    
+  },
+  {
+    id: 21,
+    title: "Jelly",
+    price: 19,
+    categoryId: 5,
+    image: "/IkeaFood/Jelly.jpg",    
+  },
+  {
+    id: 22,
+    title: "Coffee (refillable)",
+    price: 45,
+    categoryId: 6,
+    image: "/IkeaFood/Coffee.jpg",    
+  },
+  {
+    id: 23,
+    title: "Soft drink (refillable)",
+    price: 39,
+    categoryId: 6,
+    image: "/IkeaFood/Soft-drink.jpg",    
+  },
+  {
+    id: 24,
+    title: "Coffee with milk",
+    price: 49,
+    categoryId: 6,
+    image: "/IkeaFood/Coffee-with-milk.jpg",    
+  },
+
+  {
+    id: 25,
+    title: "Fresh orange juice",
+    price: 65,
+    categoryId: 6,
+    image: "/IkeaFood/Fresh-orange-juice.jpg",    
+  },
+  {
+    id: 26,
+    title: "Tea (Refillable)",
+    price: 35,
+    categoryId: 6,
+    image: "/IkeaFood/Tea.jpg",    
+  },
+
+
 ];

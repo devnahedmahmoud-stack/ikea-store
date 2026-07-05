@@ -82,3 +82,17 @@ export type FavoriteItems = {
   userId: string;
   products: ProductCard[];
 };
+export type Category={ 
+  id:number;     
+  name:string;
+  title:string;
+  desc?:string;
+}
+export type RestaurantItem = {
+  id: number;
+  title: string;  
+  price:number  
+  desc?:string;
+  categoryId:number;
+  image?:string;
+}
