@@ -1682,6 +1682,7 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/cairo-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "Located at Festival City Mall, it stands out as the largest store, featuring the widest collection of items, from stylish furniture to design studios and home planning services. The store offers everything you need to revamp your home. Moreover, you can even enjoy the Småland Kids’ Play Area to keep your little ones entertained while you shop. You can also keep an eye on a packed schedule of in-store activities for your kids! For added convenience,we offer a self-service assembly area, where you can put together your furniture for FREE.",
+    href:"cairo"
   },
   {
     id: 2,
@@ -1692,6 +1693,7 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/mall-arabia-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "The store in - 6th of October City, Giza.This location features the same affordable, stylish furniture along with a Swedish café, offering a diverse range of bites and drinks that all your family would enjoy. IKEA MOA tailors its offerings to reflect the mix of traditional and modern homes in the area, catering to everyone from villa owners to apartment dwellers.",
+    href:"mall-of-arabia"
   },
   {
     id: 3,
@@ -1701,6 +1703,7 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/northcoast-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "IKEA North Coast Sahel store opens for the 8th year in Sidi Abdel Rahman in front of Marassi at 128 KM beside Agora village, located at Livio's Mall.The store is built on 2 floors with a big outdoor area, the showroom displays over 1,500 products ready for instant purchase.",
+    href:"north-coast"
   },
   {
     id: 4,
@@ -1711,5 +1714,6 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/hurghada-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "IKEA  Hurghada  opens now in  Senzo Mall ,Safaga road (Villages Road) , Hurghada 1 , Red Sea Governoratore , Egypt.",
+    href:"hurghada"
   },
 ];

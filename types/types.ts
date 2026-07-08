@@ -104,4 +104,5 @@ export type IKEAStore = {
   hotline?: string;
   image?: string;
   openingHours?: string;
+  href: string;
 };

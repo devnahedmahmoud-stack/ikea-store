@@ -34,9 +34,9 @@ const StoresPage = () => {
               key={store.id}
               id={store.id.toString()}
               className=""
-            >
-              <Link href={`/stores/${store.id}`} className="block">
+            >              
                 <div className="">
+                  <Link href={`/stores/${store.href}`} className="block">
                   <div>
                     <Image
                       src={store.image || ""}
@@ -46,9 +46,10 @@ const StoresPage = () => {
                       className="w-full h-auto object-cover"
                     />
                   </div>
+                  </Link>
                   <p className="text-black/70 mt-2">{store.desc}</p>
                 </div>
-              </Link>
+              
             </div>
           ))}
         </div>
