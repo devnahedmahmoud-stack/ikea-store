@@ -12,7 +12,7 @@ const RestaurantPage = () => {
       <div className="mb-4">
         <div className="flex items-center">
           <Link
-            href={"/rooms"}
+            href={"/stores"}
             className="text-sm font-medium text-black/60 hover:text-black/80 hover:underline"
           >
             Stores
@@ -29,8 +29,8 @@ const RestaurantPage = () => {
       </div>
       <section>
         <h1 className="text-3xl font-bold">IKEA Restaurant</h1>
-        <div className="grid md:grid-cols-2 gap-10 grid-cols-1 my-10">
-          <div className="relative aspect-6/2  overflow-hidden ">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 my-10">
+          <div className="relative w-full aspect-6/2  overflow-hidden ">
             <Image
               src="/ikeafood/ikea-food-1.jpg"
               alt="ikea-food-1"
@@ -39,7 +39,7 @@ const RestaurantPage = () => {
               className="object-cover"
             />
           </div>
-          <div className="relative aspect-6/2 overflow-hidden">
+          <div className="relative w-full aspect-6/2 overflow-hidden">
             <Image
               src="/ikeafood/ikea-food-2.jpg"
               alt="ikea-food-2"

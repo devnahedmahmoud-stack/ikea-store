@@ -22,13 +22,13 @@ export type ProductCard = {
 export type NavLink = {
   id: number;
   title: string;
-  desc?:string;
+  desc?: string;
   href: string;
   image?: string;
   products?: ProductCard[];
-  nestedLinks?:NavLink[],
-  gallery?:NavLink[],
-  color?:string
+  nestedLinks?: NavLink[];
+  gallery?: NavLink[];
+  color?: string;
 };
 
 export type HomeSection = {
@@ -39,8 +39,8 @@ export type HomeSection = {
   href: string;
   desc?: string;
   categries?: NavLink[];
-  heading?:string;
-  brief?:string;
+  heading?: string;
+  brief?: string;
 };
 
 export type FooterLink = {
@@ -49,7 +49,7 @@ export type FooterLink = {
   links: {
     id?: number;
     title?: string;
-    image?:string;
+    image?: string;
     relLinks: HomeSection[];
     secondLinks?: { header?: string; links: HomeSection[] };
     thirdLinks?: { header?: string; links: HomeSection[] };
@@ -82,17 +82,26 @@ export type FavoriteItems = {
   userId: string;
   products: ProductCard[];
 };
-export type Category={ 
-  id:number;     
-  name:string;
-  title:string;
-  desc?:string;
-}
+export type Category = {
+  id: number;
+  name: string;
+  title: string;
+  desc?: string;
+};
 export type RestaurantItem = {
   id: number;
-  title: string;  
-  price:number  
-  desc?:string;
-  categoryId:number;
-  image?:string;
-}
+  title: string;
+  price: number;
+  desc?: string;
+  categoryId: number;
+  image?: string;
+};
+export type IKEAStore = {
+  id: number;
+  name: string;
+  desc?: string;
+  address: string;
+  hotline?: string;
+  image?: string;
+  openingHours?: string;
+};

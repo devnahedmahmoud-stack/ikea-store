@@ -85,7 +85,7 @@ const NowinIKEA = () => {
                       <p>{card.desc}</p>
                     </div>
                   </div>
-                  <div className="w-14 h-14 ml-4 rounded-full bg-black text-white flex items-center justify-center self-end">
+                  <div className="w-14 h-14 ml-4 rounded-full bg-black text-white flex items-center justify-center self-start">
                     <HugeiconsIcon icon={ArrowRight02Icon} />
                   </div>
                 </div>

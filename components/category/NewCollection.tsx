@@ -22,7 +22,7 @@ const NewCollection = ({ items }: NewCollectionProps) => {
             </div>
           }
         >
-          <div className="w-3/4 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
+          <div className="lg:w-3/4 w-full grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
             {items.map((card) => (
               <TopSellerCard
                 key={card.id}

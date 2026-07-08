@@ -2,6 +2,7 @@ import {
   Category,
   FooterLink,
   HomeSection,
+  IKEAStore,
   MenuItemButton,
   NavLink,
   ProductCard,
@@ -1545,7 +1546,7 @@ export const RestaurantItems: RestaurantItem[] = [
     price: 149,
     categoryId: 3,
     image: "/IkeaFood/Meatballs-12pieces.jpg",
-    desc:"with mashed potato and broccoli"
+    desc: "with mashed potato and broccoli",
   },
   {
     id: 10,
@@ -1553,7 +1554,7 @@ export const RestaurantItems: RestaurantItem[] = [
     price: 99,
     categoryId: 3,
     image: "/IkeaFood/Meatballs-8pieces.jpg",
-    desc:"with mashed potato and broccoli"
+    desc: "with mashed potato and broccoli",
   },
   {
     id: 11,
@@ -1561,7 +1562,7 @@ export const RestaurantItems: RestaurantItem[] = [
     price: 299,
     categoryId: 3,
     image: "/IkeaFood/Salmon.jpg",
-    desc:"with lemon dill sauce and potato"
+    desc: "with lemon dill sauce and potato",
   },
   {
     id: 12,
@@ -1569,14 +1570,14 @@ export const RestaurantItems: RestaurantItem[] = [
     price: 199,
     categoryId: 3,
     image: "/IkeaFood/Roasted-chicken.jpg",
-    desc:"With seasonal mixed vegetable"
+    desc: "With seasonal mixed vegetable",
   },
   {
     id: 13,
     title: "Beef striploin",
     price: 349,
     categoryId: 3,
-    image: "/IkeaFood/Beef-striploin.jpg",       
+    image: "/IkeaFood/Beef-striploin.jpg",
   },
   {
     id: 14,
@@ -1584,7 +1585,7 @@ export const RestaurantItems: RestaurantItem[] = [
     price: 69,
     categoryId: 4,
     image: "/IkeaFood/Kids-meal.jpg",
-    desc:"Chicken nuggets with fries" 
+    desc: "Chicken nuggets with fries",
   },
   {
     id: 15,
@@ -1593,69 +1594,68 @@ export const RestaurantItems: RestaurantItem[] = [
     categoryId: 4,
     image: "/IkeaFood/Kid's-Spaghetti.jpg",
   },
-{
+  {
     id: 16,
     title: "Carrot Cake ",
     price: 69,
     categoryId: 5,
     image: "/IkeaFood/Carrot-Cake .jpg",
-    
   },
   {
     id: 17,
     title: "Cinnamon bun",
     price: 49,
     categoryId: 5,
-    image: "/IkeaFood/Cinnamon-bun.jpg",    
+    image: "/IkeaFood/Cinnamon-bun.jpg",
   },
   {
     id: 18,
     title: "Rice Pudding",
     price: 29,
     categoryId: 5,
-    image: "/IkeaFood/Rice-Pudding.jpg",    
+    image: "/IkeaFood/Rice-Pudding.jpg",
   },
   {
     id: 19,
     title: "Fruit salad Assorted fruits",
     price: 49,
     categoryId: 5,
-    image: "/IkeaFood/Fruit-salad.jpg",    
+    image: "/IkeaFood/Fruit-salad.jpg",
   },
   {
     id: 20,
     title: "Assorted muffins",
     price: 49,
     categoryId: 5,
-    image: "/IkeaFood/Assorted-muffins.jpg",    
+    image: "/IkeaFood/Assorted-muffins.jpg",
   },
   {
     id: 21,
     title: "Jelly",
     price: 19,
     categoryId: 5,
-    image: "/IkeaFood/Jelly.jpg",    
+    image: "/IkeaFood/Jelly.jpg",
   },
   {
     id: 22,
     title: "Coffee (refillable)",
     price: 45,
     categoryId: 6,
-    image: "/IkeaFood/Coffee.jpg",    
+    image: "/IkeaFood/Coffee.jpg",
   },
   {
     id: 23,
     title: "Soft drink (refillable)",
     price: 39,
     categoryId: 6,
-    image: "/IkeaFood/Soft-drink.jpg",    
+    image: "/IkeaFood/Soft-drink.jpg",
   },
   {
     id: 24,
     title: "Coffee with milk",
     price: 49,
     categoryId: 6,
-    image: "/IkeaFood/Coffee-with-milk.jpg",    
+    image: "/IkeaFood/Coffee-with-milk.jpg",
   },
 
   {
@@ -1663,15 +1663,53 @@ export const RestaurantItems: RestaurantItem[] = [
     title: "Fresh orange juice",
     price: 65,
     categoryId: 6,
-    image: "/IkeaFood/Fresh-orange-juice.jpg",    
+    image: "/IkeaFood/Fresh-orange-juice.jpg",
   },
   {
     id: 26,
     title: "Tea (Refillable)",
     price: 35,
     categoryId: 6,
-    image: "/IkeaFood/Tea.jpg",    
+    image: "/IkeaFood/Tea.jpg",
   },
-
-
+];
+export const IKEAStores: IKEAStore[] = [
+  {
+    id: 1,
+    name: "IKEA Cairo Festival City",
+    address: "Cairo festival city, Taha Hussuin str., Fifth settlement",
+    hotline: "16576",
+    image: "/IKEAStore/cairo-store.jpg",
+    openingHours: "Daily  from 10 AM to 12 AM",
+    desc: "Located at Festival City Mall, it stands out as the largest store, featuring the widest collection of items, from stylish furniture to design studios and home planning services. The store offers everything you need to revamp your home. Moreover, you can even enjoy the Småland Kids’ Play Area to keep your little ones entertained while you shop. You can also keep an eye on a packed schedule of in-store activities for your kids! For added convenience,we offer a self-service assembly area, where you can put together your furniture for FREE.",
+  },
+  {
+    id: 2,
+    name: "IKEA Mall of arabia",
+    address:
+      "Mall of Arabia, Expansion phase Gate 17 - 6th of October City Giza",
+    hotline: "16576",
+    image: "/IKEAStore/mall-arabia-store.jpg",
+    openingHours: "Daily  from 10 AM to 12 AM",
+    desc: "The store in - 6th of October City, Giza.This location features the same affordable, stylish furniture along with a Swedish café, offering a diverse range of bites and drinks that all your family would enjoy. IKEA MOA tailors its offerings to reflect the mix of traditional and modern homes in the area, catering to everyone from villa owners to apartment dwellers.",
+  },
+  {
+    id: 3,
+    name: "IKEA North Coast",
+    address: "IKEA North Coast Store - Livio's Mall - Infront of Marassi",
+    hotline: "16576",
+    image: "/IKEAStore/northcoast-store.jpg",
+    openingHours: "Daily  from 10 AM to 12 AM",
+    desc: "IKEA North Coast Sahel store opens for the 8th year in Sidi Abdel Rahman in front of Marassi at 128 KM beside Agora village, located at Livio's Mall.The store is built on 2 floors with a big outdoor area, the showroom displays over 1,500 products ready for instant purchase.",
+  },
+  {
+    id: 4,
+    name: "IKEA Hurghada",
+    address:
+      "IKEA Hurghada Senzo Mall ,Safaga road (Villages Road) , Hurghada 1 , Red Sea Governoratore , Egypt.",
+    hotline: "16576",
+    image: "/IKEAStore/hurghada-store.jpg",
+    openingHours: "Daily  from 10 AM to 12 AM",
+    desc: "IKEA  Hurghada  opens now in  Senzo Mall ,Safaga road (Villages Road) , Hurghada 1 , Red Sea Governoratore , Egypt.",
+  },
 ];
