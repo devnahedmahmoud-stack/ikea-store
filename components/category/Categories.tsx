@@ -18,7 +18,7 @@ const Categories = ({ catParams }: CategoryParams) => {
   const [categoryProducts, setCategoryProducts] = useState<
     ProductCard[] | null
   >(null);
-  function getCategryProducts(catId: number) {
+  /*function getCategryProducts(catId: number) {
     let products: ProductCard[];
     //if (mainM.length) {
     products =
@@ -29,7 +29,7 @@ const Categories = ({ catParams }: CategoryParams) => {
     //return products;
     // }
     // return null;
-  }
+  }*/
   function getCategory(
     catId: number,
     mainM: HomeSection[],

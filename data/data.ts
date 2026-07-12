@@ -2,6 +2,7 @@ import {
   Category,
   FooterLink,
   HomeSection,
+  IKEAOffer,
   IKEAStore,
   MenuItemButton,
   NavLink,
@@ -631,7 +632,7 @@ export const MenuMainLinks: FooterLink[] = [
             {
               id: 7,
               title: "affordable essentials",
-              href: "/compaigns/affordable-essentials",
+              href: "/campaigns/affordable-essentials",
             },
           ],
         },
@@ -864,8 +865,8 @@ export const MenuMainLinks: FooterLink[] = [
 
           {
             id: 5,
-            title: "all compaigns",
-            href: "/compaigns",
+            title: "all campaigns",
+            href: "/campaigns",
           },
         ],
         secondLinks: {
@@ -909,7 +910,7 @@ export const MenuMainLinks: FooterLink[] = [
           {
             id: 4,
             title: "campaigns",
-            href: "/compaigns",
+            href: "/campaigns",
           },
         ],
       },
@@ -1740,5 +1741,61 @@ To help create that joyful vacation feeling, our collection is vibrant and colou
     desc2:`Finally, it’s summer and time to let go and have fun!
     To help create that joyful vacation feeling, our collection is vibrant and colourful with lots of playful prints and products.`,
 mainImage:"/IKEAStore/hurghada-store-1.jpg"
+  },
+];
+
+export const SAMPLE_OFFERS: IKEAOffer[] = [
+  {
+    id: '1',
+    title: 'Summer Living Room Refresh',
+    description: 'Get up to 20% off selected sofas, coffee tables, and lounge chairs.',
+    discount: '20% OFF',
+    code: 'SUMMER20',
+    expiryDate: 'Valid until July 31',
+    imageUrl: '/home/livingroom.png',
+  },
+  {
+    id: '2',
+    title: 'Smart Home Upgrade',
+    description: 'Buy two smart lighting kits and get a wireless dimmer switch free.',
+    discount: 'FREE GIFT',
+    expiryDate: 'Valid until Aug 15',
+    imageUrl: '/home/bedroom.png',
+  },
+  {
+    id: '3',
+    title: 'Kitchen Organization Essential',
+    description: 'Save big on food containers, drawer organizers, and pantry shelving.',
+    discount: '15% OFF',
+    code: 'ORGANIZED15',
+    expiryDate: 'Limited time offer',
+    imageUrl: '/home/kitchen.jpg',
+  },
+];
+
+export const trendingItems = [
+  {
+    id: 1,
+    image: '/offers/summer-camp.jpg',
+    desc: 'Trending this season. Make the best of your summer holiday inside.',
+    href: '#',
+  },
+  {
+    id: 2,
+    image: '/offers/lower-price.jpg',
+    desc: 'Check out our massive selection of products now available at new lower prices.',
+    href: '#',
+  },
+  {
+    id: 3,
+    image: '/offers/top-seller.jpg',
+    desc: "Create a bedroom you'll love. Discover cosy beds and clever storage solutions.",
+    href: '#',
+  },
+  {
+    id: 4,
+    image: '/offers/kitchen.jpg',
+    desc: 'Discover our top sellers. Functional kitchen accessories that everyone loves.',
+    href: '#',
   },
 ];

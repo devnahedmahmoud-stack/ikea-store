@@ -10,7 +10,7 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import Link from "next/link";
-import { FooterLink, HomeSection, NavLink } from "@/types/types";
+import {  HomeSection } from "@/types/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -33,25 +33,37 @@ const LinkMenu = ({
 }: LinkMenuProps) => {
   const { setMainMenu, setCatTitle, setMenuLinksCol } = useActiveOpenMenu();
   let initialLinks;
-  let navType:string="custom";
+  
   if (!isRooms)
   {
     initialLinks = MenuMainLinks.find((l) => l.id === menuId)?.links[0];     
   } else {
-    navType="progressbar"
+   // navType="progressbar"
   }
 
   let curMenuItemId = 0;
   if (isProducts) curMenuItemId = 1;
 
   const [menuItemId, setMenuItemId] = useState<number>(curMenuItemId);
-  const [mainMenuLinks, setMainMenuLinks] = useState(initialLinks);
+  //const [mainMenuLinks, setMainMenuLinks] = useState(initialLinks);
+
+
+// 2. Compute the links directly during render (No useEffect needed!)
+let mainMenuLinks = undefined;
+if (!isRooms) {
+  const targetMenu = MenuMainLinks.find((l) => l.id === menuId);
+  mainMenuLinks = menuItemId !== 0
+    ? targetMenu?.links.find((ml) => ml.id === menuItemId)
+    : targetMenu?.links[0];
+}
+
+// 3. Remove the entire useEffect block completely!
 
   function getMenuLinks(id: number, title: string) {
     setMenuItemId(id);
     setCatTitle(title);
   }
-  useEffect(() => {
+  /*useEffect(() => {
     if (isRooms) return;
     if (menuItemId !== 0) {
       setMainMenuLinks(
@@ -62,7 +74,7 @@ const LinkMenu = ({
     } else {
       setMainMenuLinks(MenuMainLinks.find((l) => l.id === menuId)?.links[0]);
     }
-  }, [menuItemId]);
+  }, [menuItemId]);*/
 
   console.log(menuItemId)
   function linkMenuClick(menu: HomeSection[], index: number, title?: string) {

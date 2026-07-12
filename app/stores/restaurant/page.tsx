@@ -32,8 +32,8 @@ const RestaurantPage = () => {
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10 my-10">
           <div className="relative w-full aspect-6/2  overflow-hidden ">
             <Image
-              src="/ikeafood/ikea-food-1.jpg"
-              alt="ikea-food-1"
+              src="/ikeafood/ikeafood-1.jpg"
+              alt="ikeafood-1"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
@@ -41,8 +41,8 @@ const RestaurantPage = () => {
           </div>
           <div className="relative w-full aspect-6/2 overflow-hidden">
             <Image
-              src="/ikeafood/ikea-food-2.jpg"
-              alt="ikea-food-2"
+              src="/ikeafood/ikeafood-2.jpg"
+              alt="ikeafood-2"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"

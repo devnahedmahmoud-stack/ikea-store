@@ -15,7 +15,7 @@ type RoomPageProps = {
   };
   id: number;
 };
-const RoomPage = async ({ params, id }: RoomPageProps) => {
+const RoomPage = async ({ params }: RoomPageProps) => {
   const { room } = await params;
 
   const roomData = Rooms.find((r) => r.href === room);

@@ -109,3 +109,13 @@ export type IKEAStore = {
   desc2:string;
   mainImage:string;
 };
+
+export type IKEAOffer = {
+  id: string;
+  title: string;
+  description: string;
+  discount: string;
+  code?: string;
+  expiryDate: string;
+  imageUrl: string;
+}
