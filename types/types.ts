@@ -105,4 +105,7 @@ export type IKEAStore = {
   image?: string;
   openingHours?: string;
   href: string;
+  title:string;
+  desc2:string;
+  mainImage:string;
 };
