@@ -1,11 +1,9 @@
 "use client";
-import { MenuItemButtons, MenuMainLinks } from "@/data/data";
+import { MenuMainLinks } from "@/data/data";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 import LinkMenu from "../productsmenu/LinkMenu";
-
-import { navBarLinks } from "@/data/data";
 import {
   Heart,
   Menu,
@@ -16,7 +14,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonPhoto from "../home/ButtonPhoto";
-import NavLinks from "../navlinks/NavLinks";
 import LoginLink from "../user/LoginLink";
 import { useDialogStateStore } from "@/stores/dialogstate.store";
 import MenuLinks from "./MenuLinks";
@@ -24,7 +21,7 @@ import MenuLinks from "./MenuLinks";
 const NavBar = () => {
   const [activeOpenItem, setActiveOpenItem] = useState<string | null>(null);
   const [activeItem, setActiveItem] = useState<string | null>(null);
-  const { setIsOpen,setIsMenuOpen } = useDialogStateStore();
+  const { setIsMenuOpen } = useDialogStateStore();
 
   function showMenu(item: string) {
     setActiveItem(item);

@@ -35,6 +35,7 @@ const RestaurantPage = () => {
               src="/IkeaFood/ikeafood-1.jpg"
               alt="ikeafood-1"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
             />
@@ -44,6 +45,7 @@ const RestaurantPage = () => {
               src="/IkeaFood/ikeafood-2.jpg"
               alt="ikeafood-2"
               fill
+              priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
             />
