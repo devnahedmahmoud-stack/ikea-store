@@ -13,7 +13,7 @@ import Link from "next/link";
 import {  HomeSection } from "@/types/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useActiveOpenMenu } from "@/stores/activeopenmenu.store";
 
 type LinkMenuProps = {
@@ -32,21 +32,11 @@ const LinkMenu = ({
   onClick,
 }: LinkMenuProps) => {
   const { setMainMenu, setCatTitle, setMenuLinksCol } = useActiveOpenMenu();
-  let initialLinks;
-  
-  if (!isRooms)
-  {
-    initialLinks = MenuMainLinks.find((l) => l.id === menuId)?.links[0];     
-  } else {
-   // navType="progressbar"
-  }
 
   let curMenuItemId = 0;
   if (isProducts) curMenuItemId = 1;
 
   const [menuItemId, setMenuItemId] = useState<number>(curMenuItemId);
-  //const [mainMenuLinks, setMainMenuLinks] = useState(initialLinks);
-
 
 // 2. Compute the links directly during render (No useEffect needed!)
 let mainMenuLinks = undefined;
@@ -226,6 +216,7 @@ if (!isRooms) {
                     key={l.id}
                     href={l.href}
                     className=" capitalize w-fit text-sm hover:underline"
+                    onClick={()=>onClick()}
                   >
                     {l.title}
                   </Link>

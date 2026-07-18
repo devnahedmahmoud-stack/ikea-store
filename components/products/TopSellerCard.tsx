@@ -19,8 +19,8 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { toast } from "sonner";
+
 type TopSellerCardProps = {
   productId: number;
   images: string[];
@@ -38,8 +38,9 @@ type TopSellerCardProps = {
   moreOptions?: string;
   topSeller?: boolean;
   favorites?: boolean;
-  productsData:ProductCard[]
+  productsData: ProductCard[];
 };
+
 const TopSellerCard = ({
   productId,
   images,
@@ -57,43 +58,36 @@ const TopSellerCard = ({
   moreOptions,
   topSeller,
   favorites,
-  productsData
+  productsData,
 }: TopSellerCardProps) => {
-  const { addToFavorite, removeFromFavorite, existFavorite, usersFavorites } =
-    useUserFavorites();
-  const [isAddFavorite, setIsAddFavorite] = useState<boolean>(false);
+  const { addToFavorite, removeFromFavorite, existFavorite } = useUserFavorites();
   const { currentUser } = useAuthUserStore();
 
-  function handleUserFavoriteToggle(productId: number) {
-    const p = productsData.find((p) => p.id === productId);
+  // 1. Find the product and calculate the favorite status directly on every render
+  const product = productsData.find((p) => p.id === productId);
+  
+  const isAddFavorite = product
+    ? currentUser
+      ? existFavorite(currentUser.id, product)
+      : existFavorite("", product)
+    : false;
 
-    let messsage: string = "";
-    if (!p) return;
+  // 2. Simplify the toggle handler using the calculated value
+  function handleUserFavoriteToggle() {
+    if (!product) return;
+
+    let message: string = "";
+    const userId = currentUser?.id || "";
+
     if (!isAddFavorite) {
-      messsage = currentUser
-        ? addToFavorite(currentUser.id, p).message
-        : addToFavorite("", p).message;
+      message = addToFavorite(userId, product).message;
     } else {
-      messsage = currentUser
-        ? removeFromFavorite(currentUser.id, p).message
-        : removeFromFavorite("", p).message;
+      message = removeFromFavorite(userId, product).message;
     }
-    toast.success(messsage);
-    setIsAddFavorite(!isAddFavorite);
-
+    
+    toast.success(message);
   }
 
-  useEffect(() => {
-    const p = productsData.find((p) => p.id === productId);
-
-    if (!p) return;
-
-    const exists = currentUser
-      ? existFavorite(currentUser.id, p)
-      : existFavorite("", p);
-
-    setIsAddFavorite(exists);
-  }, [currentUser, productId, existFavorite]);
   return (
     <Card
       className={cn(
@@ -216,7 +210,10 @@ const TopSellerCard = ({
               strokeWidth={2.5}
             />
           </button>
-          <button className=" w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20  rounded-full hover:cursor-pointer">
+          <button 
+            className=" w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20  rounded-full hover:cursor-pointer"
+            onClick={handleUserFavoriteToggle}
+          >
             <HugeiconsIcon
               icon={Heart}
               className={cn(
@@ -224,9 +221,6 @@ const TopSellerCard = ({
                 isAddFavorite ? "fill-black" : "text-black",
               )}
               strokeWidth={3}
-              onClick={() => {
-                handleUserFavoriteToggle(productId);
-              }}
             />
           </button>
         </div>

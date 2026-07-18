@@ -6,15 +6,12 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import TopSellerCard from "../products/TopSellerCard";
-import { productCards } from "@/data/data";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft, ArrowRight } from "@hugeicons/core-free-icons";
-import { HomeSection, NavLink, ProductCard } from "@/types/types";
+import {  NavLink, ProductCard } from "@/types/types";
 import Link from "next/link";
 import Image from "next/image";
 import { useActiveOpenMenu } from "@/stores/activeopenmenu.store";
-import { useEffect, useState } from "react";
 
 type CategorySliderProps = {
   catParams: string[];
@@ -25,8 +22,8 @@ export default function CategorySlider({
   catParams,
   subCategories,
 }: CategorySliderProps) {
-  const slidesCountView: number = 7;
-  const { mainMenu, catTitle, setMainMenu } = useActiveOpenMenu();
+
+  const { mainMenu, setMainMenu } = useActiveOpenMenu();
   //const [categoryData, setCategoryData] = useState<HomeSection | null>(null);
   console.log(mainMenu, catParams);
 

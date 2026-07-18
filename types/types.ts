@@ -1,3 +1,4 @@
+
 import { IconSvgElement } from "@hugeicons/react";
 
 export type ProductCard = {
@@ -17,7 +18,18 @@ export type ProductCard = {
   lastChance?: string;
   previousPrice?: number;
   moreOptions?: string;
+  categoryId?: number;
 };
+// Define the structure of our offer item
+export type OfferItem= {
+  id: number;
+  name: string;
+  category: string;
+  originalPrice: number;
+  offerPrice: number;
+  discount: number;
+  imageUrl: string;
+}
 
 export type NavLink = {
   id: number;

@@ -5,7 +5,7 @@ import {
   IKEAOffer,
   IKEAStore,
   MenuItemButton,
-  NavLink,
+  NavLink,  
   ProductCard,
   RestaurantItem,
   SocialMediaLink,
@@ -18,6 +18,44 @@ import {
   YoutubeFreeIcons,
 } from "@hugeicons/core-free-icons";
 
+export const ProductCategories: Category[] = [  
+  {
+    id: 1,  
+  name: "Storage furniture",
+    title: "Storage Furniture",
+    desc: "IKEA's comprehensive furniture storage collection, including wardrobes, bookcases, display cabinets, and shelves, provides the perfect solution for organizing. From boxes to baskets, we offer a variety of options for small storage needs, all of which can be customized to match your unique style.",
+  },
+  {
+    id:2,
+    name: "Desk & desk chairs",
+    title: "Desk & Desk Chairs",
+    desc: "Discover the perfect blend of style and functionality with IKEA's Desk & Desk Chairs collection. From ergonomic chairs to sleek desks, our range is designed to enhance your workspace, ensuring comfort and productivity. Explore a variety of designs that cater to both home offices and professional environments.",
+  },
+  {
+    id:3,
+    name: "Outdoor products",
+    title: "Outdoor Products",
+    desc: "Unlock the potential of your outdoor space with IKEA's Outdoor Products. Explore a selection of patio furniture, garden essentials, and versatile outdoor accessories. With a perfect blend of functionality and design, find the best solutions for creating stylish and comfortable outdoor retreats.",
+  },
+  {
+    id:4,
+    name: "Kitchenware & tableware",
+    title: "Kitchenware & Tableware",
+    desc: "Elevate your culinary experience with IKEA's Kitchenware & Tableware collection. From durable cookware to elegant dinnerware, our range is designed to meet the needs of every home chef. Discover innovative kitchen solutions that combine practicality with Scandinavian design, making every meal a delightful experience.",
+  },
+  {
+    id:5, 
+    name: "Decoration",
+    title: "Decoration",
+    desc: "Transform your living space with IKEA's Decoration collection. From stylish wall art to cozy textiles, our range of decorative items allows you to express your personal style and create a warm, inviting atmosphere. Explore a variety of designs that add character and charm to every room in your home.",
+  },
+  {
+    id:6,
+    name: "Lighting",
+    title:"Lighting",
+    desc:""
+  }
+]
 export const productCards: ProductCard[] = [
   {
     id: 1,
@@ -124,6 +162,186 @@ export const productCards: ProductCard[] = [
     description: "Storage bag, transparent, 65x22x65 cm",
   },
 ];
+export const INITIAL_OFFERS: ProductCard[] = [
+  {
+    id: 2,
+    topSeller: true,
+    images: ["/milkforther-1.png", "/milkforther-2.png", "/milkforther-3.png"],
+    title: "PRODUKT",
+    subtitle: "Milk-frother, black",
+    price: 99,
+    ratingCount: 44,
+    store: "Cairo",
+    description: "Milk-frother, black",
+    categoryId:4
+  },
+  {
+    id: 3,
+    topSeller: true,
+    images: ["/pokalglass-1.png", "/pokalglass-2.png", "/pokalglass-3.png"],
+    title: "pokal",
+    subtitle: "Glass, pink, 35 cl 104.177.10",
+    price: 69,
+    ratingCount: 24,
+    store: "Cairo",
+    priceLowered: "price Lowered",
+    lastChance: "Last chance",
+    previousPrice: 99,
+    description:
+      "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
+      categoryId:4
+  },
+  {
+    id: 4,
+    topSeller: true,
+    images: [
+      "/fnisswastebin-1.png",
+      "/fnisswastebin-2.png",
+      "/fnisswastebin-3.png",
+      "/fnisswastebin-4.png",
+      "/fnisswastebin-5.png",
+    ],
+    title: "fniss waste bin",
+    subtitle: "Waste bin, white, 10 l 402.954.39",
+    price: 99,
+    ratingCount: 94,
+    store: "Cairo",
+    moreOptions: "More options",
+    description: "Waste bin, white, 10 l 402.954.39",
+    categoryId:4
+  },
+   {
+    id: 10,
+    topSeller: true,
+    images: [
+      "/furniture/chair-1.png",
+      "/furniture/chair-2.png",
+      "/furniture/chair-3.png",
+      "/furniture/chair-4.png",
+      "/furniture/chair-5.png",
+      "/furniture/chair-6.png",
+      "/furniture/chair-7.png",
+      "/furniture/chair-8.png",
+      "/furniture/chair-9.png",
+      "/furniture/chair-10.png",
+    ],
+    title: "Ergonomic",
+    subtitle: "Adjustable office chair with lumbar support",
+    description: "Adjustable office chair with lumbar support.",
+    price: 249,
+    ratingCount: 432,
+    store: "WorkSpace Pro",
+    priceLowered: "10% Off",
+    previousPrice: 279,
+    moreOptions: "Mesh & leather options",
+    categoryId:2
+  },
+  {
+    id: 11,
+    images: [
+      "/furniture/bed-1.png",
+      "/furniture/bed-2.png",
+      "/furniture/bed-3.png",
+    ],
+    title: "Minimalist",
+    subtitle: "Queen-size wooden bed frame",
+    description: "Queen-size wooden bed frame with modern design.",
+    price: 499,
+    unitPrice: 249.5,
+    pack: "Piece",
+    packCount: 2,
+    ratingCount: 156,
+    store: "Dream House",
+    lastChance: "Selling fast",
+    previousPrice: 560,
+    categoryId:1
+  },
+  {
+    id: 12,
+    topSeller: false,
+    images: [
+      "/furniture/shelf-1.png",
+      "/furniture/shelf-2.png",
+      "/furniture/shelf-3.png",
+      "/furniture/shelf-4.png",
+    ],
+    title: "Scandinavian",
+    subtitle: "5-tier bookshelf, natural pine wood",
+    description: "5-tier bookshelf made from natural pine wood.",
+    price: 320,
+    ratingCount: 87,
+    store: "Nordic Style",
+    moreOptions: "White & walnut finishes",
+    categoryId:1
+  },
+ {
+    id: 16,
+    topSeller: true,
+    images: [
+      "/accessories/lamp-1.png",
+      "/accessories/lamp-2.png",
+      "/accessories/lamp-3.png",
+    ],
+    title: "FEJKA",
+    subtitle: "Artificial potted plant, in/outdoor, 9 cm",
+    description:
+      "Lifelike artificial plant that stays fresh-looking year after year.",
+    price: 149,
+    unitPrice: 149,
+    pack: "pc",
+    packCount: 1,
+    ratingCount: 328,
+    store: "Cairo Festival City",
+    moreOptions: "3 sizes",
+    categoryId:6
+  },
+  {
+    id: 17,
+    topSeller: true,
+    images: [
+      "/accessories/curtain-1.png",
+      "/accessories/curtain-2.png",
+      "/accessories/curtain-3.png",
+      "/accessories/curtain-4.png",
+      "/accessories/curtain-5.png",
+    ],
+    title: "GLADOM",
+    subtitle: "Tray table, white",
+    description: "Lightweight side table with removable tray.",
+    price: 899,
+    ratingCount: 214,
+    store: "Mall of Arabia",
+    moreOptions: "4 colours",
+    categoryId:5
+  },
+  {
+    id: 18,
+    images: [
+      "/accessories/waste-bin-1.png",
+      "/accessories/waste-bin-2.png",
+      "/accessories/waste-bin-3.png",
+      "/accessories/waste-bin-4.png",
+      "/accessories/waste-bin-5.png",
+      "/accessories/waste-bin-6.png",
+      "/accessories/waste-bin-7.png",
+      "/accessories/waste-bin-8.png",
+      "/accessories/waste-bin-1.png",
+      "/accessories/waste-bin-9.png",
+    ],
+    title: "BORRBY Lantern",
+    subtitle: "Waste bin, white, 10 l 402.954.39",
+    description:
+      "The stackable DAMMÄNG bins help you save space and allow waste sorting to be part of the home interior. This one is perfect for larger waste like packages made of plastic or paper.",
+    price: 349,
+    ratingCount: 97,
+    store: "Cairo Festival City",
+    priceLowered: "New lower price",
+    previousPrice: 399,
+    categoryId:3
+  },
+  
+];
+
 
 export const homeMainSections: HomeSection[] = [
   {
@@ -878,7 +1096,7 @@ export const MenuMainLinks: FooterLink[] = [
         },
         thirdLinks: {
           header: "Offers",
-          links: [{ id: 1, title: "IKEA family offer", href: "/search" }],
+          links: [{ id: 1, title: "IKEA family offer", href: "/cat/lower-price" }],
         },
       },
     ],
@@ -1798,4 +2016,80 @@ export const trendingItems = [
     desc: 'Discover our top sellers. Functional kitchen accessories that everyone loves.',
     href: '#',
   },
+];
+
+export const IKEANewProducts: NavLink[] = [
+  {
+    id: 1,
+    title: "GREJSIMOJS collection",
+    desc: "Play is good for everyone, regardless of age.",
+    href: "",
+    image: "/IKEANewProducts/GREJSIMOJS.jpg",
+    color: "#FFDB00",
+  },
+  {
+    id: 2,
+    title: "GOKVÄLLÅ collection",
+    desc: "These decorations, tableware and textiles are ready for a happy month of peaceful fasts and lively iftars.",
+    href: "",
+    image: "/IKEANewProducts/GOKVÄLLÅ.jpg",
+    color: "#FADDD8",
+  },
+  {
+    id: 3,
+    title: "DOFTRIPS collection",
+    desc: "Let the spring feeling in with softly rounded shapes and lovely colors.",
+    href: "",
+    image: "/IKEANewProducts/DOFTRIPS.jpg",
+    color: "#E1C6D1",
+  },
+  {
+    id: 4,
+    title: "SMÖRFISK collection",
+    desc: "Let the breakfast table bloom!",
+    href: "",
+    image: "/IKEANewProducts/SMÖRFISK.jpg",
+    color: "#A6CEAA",
+  },
+  {
+    id: 5,
+    title: "OMMJÄNGE collection",
+    desc: "OMMJÄNGE collection where Swedish folk art has been given contemporary shapes that add a unique touch to your décor.",
+    href: "",
+    image:"/IKEANewProducts/OMMJÄNGE.jpg",
+    color: "#983C2D",
+  },
+  {
+    id: 6,
+    title: "MÄVINN collection",
+    desc: "A collection of handwoven, hand-embroidered and hand-braided baskets and more",
+    href: "",
+    image: "/IKEANewProducts/MÄVINN.jpg",
+    color: "#739D75",
+  },
+  {
+    id: 7,
+    title: "SANDLÖPARE collection",
+    desc: "Create a savannah themed room with SANDLÖPARE",
+    href: "",
+    image: "/IKEANewProducts/SANDLÖPARE.jpg",
+    color: "#EACD7D",
+  },
+  {
+    id: 8,
+    title: "STOCKHOLM collection",
+    desc: "Praised by founder Ingvar Kamprad as the “best of IKEA” when first launched in 1985.A collection of handwoven, hand-embroidered and hand-braided baskets and more",
+    href: "",
+    image: "/IKEANewProducts/STOCKHOLM.jpg",
+    color: "#CDC6B9",
+  },
+  {
+    id: 9,
+    title: "BERGVATTNET collection",
+    desc: "Track your showers and reduce water use the easy way.",
+    href: "",
+    image: "/IKEANewProducts/BERGVATTNET.jpg",
+    color: "#2C569A",
+  
+  }
 ];
