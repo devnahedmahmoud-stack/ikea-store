@@ -69,6 +69,7 @@ export const productCards: ProductCard[] = [
     packCount: 10,
     ratingCount: 79,
     store: "Cairo",
+    categoryId:1,
   },
   {
     id: 2,
@@ -80,6 +81,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 44,
     store: "Cairo",
     description: "Milk-frother, black",
+    categoryId:4
   },
   {
     id: 3,
@@ -95,6 +97,7 @@ export const productCards: ProductCard[] = [
     previousPrice: 99,
     description:
       "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
+      categoryId:4
   },
   {
     id: 4,
@@ -113,6 +116,7 @@ export const productCards: ProductCard[] = [
     store: "Cairo",
     moreOptions: "More options",
     description: "Waste bin, white, 10 l 402.954.39",
+    categoryId:4
   },
   {
     id: 5,
@@ -124,6 +128,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 10,
     store: "Cairo",
     moreOptions: "More options",
+    categoryId:4
   },
   {
     id: 6,
@@ -143,6 +148,7 @@ export const productCards: ProductCard[] = [
     moreOptions: "More options",
     description:
       "RINNIG dish-washing brush has a comfortable handle and stiff bristles that make it easy to clean even the toughest stains. The brush head can be removed and replaced when needed, making it a long-lasting and sustainable choice for your kitchen.",
+      categoryId:4
   },
   {
     id: 7,
@@ -160,6 +166,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 9,
     store: "Cairo",
     description: "Storage bag, transparent, 65x22x65 cm",
+    categoryId:1
   },
 ];
 export const INITIAL_OFFERS: ProductCard[] = [
@@ -838,28 +845,19 @@ export const MenuMainLinks: FooterLink[] = [
           header: "Everyday value",
           links: [
             { id: 1, title: "IKEA food", href: "/stores/restaurant" },
-            { id: 2, title: "top seller", href: "" },
+            { id: 2, title: "top seller", href: "/search/products/topseller?group=Our most popular" },
             { id: 3, title: "new products", href: "/new" },
             { id: 4, title: "our lowest price", href: "/lowest-price" },
-            { id: 5, title: "last chance", href: "/last-chance" },
-            {
-              id: 6,
-              title: "Everyday essentials",
-              href: "/everyday-essentials",
-            },
-            {
-              id: 7,
-              title: "affordable essentials",
-              href: "/campaigns/affordable-essentials",
-            },
+            { id: 5, title: "last chance", href: "/search/products/last-chance?group=Last chance" },
+            
           ],
         },
         thirdLinks: {
           header: "Price with convenient",
           links: [
-            { id: 1, title: "under 100 EGP", href: "/search" },
-            { id: 2, title: "under 300 EGP", href: "/search" },
-            { id: 3, title: "under 500 EGP", href: "/search" },
+            { id: 1, title: "under 100 EGP", href: "/search/products/under100?group=Under 100 EGP" },
+            { id: 2, title: "under 300 EGP", href: "/search/products/under300?group=Under 300 EGP" },
+            { id: 3, title: "under 500 EGP", href: "/search/products/under500?group=Under 500 EGP" },
           ],
         },
       },
@@ -1186,6 +1184,7 @@ export const FurnitureProducts: ProductCard[] = [
     lastChance: "Only 4 left",
     previousPrice: 1050,
     moreOptions: "5 colors available",
+    categoryId:1
   },
   {
     id: 9,
@@ -1209,6 +1208,7 @@ export const FurnitureProducts: ProductCard[] = [
     previousPrice: 720,
     moreOptions: "2 sizes available",
     priceLowered: "price Lowered",
+    categoryId:4
   },
   {
     id: 10,
@@ -1234,6 +1234,7 @@ export const FurnitureProducts: ProductCard[] = [
     priceLowered: "10% Off",
     previousPrice: 279,
     moreOptions: "Mesh & leather options",
+    categoryId:2
   },
   {
     id: 11,
@@ -1253,6 +1254,7 @@ export const FurnitureProducts: ProductCard[] = [
     store: "Dream House",
     lastChance: "Selling fast",
     previousPrice: 560,
+    categoryId:2
   },
   {
     id: 12,
@@ -1270,6 +1272,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 87,
     store: "Nordic Style",
     moreOptions: "White & walnut finishes",
+    categoryId:1
   },
   {
     id: 13,
@@ -1295,6 +1298,7 @@ export const FurnitureProducts: ProductCard[] = [
     lastChance: "Limited stock",
     previousPrice: 999,
     moreOptions: "3 leather finishes",
+    categoryId:2
   },
   {
     id: 14,
@@ -1311,6 +1315,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 47,
     store: "Country Home",
     moreOptions: "Natural & espresso wood",
+    categoryId:4
   },
   {
     id: 15,
@@ -1329,6 +1334,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 89,
     store: "Entry Style",
     moreOptions: "White & oak finishes",
+    categoryId:1
   },
 ];
 export const AccessoriesProducts: ProductCard[] = [
@@ -1351,6 +1357,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 328,
     store: "Cairo Festival City",
     moreOptions: "3 sizes",
+    categoryId:6
   },
   {
     id: 17,
@@ -1369,6 +1376,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 214,
     store: "Mall of Arabia",
     moreOptions: "4 colours",
+    categoryId:5
   },
   {
     id: 18,
@@ -1393,6 +1401,7 @@ export const AccessoriesProducts: ProductCard[] = [
     store: "Cairo Festival City",
     priceLowered: "New lower price",
     previousPrice: 399,
+    categoryId:1
   },
   {
     id: 19,
@@ -1413,6 +1422,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 61,
     store: "Mall of Arabia",
+    categoryId:5
   },
   {
     id: 20,
@@ -1433,6 +1443,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 442,
     store: "Cairo Festival City",
     moreOptions: "8 colours",
+    categoryId:5
   },
   {
     id: 21,
@@ -1454,6 +1465,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 183,
     store: "Mall of Arabia",
+    categoryId:1
   },
   {
     id: 22,
@@ -1473,6 +1485,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 251,
     store: "Cairo Festival City",
     moreOptions: "2 colours",
+    categoryId:1
   },
   {
     id: 23,
@@ -1493,6 +1506,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 1203,
     store: "Mall of Arabia",
+    categoryId:6
   },
   {
     id: 24,
@@ -1512,6 +1526,7 @@ export const AccessoriesProducts: ProductCard[] = [
     unitPrice: 33,
     ratingCount: 112,
     store: "Cairo Festival City",
+    categoryId:5
   },
   {
     id: 25,
@@ -1530,6 +1545,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 168,
     store: "Mall of Arabia",
     lastChance: "Last chance",
+    categoryId:5
   },
   {
     id: 26,
@@ -1546,6 +1562,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 89,
     store: "Cairo Festival City",
     moreOptions: "2 sizes",
+    categoryId:1
   },
   {
     id: 27,
@@ -1564,6 +1581,7 @@ export const AccessoriesProducts: ProductCard[] = [
     store: "Mall of Arabia",
     priceLowered: "New lower price",
     previousPrice: 229,
+    categoryId:5
   },
 ];
 export const NewCollectionsItems: NavLink[] = [

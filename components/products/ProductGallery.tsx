@@ -1,5 +1,5 @@
 "use client";
-import { cache, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import ProductImagesSlider from "./ProductImagesSlider";
 import ProductThumbnailSlider from "./ProductThumbnailSlider";
 import { HugeiconsIcon } from "@hugeicons/react";
@@ -9,12 +9,6 @@ import { useUserFavorites } from "@/stores/userfavorites.store";
 import { useAuthUserStore } from "@/stores/authuser.stores";
 import { toast } from "sonner";
 import { ProductCard } from "@/types/types";
-import {
-  AccessoriesProducts,
-  FurnitureProducts,
-  productCards,
-} from "@/data/data";
-
 type ProductGalleryProps = {
   productData: ProductCard;
   images: string[];
@@ -28,7 +22,7 @@ const ProductGallery = ({
   productData,
 }: ProductGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const { addToFavorite, removeFromFavorite, existFavorite, usersFavorites } =
+  const { addToFavorite, removeFromFavorite, existFavorite } =
     useUserFavorites();
   const [isAddFavorite, setIsAddFavorite] = useState<boolean>(false);
   const { currentUser } = useAuthUserStore();

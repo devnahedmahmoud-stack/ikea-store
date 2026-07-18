@@ -1,6 +1,4 @@
 import ProductDetails from "@/components/products/ProductDetails";
-import ProductImageSlider from "@/components/products/ProductThumbnailSlider";
-import ProductImagesSlider from "@/components/products/ProductImagesSlider";
 import ContainerProvider from "@/components/Providers/ContainerProvider";
 import {
   AccessoriesProducts,
@@ -8,8 +6,7 @@ import {
   productCards,
 } from "@/data/data";
 import { ProductCard } from "@/types/types";
-import Image from "next/image";
-import { cache, Suspense } from "react";
+import { cache } from "react";
 
 import type { Metadata, ResolvingMetadata } from "next";
 import ProductGallery from "@/components/products/ProductGallery";
@@ -19,9 +16,7 @@ type Props = {
 
 const getProductDetails = cache(async (productId: number) => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  let product: ProductCard | undefined;
-  product =
-    productCards.find((product) => product.id === productId) ??
+  const product: ProductCard | undefined =productCards.find((product) => product.id === productId) ??
     AccessoriesProducts.find((product) => product.id === productId) ??
     FurnitureProducts.find((product) => product.id === productId);
 
