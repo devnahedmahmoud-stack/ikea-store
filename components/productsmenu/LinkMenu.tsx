@@ -66,7 +66,7 @@ if (!isRooms) {
     }
   }, [menuItemId]);*/
 
-  console.log(menuItemId)
+ // console.log(menuItemId)
   function linkMenuClick(menu: HomeSection[], index: number, title?: string) {
     onClick();
     setMainMenu(menu);

@@ -131,3 +131,21 @@ export type IKEAOffer = {
   expiryDate: string;
   imageUrl: string;
 }
+
+export type BrochureItem= {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  exploreUrl: string;
+}
+
+export type Gallery= {
+  id: number;
+  title: string;
+  image: string; 
+  roomId:number; 
+}
+
+
+

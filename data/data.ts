@@ -1,11 +1,13 @@
 import {
+  BrochureItem,
   Category,
   FooterLink,
+  Gallery,
   HomeSection,
   IKEAOffer,
   IKEAStore,
   MenuItemButton,
-  NavLink,  
+  NavLink,
   ProductCard,
   RestaurantItem,
   SocialMediaLink,
@@ -18,44 +20,98 @@ import {
   YoutubeFreeIcons,
 } from "@hugeicons/core-free-icons";
 
-export const ProductCategories: Category[] = [  
+export const ProductCategories: Category[] = [
   {
-    id: 1,  
-  name: "Storage furniture",
+    id: 1,
+    name: "Storage furniture",
     title: "Storage Furniture",
     desc: "IKEA's comprehensive furniture storage collection, including wardrobes, bookcases, display cabinets, and shelves, provides the perfect solution for organizing. From boxes to baskets, we offer a variety of options for small storage needs, all of which can be customized to match your unique style.",
   },
   {
-    id:2,
+    id: 2,
     name: "Desk & desk chairs",
     title: "Desk & Desk Chairs",
     desc: "Discover the perfect blend of style and functionality with IKEA's Desk & Desk Chairs collection. From ergonomic chairs to sleek desks, our range is designed to enhance your workspace, ensuring comfort and productivity. Explore a variety of designs that cater to both home offices and professional environments.",
   },
   {
-    id:3,
+    id: 3,
     name: "Outdoor products",
     title: "Outdoor Products",
     desc: "Unlock the potential of your outdoor space with IKEA's Outdoor Products. Explore a selection of patio furniture, garden essentials, and versatile outdoor accessories. With a perfect blend of functionality and design, find the best solutions for creating stylish and comfortable outdoor retreats.",
   },
   {
-    id:4,
+    id: 4,
     name: "Kitchenware & tableware",
     title: "Kitchenware & Tableware",
     desc: "Elevate your culinary experience with IKEA's Kitchenware & Tableware collection. From durable cookware to elegant dinnerware, our range is designed to meet the needs of every home chef. Discover innovative kitchen solutions that combine practicality with Scandinavian design, making every meal a delightful experience.",
   },
   {
-    id:5, 
+    id: 5,
     name: "Decoration",
     title: "Decoration",
     desc: "Transform your living space with IKEA's Decoration collection. From stylish wall art to cozy textiles, our range of decorative items allows you to express your personal style and create a warm, inviting atmosphere. Explore a variety of designs that add character and charm to every room in your home.",
   },
   {
-    id:6,
+    id: 6,
     name: "Lighting",
-    title:"Lighting",
-    desc:""
-  }
-]
+    title: "Lighting",
+    desc: "",
+  },
+  {
+    id: 7,
+    name: "Living room",
+    title: "Living room",
+    desc: "",
+  },
+
+  {
+    id: 8,
+    name: "Bedroom",
+    title: "Bedroom",
+    desc: "",
+  },
+
+  {
+    id: 9,
+    name: "Kitchen",
+    title: "Kitchen",
+    desc: "",
+  },
+
+  {
+    id: 10,
+    name: "Home office",
+    title: "Home office",
+    desc: "",
+  },
+
+  {
+    id: 11,
+    name: "Dining",
+    title: "Dining",
+    desc: "",
+  },
+  {
+    id: 12,
+    name: "Bathroom",
+    title: "Bathroom",
+    desc: "",
+  },
+
+  {
+    id: 13,
+    name: "Baby & children room",
+    title: "Baby & children room",
+    desc: "",
+  },
+
+  {
+    id: 14,
+    name: "Hallway",
+    title: "Hallway",
+    desc: "",
+  },
+];
 export const productCards: ProductCard[] = [
   {
     id: 1,
@@ -69,7 +125,7 @@ export const productCards: ProductCard[] = [
     packCount: 10,
     ratingCount: 79,
     store: "Cairo",
-    categoryId:1,
+    categoryId: 1,
   },
   {
     id: 2,
@@ -81,7 +137,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 44,
     store: "Cairo",
     description: "Milk-frother, black",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 3,
@@ -97,7 +153,7 @@ export const productCards: ProductCard[] = [
     previousPrice: 99,
     description:
       "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
-      categoryId:4
+    categoryId: 4,
   },
   {
     id: 4,
@@ -116,7 +172,7 @@ export const productCards: ProductCard[] = [
     store: "Cairo",
     moreOptions: "More options",
     description: "Waste bin, white, 10 l 402.954.39",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 5,
@@ -128,7 +184,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 10,
     store: "Cairo",
     moreOptions: "More options",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 6,
@@ -148,7 +204,7 @@ export const productCards: ProductCard[] = [
     moreOptions: "More options",
     description:
       "RINNIG dish-washing brush has a comfortable handle and stiff bristles that make it easy to clean even the toughest stains. The brush head can be removed and replaced when needed, making it a long-lasting and sustainable choice for your kitchen.",
-      categoryId:4
+    categoryId: 4,
   },
   {
     id: 7,
@@ -166,7 +222,7 @@ export const productCards: ProductCard[] = [
     ratingCount: 9,
     store: "Cairo",
     description: "Storage bag, transparent, 65x22x65 cm",
-    categoryId:1
+    categoryId: 1,
   },
 ];
 export const INITIAL_OFFERS: ProductCard[] = [
@@ -180,7 +236,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     ratingCount: 44,
     store: "Cairo",
     description: "Milk-frother, black",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 3,
@@ -196,7 +252,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     previousPrice: 99,
     description:
       "With their classic design and different sizes, POKAL glasses are sure to be favourites – great for water and soft drinks and can also hold warm beverages like coffee or tea. Made of tempered glass for added strength and durability.",
-      categoryId:4
+    categoryId: 4,
   },
   {
     id: 4,
@@ -215,9 +271,9 @@ export const INITIAL_OFFERS: ProductCard[] = [
     store: "Cairo",
     moreOptions: "More options",
     description: "Waste bin, white, 10 l 402.954.39",
-    categoryId:4
+    categoryId: 4,
   },
-   {
+  {
     id: 10,
     topSeller: true,
     images: [
@@ -241,7 +297,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     priceLowered: "10% Off",
     previousPrice: 279,
     moreOptions: "Mesh & leather options",
-    categoryId:2
+    categoryId: 2,
   },
   {
     id: 11,
@@ -261,7 +317,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     store: "Dream House",
     lastChance: "Selling fast",
     previousPrice: 560,
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 12,
@@ -279,9 +335,9 @@ export const INITIAL_OFFERS: ProductCard[] = [
     ratingCount: 87,
     store: "Nordic Style",
     moreOptions: "White & walnut finishes",
-    categoryId:1
+    categoryId: 1,
   },
- {
+  {
     id: 16,
     topSeller: true,
     images: [
@@ -300,7 +356,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     ratingCount: 328,
     store: "Cairo Festival City",
     moreOptions: "3 sizes",
-    categoryId:6
+    categoryId: 6,
   },
   {
     id: 17,
@@ -319,7 +375,7 @@ export const INITIAL_OFFERS: ProductCard[] = [
     ratingCount: 214,
     store: "Mall of Arabia",
     moreOptions: "4 colours",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 18,
@@ -344,11 +400,9 @@ export const INITIAL_OFFERS: ProductCard[] = [
     store: "Cairo Festival City",
     priceLowered: "New lower price",
     previousPrice: 399,
-    categoryId:3
+    categoryId: 3,
   },
-  
 ];
-
 
 export const homeMainSections: HomeSection[] = [
   {
@@ -845,19 +899,38 @@ export const MenuMainLinks: FooterLink[] = [
           header: "Everyday value",
           links: [
             { id: 1, title: "IKEA food", href: "/stores/restaurant" },
-            { id: 2, title: "top seller", href: "/search/products/topseller?group=Our most popular" },
+            {
+              id: 2,
+              title: "top seller",
+              href: "/search/products/topseller?group=Our most popular",
+            },
             { id: 3, title: "new products", href: "/new" },
             { id: 4, title: "our lowest price", href: "/lowest-price" },
-            { id: 5, title: "last chance", href: "/search/products/last-chance?group=Last chance" },
-            
+            {
+              id: 5,
+              title: "last chance",
+              href: "/search/products/last-chance?group=Last chance",
+            },
           ],
         },
         thirdLinks: {
           header: "Price with convenient",
           links: [
-            { id: 1, title: "under 100 EGP", href: "/search/products/under100?group=Under 100 EGP" },
-            { id: 2, title: "under 300 EGP", href: "/search/products/under300?group=Under 300 EGP" },
-            { id: 3, title: "under 500 EGP", href: "/search/products/under500?group=Under 500 EGP" },
+            {
+              id: 1,
+              title: "under 100 EGP",
+              href: "/search/products/under100?group=Under 100 EGP",
+            },
+            {
+              id: 2,
+              title: "under 300 EGP",
+              href: "/search/products/under300?group=Under 300 EGP",
+            },
+            {
+              id: 3,
+              title: "under 500 EGP",
+              href: "/search/products/under500?group=Under 500 EGP",
+            },
           ],
         },
       },
@@ -1094,7 +1167,9 @@ export const MenuMainLinks: FooterLink[] = [
         },
         thirdLinks: {
           header: "Offers",
-          links: [{ id: 1, title: "IKEA family offer", href: "/cat/lower-price" }],
+          links: [
+            { id: 1, title: "IKEA family offer", href: "/cat/lower-price" },
+          ],
         },
       },
     ],
@@ -1114,13 +1189,13 @@ export const MenuMainLinks: FooterLink[] = [
           {
             id: 2,
             title: "home inspiration",
-            href: "/home-inspiration",
+            href: "/rooms/room-inspiration",
           },
 
           {
             id: 3,
-            title: "brouchures",
-            href: "/customer-service/brouchures",
+            title: "brochures",
+            href: "/customer-service/brochures",
           },
 
           {
@@ -1184,7 +1259,7 @@ export const FurnitureProducts: ProductCard[] = [
     lastChance: "Only 4 left",
     previousPrice: 1050,
     moreOptions: "5 colors available",
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 9,
@@ -1208,7 +1283,7 @@ export const FurnitureProducts: ProductCard[] = [
     previousPrice: 720,
     moreOptions: "2 sizes available",
     priceLowered: "price Lowered",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 10,
@@ -1234,7 +1309,7 @@ export const FurnitureProducts: ProductCard[] = [
     priceLowered: "10% Off",
     previousPrice: 279,
     moreOptions: "Mesh & leather options",
-    categoryId:2
+    categoryId: 2,
   },
   {
     id: 11,
@@ -1254,7 +1329,7 @@ export const FurnitureProducts: ProductCard[] = [
     store: "Dream House",
     lastChance: "Selling fast",
     previousPrice: 560,
-    categoryId:2
+    categoryId: 2,
   },
   {
     id: 12,
@@ -1272,7 +1347,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 87,
     store: "Nordic Style",
     moreOptions: "White & walnut finishes",
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 13,
@@ -1298,7 +1373,7 @@ export const FurnitureProducts: ProductCard[] = [
     lastChance: "Limited stock",
     previousPrice: 999,
     moreOptions: "3 leather finishes",
-    categoryId:2
+    categoryId: 2,
   },
   {
     id: 14,
@@ -1315,7 +1390,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 47,
     store: "Country Home",
     moreOptions: "Natural & espresso wood",
-    categoryId:4
+    categoryId: 4,
   },
   {
     id: 15,
@@ -1334,7 +1409,7 @@ export const FurnitureProducts: ProductCard[] = [
     ratingCount: 89,
     store: "Entry Style",
     moreOptions: "White & oak finishes",
-    categoryId:1
+    categoryId: 1,
   },
 ];
 export const AccessoriesProducts: ProductCard[] = [
@@ -1357,7 +1432,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 328,
     store: "Cairo Festival City",
     moreOptions: "3 sizes",
-    categoryId:6
+    categoryId: 6,
   },
   {
     id: 17,
@@ -1376,7 +1451,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 214,
     store: "Mall of Arabia",
     moreOptions: "4 colours",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 18,
@@ -1401,7 +1476,7 @@ export const AccessoriesProducts: ProductCard[] = [
     store: "Cairo Festival City",
     priceLowered: "New lower price",
     previousPrice: 399,
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 19,
@@ -1422,7 +1497,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 61,
     store: "Mall of Arabia",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 20,
@@ -1443,7 +1518,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 442,
     store: "Cairo Festival City",
     moreOptions: "8 colours",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 21,
@@ -1465,7 +1540,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 183,
     store: "Mall of Arabia",
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 22,
@@ -1485,7 +1560,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 251,
     store: "Cairo Festival City",
     moreOptions: "2 colours",
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 23,
@@ -1506,7 +1581,7 @@ export const AccessoriesProducts: ProductCard[] = [
     packCount: 1,
     ratingCount: 1203,
     store: "Mall of Arabia",
-    categoryId:6
+    categoryId: 6,
   },
   {
     id: 24,
@@ -1526,7 +1601,7 @@ export const AccessoriesProducts: ProductCard[] = [
     unitPrice: 33,
     ratingCount: 112,
     store: "Cairo Festival City",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 25,
@@ -1545,7 +1620,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 168,
     store: "Mall of Arabia",
     lastChance: "Last chance",
-    categoryId:5
+    categoryId: 5,
   },
   {
     id: 26,
@@ -1562,7 +1637,7 @@ export const AccessoriesProducts: ProductCard[] = [
     ratingCount: 89,
     store: "Cairo Festival City",
     moreOptions: "2 sizes",
-    categoryId:1
+    categoryId: 1,
   },
   {
     id: 27,
@@ -1581,7 +1656,7 @@ export const AccessoriesProducts: ProductCard[] = [
     store: "Mall of Arabia",
     priceLowered: "New lower price",
     previousPrice: 229,
-    categoryId:5
+    categoryId: 5,
   },
 ];
 export const NewCollectionsItems: NavLink[] = [
@@ -1919,15 +1994,15 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/cairo-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "Located at Festival City Mall, it stands out as the largest store, featuring the widest collection of items, from stylish furniture to design studios and home planning services. The store offers everything you need to revamp your home. Moreover, you can even enjoy the Småland Kids’ Play Area to keep your little ones entertained while you shop. You can also keep an eye on a packed schedule of in-store activities for your kids! For added convenience,we offer a self-service assembly area, where you can put together your furniture for FREE.",
-    href:"cairo",
-    title:"Planning your visit",
-    desc2:`Accessible parking is available for our customers
+    href: "cairo",
+    title: "Planning your visit",
+    desc2: `Accessible parking is available for our customers
           Småland
           Family-friendly toilets/baby care rooms
           Free wifi
           Accessibility - Accessible toilets / changing facilities
           Food and drink you can trust`,
-    mainImage:"/IKEAStore/cairo-store-1.jpg"
+    mainImage: "/IKEAStore/cairo-store-1.jpg",
   },
   {
     id: 2,
@@ -1938,15 +2013,15 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/mall-arabia-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "The store in - 6th of October City, Giza.This location features the same affordable, stylish furniture along with a Swedish café, offering a diverse range of bites and drinks that all your family would enjoy. IKEA MOA tailors its offerings to reflect the mix of traditional and modern homes in the area, catering to everyone from villa owners to apartment dwellers.",
-    href:"mall-of-arabia",
-    title:"Planning your visit",
-    desc2:`Accessible parking is available for our customers
+    href: "mall-of-arabia",
+    title: "Planning your visit",
+    desc2: `Accessible parking is available for our customers
           Småland
           Family-friendly toilets/baby care rooms
           Free wifi
           Accessibility - Accessible toilets / changing facilities
           Food and drink you can trust`,
-    mainImage:"/IKEAStore/mall-arabia-store-1.jpg"
+    mainImage: "/IKEAStore/mall-arabia-store-1.jpg",
   },
   {
     id: 3,
@@ -1956,11 +2031,11 @@ export const IKEAStores: IKEAStore[] = [
     image: "/IKEAStore/northcoast-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "IKEA North Coast Sahel store opens for the 8th year in Sidi Abdel Rahman in front of Marassi at 128 KM beside Agora village, located at Livio's Mall.The store is built on 2 floors with a big outdoor area, the showroom displays over 1,500 products ready for instant purchase.",
-    href:"north-coast",
-    title:"North Coast ​is now open!",
-    desc2:`Finally, it’s summer and time to let go and have fun!
+    href: "north-coast",
+    title: "North Coast ​is now open!",
+    desc2: `Finally, it’s summer and time to let go and have fun!
 To help create that joyful vacation feeling, our collection is vibrant and colourful with lots of playful prints and products.`,
-    mainImage:"/IKEAStore/northcoast-store-1.jpg"
+    mainImage: "/IKEAStore/northcoast-store-1.jpg",
   },
   {
     id: 4,
@@ -1972,67 +2047,70 @@ To help create that joyful vacation feeling, our collection is vibrant and colou
     image: "/IKEAStore/hurghada-store.jpg",
     openingHours: "Daily  from 10 AM to 12 AM",
     desc: "IKEA  Hurghada  opens now in  Senzo Mall ,Safaga road (Villages Road) , Hurghada 1 , Red Sea Governoratore , Egypt.",
-    href:"hurghada",
-    title:"Hurghada pop up store",
-    desc2:`Finally, it’s summer and time to let go and have fun!
+    href: "hurghada",
+    title: "Hurghada pop up store",
+    desc2: `Finally, it’s summer and time to let go and have fun!
     To help create that joyful vacation feeling, our collection is vibrant and colourful with lots of playful prints and products.`,
-mainImage:"/IKEAStore/hurghada-store-1.jpg"
+    mainImage: "/IKEAStore/hurghada-store-1.jpg",
   },
 ];
 
 export const SAMPLE_OFFERS: IKEAOffer[] = [
   {
-    id: '1',
-    title: 'Summer Living Room Refresh',
-    description: 'Get up to 20% off selected sofas, coffee tables, and lounge chairs.',
-    discount: '20% OFF',
-    code: 'SUMMER20',
-    expiryDate: 'Valid until July 31',
-    imageUrl: '/home/livingroom.png',
+    id: "1",
+    title: "Summer Living Room Refresh",
+    description:
+      "Get up to 20% off selected sofas, coffee tables, and lounge chairs.",
+    discount: "20% OFF",
+    code: "SUMMER20",
+    expiryDate: "Valid until July 31",
+    imageUrl: "/home/livingroom.png",
   },
   {
-    id: '2',
-    title: 'Smart Home Upgrade',
-    description: 'Buy two smart lighting kits and get a wireless dimmer switch free.',
-    discount: 'FREE GIFT',
-    expiryDate: 'Valid until Aug 15',
-    imageUrl: '/home/bedroom.png',
+    id: "2",
+    title: "Smart Home Upgrade",
+    description:
+      "Buy two smart lighting kits and get a wireless dimmer switch free.",
+    discount: "FREE GIFT",
+    expiryDate: "Valid until Aug 15",
+    imageUrl: "/home/bedroom.png",
   },
   {
-    id: '3',
-    title: 'Kitchen Organization Essential',
-    description: 'Save big on food containers, drawer organizers, and pantry shelving.',
-    discount: '15% OFF',
-    code: 'ORGANIZED15',
-    expiryDate: 'Limited time offer',
-    imageUrl: '/home/kitchen.jpg',
+    id: "3",
+    title: "Kitchen Organization Essential",
+    description:
+      "Save big on food containers, drawer organizers, and pantry shelving.",
+    discount: "15% OFF",
+    code: "ORGANIZED15",
+    expiryDate: "Limited time offer",
+    imageUrl: "/home/kitchen.jpg",
   },
 ];
 
 export const trendingItems = [
   {
     id: 1,
-    image: '/offers/summer-camp.jpg',
-    desc: 'Trending this season. Make the best of your summer holiday inside.',
-    href: '#',
+    image: "/offers/summer-camp.jpg",
+    desc: "Trending this season. Make the best of your summer holiday inside.",
+    href: "#",
   },
   {
     id: 2,
-    image: '/offers/lower-price.jpg',
-    desc: 'Check out our massive selection of products now available at new lower prices.',
-    href: '#',
+    image: "/offers/lower-price.jpg",
+    desc: "Check out our massive selection of products now available at new lower prices.",
+    href: "#",
   },
   {
     id: 3,
-    image: '/offers/top-seller.jpg',
+    image: "/offers/top-seller.jpg",
     desc: "Create a bedroom you'll love. Discover cosy beds and clever storage solutions.",
-    href: '#',
+    href: "#",
   },
   {
     id: 4,
-    image: '/offers/kitchen.jpg',
-    desc: 'Discover our top sellers. Functional kitchen accessories that everyone loves.',
-    href: '#',
+    image: "/offers/kitchen.jpg",
+    desc: "Discover our top sellers. Functional kitchen accessories that everyone loves.",
+    href: "#",
   },
 ];
 
@@ -2074,7 +2152,7 @@ export const IKEANewProducts: NavLink[] = [
     title: "OMMJÄNGE collection",
     desc: "OMMJÄNGE collection where Swedish folk art has been given contemporary shapes that add a unique touch to your décor.",
     href: "",
-    image:"/IKEANewProducts/OMMJÄNGE.jpg",
+    image: "/IKEANewProducts/OMMJÄNGE.jpg",
     color: "#983C2D",
   },
   {
@@ -2108,6 +2186,181 @@ export const IKEANewProducts: NavLink[] = [
     href: "",
     image: "/IKEANewProducts/BERGVATTNET.jpg",
     color: "#2C569A",
-  
-  }
+  },
+];
+
+export const InspirationItems: ProductCard[] = [
+  {
+    id: 28,
+    title: "A loft room with big windows and a circular coffee table",
+    categoryId: 7,
+    images: ["/living-room-1.png"],
+    price: 0,
+  },
+  {
+    id: 29,
+    title: "Classic wing chair seating area with a view",
+    categoryId: 7,
+    images: ["/living-room-2.png"],
+    price: 0,
+  },
+  {
+    id: 30,
+    title: "Cozy bedroom layout with soft textiles",
+    categoryId: 8,
+    images: ["/bedroom-1.png"],
+    price: 0,
+  },
+  {
+    id: 31,
+    title: "Modern office space with plant stands and active sitting",
+    categoryId: 10,
+    images: ["/home-office-1.png"],
+    price: 0,
+  },
+  {
+    id: 32,
+    title: "Bright kitchen setup with smart storage solutions",
+    categoryId: 9,
+    images: ["/kitchen-1.png"],
+    price: 0,
+  },
+  {
+    id: 33,
+    title: "Dining area featuring a wooden bench and pendant lamp",
+    categoryId: 11,
+    images: ["/dining-room.png"],
+    price: 0,
+  },
+  {
+    id: 34,
+    title: "Dining area featuring a wooden bench and pendant lamp",
+    categoryId: 11,
+    images: ["/dining-room-1.png"],
+    price: 0,
+  },
+  {
+    id: 35,
+    title: "Dining area featuring a wooden bench and pendant lamp",
+    categoryId: 11,
+    images: ["/dining-room-2.png"],
+    price: 0,
+  },
+  {
+    id: 36,
+    title: "Dining area featuring a wooden bench and pendant lamp",
+    categoryId: 11,
+    images: ["/dining-room-3.png"],
+    price: 0,
+  },
+];
+
+export const brochuresData: BrochureItem[] = [
+  {
+    id: "price-lowered",
+    title: "Price Lowered Magazine",
+    description: "Browse our Price Lowered magazine for ideas & inspiration.",
+    imageUrl: "/pricelowered.png",
+    exploreUrl: "",
+  },
+  {
+    id: "living-room",
+    title: "Living Room Magazine",
+    description: "Browse our Living room magazine for ideas & inspiration.",
+    imageUrl: "/living-room-2.png",
+    exploreUrl: "",
+  },
+  {
+    id: "bedroom",
+    title: "Bedroom Magazine",
+    description: "Browse our Bedroom magazine for ideas & inspiration.",
+    imageUrl: "/bedroom-1.png",
+    exploreUrl: "",
+  },
+  {
+    id: "outdoor",
+    title: "Outdoor Magazine",
+    description: "Browse our outdoor magazine for ideas & inspiration.",
+    imageUrl: "/Outdoors/outdoor-furniture-1.png",
+    exploreUrl: "",
+  },
+  {
+    id: "office",
+    title: "Workspace & Office",
+    description:
+      "Revamp your office! Design a workspace that inspires focus & efficiency.",
+    imageUrl: "/home-office-1.png",
+    exploreUrl: "",
+  },
+  {
+    id: "bathroom",
+    title: "Bathroom Magazine",
+    description: "Browse our Bathroom magazine for ideas & inspiration.",
+    imageUrl: "/bathroom.png",
+    exploreUrl: "",
+  },
+];
+
+export const RoomInspiration: NavLink[] = [
+  {
+    id: 1,
+    title: "Bedroom gallery",
+    desc: "",
+    href: "bedroom",
+    image: "/bedroom.png",
+  },
+
+  {
+    id: 2,
+    title: "IKEA for Business gallery",
+    desc: "Looking for ideas on how to furnish and decorate your business space? Whether it's for an office, a restaurant or a shop, here are plenty of inspiration, assistance and hands-on tips.",
+    href: "ikea-business",
+    image: "/ikea-business.png",
+  },
+];
+export const RoomGallery: Gallery[] = [
+  {
+    id: 1,
+    title: "Decorating a rental room? Here’s one that’s full of personality!",
+    image: "/bedroom.png",
+    roomId: 1,
+  },
+  {
+    id: 2,
+    title:
+      "Shared family bedroom ideas with room for everyone – and their things! ",
+    image: "/bedroom-1.png",
+    roomId: 1,
+  },
+  {
+    id: 3,
+    title: "A modern oasis that’s also a business office",
+    image: "/ikea-business/office-1.jpg",
+    roomId: 2,
+  },
+  {
+    id: 4,
+    title: "A modern game development office",
+    image: "/ikea-business/office-2.jpg",
+    roomId: 2,
+  },
+  {
+    id: 5,
+    title: "An inspiring garden studio for your small business",
+    image: "/ikea-business/office-3.jpg",
+    roomId: 2,
+  },
+  {
+    id: 6,
+    title: "Openness meets privacy",
+    image: "/ikea-business/office-4.jpg",
+    roomId: 2,
+  },
+  {
+    id: 7,
+    title: "Make your office work at your level",
+    image: "/ikea-business/office-5.jpg",
+
+    roomId: 2,
+  },
 ];

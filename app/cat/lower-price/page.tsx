@@ -2,9 +2,7 @@
 
 import TopSellerCard from '@/components/products/TopSellerCard';
 import { INITIAL_OFFERS, ProductCategories } from '@/data/data';
-import React, { useState, useMemo } from 'react';
-
-
+import { useState, useMemo } from 'react';
 
 export default function LowerPricePage() {
   // State for price filter range

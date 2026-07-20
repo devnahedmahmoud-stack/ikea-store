@@ -35,7 +35,7 @@ const getProducts = cache(async (filter: string) => {
       ...FurnitureProducts.filter((product) => product.lastChance),
     );
   } else if (filter === "under100") {
-    filteredProducts = productCards.filter((product) => product.price < 100);
+    filteredProducts = productCards.filter((product) => product.price< 100);
 
     filteredProducts.push(
       ...AccessoriesProducts.filter((product) => product.price < 100),

@@ -1,5 +1,3 @@
-import { Progress } from '@hugeicons/core-free-icons'
-import { HugeiconsIcon } from '@hugeicons/react'
 
 
 const Loading = () => {
