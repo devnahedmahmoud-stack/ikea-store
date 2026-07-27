@@ -1,4 +1,3 @@
-import { LOGIN_USERS } from "@/data/data";
 import { User } from "@/types/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";

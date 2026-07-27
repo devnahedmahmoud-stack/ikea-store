@@ -9,8 +9,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useEffect, useState } from "react";
-import CardsSlider from "./CardsSlider";
-import { productCards } from "@/data/data";
 import { cn } from "@/lib/utils";
 
 type FavoritesListProps = {

@@ -2302,8 +2302,16 @@ export const brochuresData: BrochureItem[] = [
 ];
 
 export const RoomInspiration: NavLink[] = [
+  
   {
     id: 1,
+    title: "Living room gallery",
+    desc:"",
+    href:"livingroom",
+    image: "/living-room-2.png",    
+  },
+  {
+    id: 2,
     title: "Bedroom gallery",
     desc: "",
     href: "bedroom",
@@ -2311,7 +2319,7 @@ export const RoomInspiration: NavLink[] = [
   },
 
   {
-    id: 2,
+    id: 3,
     title: "IKEA for Business gallery",
     desc: "Looking for ideas on how to furnish and decorate your business space? Whether it's for an office, a restaurant or a shop, here are plenty of inspiration, assistance and hands-on tips.",
     href: "ikea-business",
@@ -2323,44 +2331,70 @@ export const RoomGallery: Gallery[] = [
     id: 1,
     title: "Decorating a rental room? Here’s one that’s full of personality!",
     image: "/bedroom.png",
-    roomId: 1,
+    roomId: 2,
   },
   {
     id: 2,
     title:
       "Shared family bedroom ideas with room for everyone – and their things! ",
     image: "/bedroom-1.png",
-    roomId: 1,
+    roomId: 2,
   },
   {
     id: 3,
     title: "A modern oasis that’s also a business office",
     image: "/ikea-business/office-1.jpg",
-    roomId: 2,
+    roomId: 3,
   },
   {
     id: 4,
     title: "A modern game development office",
     image: "/ikea-business/office-2.jpg",
-    roomId: 2,
+    roomId: 3,
   },
   {
     id: 5,
     title: "An inspiring garden studio for your small business",
     image: "/ikea-business/office-3.jpg",
-    roomId: 2,
+    roomId: 3,
   },
   {
     id: 6,
     title: "Openness meets privacy",
     image: "/ikea-business/office-4.jpg",
-    roomId: 2,
+    roomId: 3,
   },
   {
     id: 7,
     title: "Make your office work at your level",
     image: "/ikea-business/office-5.jpg",
 
-    roomId: 2,
+    roomId: 3,
+  },
+  
+  {
+    id: 8,
+    title: "A modern living room with a timeless look for your cosy mingles ",
+    image: "/living-room.png",
+    roomId: 1,
+  },
+  
+  {
+    id: 9,
+    title: "A traditional living room with space for everyone",
+    image: "/living-room-gallery-1.png",
+    roomId: 1,
+  },    
+  {
+    id: 9,
+    title: "A Japandi living room with colours and materials inspired by nature",
+    image: "/living-room-gallery-2.png",
+    roomId: 1,
+  },    
+  {
+    id: 9,
+    title: "A modern urban living room with round-the-clock comfort",
+    image: "/living-room-gallery-3.png",
+    roomId: 1,
   },
 ];

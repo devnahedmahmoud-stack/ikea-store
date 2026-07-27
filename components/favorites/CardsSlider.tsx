@@ -16,8 +16,7 @@ type CardsSliderProps = {
   favorites?: boolean;
   recommended?: boolean;
 };
-export default function CardsSlider({ products, favorites }: CardsSliderProps) {
-  const slidesCountView: number = favorites ? 4 : 6;
+export default function CardsSlider({ products, favorites }: CardsSliderProps) {  
   return (
     <section className=" py-4 px-10 relative">
       <button className="button-prev absolute left-0 top-1/2 z-10 -translate-y-1/2 bg-black text-white p-2 rounded-full cursor-pointer hover:bg-black/80">

@@ -17,11 +17,16 @@ import ButtonPhoto from "../home/ButtonPhoto";
 import LoginLink from "../user/LoginLink";
 import { useDialogStateStore } from "@/stores/dialogstate.store";
 import MenuLinks from "./MenuLinks";
+import { useShoppingCartStore } from "@/stores/useshoppingcart.store";
+import { useAuthUserStore } from "@/stores/authuser.stores";
 
 const NavBar = () => {
   const [activeOpenItem, setActiveOpenItem] = useState<string | null>(null);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const { setIsMenuOpen } = useDialogStateStore();
+  const { setCurrentUserId } = useShoppingCartStore();
+const { currentUser } = useAuthUserStore();
+ 
 
   function showMenu(item: string) {
     setActiveItem(item);
@@ -31,14 +36,23 @@ const NavBar = () => {
     setActiveOpenItem(null);
     setActiveItem(null);
   }
-  
+
   useEffect(() => {
+    setCurrentUserId(currentUser?.id || "guest");
     document.body.style.overflow = activeOpenItem ? "hidden" : "auto";
 
     return () => {
       document.body.style.overflow = "auto";
-    };
-  }, [activeOpenItem]);
+    };    
+  }, [activeOpenItem,currentUser?.id, setCurrentUserId]);
+    
+
+  // Read items directly from store using selector to trigger re-renders automatically
+  const items = useShoppingCartStore((state) => {
+    const userId = state.currentUserId;
+    return state.userCarts[userId] || [];
+  });
+const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <>
       {activeOpenItem && (
@@ -138,7 +152,7 @@ const NavBar = () => {
 
             <Link
               href={"/cart"}
-              className="w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20 rounded-full"
+              className="relative w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20 rounded-full"
               onClick={() => closeMenu()}
             >
               <HugeiconsIcon
@@ -146,13 +160,19 @@ const NavBar = () => {
                 className="size-5 "
                 strokeWidth={2.5}
               />
+              {totalItems >0? (
+                <span className="absolute top-1 -right-2 bg-[#0058A3] text-sm text-white flex items-center justify-center w-5 h-5 rounded-full">
+                  {totalItems}
+                </span>
+              ):""}
             </Link>
             <div className="xl:hidden">
               <HugeiconsIcon
                 icon={Menu}
                 onClick={() => {
-                  setIsMenuOpen(true)}}
-              />              
+                  setIsMenuOpen(true);
+                }}
+              />
             </div>
             <MenuLinks />
           </div>

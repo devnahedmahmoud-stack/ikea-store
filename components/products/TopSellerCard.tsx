@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useAuthUserStore } from "@/stores/authuser.stores";
 import { useUserFavorites } from "@/stores/userfavorites.store";
+import { useShoppingCartStore } from "@/stores/useshoppingcart.store";
 import { ProductCard } from "@/types/types";
 import {
   ArrowRight01Icon,
@@ -61,7 +62,9 @@ const TopSellerCard = ({
   productsData,
 }: TopSellerCardProps) => {
   const { addToFavorite, removeFromFavorite, existFavorite } = useUserFavorites();
+  const{addToCart,setCurrentUserId}=useShoppingCartStore()
   const { currentUser } = useAuthUserStore();
+  
 
   // 1. Find the product and calculate the favorite status directly on every render
   const product = productsData.find((p) => p.id === productId);
@@ -87,7 +90,18 @@ const TopSellerCard = ({
     
     toast.success(message);
   }
+  
+function handleAddtoCart() {
+    if (!product) return;
 
+    let message: string = "";
+    const userId = currentUser?.id ||"guest";
+setCurrentUserId(userId)
+          message = addToCart(product).message;
+        
+    toast.success(message);
+  }
+  
   return (
     <Card
       className={cn(
@@ -203,7 +217,8 @@ const TopSellerCard = ({
           </div>
         </Link>
         <div className="flex items-center gap-2 hover:cursor-default mt-3">
-          <button className="w-10 h-10 flex items-center justify-center p-3 bg-blue-900 rounded-full hover:cursor-pointer">
+          <button className="w-10 h-10 flex items-center justify-center p-3 bg-blue-900 rounded-full hover:cursor-pointer"
+          onClick={handleAddtoCart}>
             <HugeiconsIcon
               icon={ShoppingCart02Icon}
               className="size-5 text-white"

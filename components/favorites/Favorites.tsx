@@ -10,9 +10,6 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
-import CardsSlider from "./CardsSlider";
-import { productCards } from "@/data/data";
 import { useUserFavorites } from "@/stores/userfavorites.store";
 import Link from "next/link";
 import LoginProfileDialog from "../user/LoginProfileDialog";
