@@ -218,7 +218,7 @@ setCurrentUserId(userId)
         </Link>
         <div className="flex items-center gap-2 hover:cursor-default mt-3">
           <button className="w-10 h-10 flex items-center justify-center p-3 bg-blue-900 rounded-full hover:cursor-pointer"
-          onClick={()=>handleAddtoCart}>
+          onClick={handleAddtoCart}>
             <HugeiconsIcon
               icon={ShoppingCart02Icon}
               className="size-5 text-white"
@@ -227,7 +227,7 @@ setCurrentUserId(userId)
           </button>
           <button 
             className=" w-10 h-10 flex items-center justify-center p-3 hover:bg-black/20  rounded-full hover:cursor-pointer"
-            onClick={()=>handleUserFavoriteToggle}
+            onClick={handleUserFavoriteToggle}
           >
             <HugeiconsIcon
               icon={Heart}
