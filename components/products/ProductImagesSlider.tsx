@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Thumbs } from "swiper/modules";
+import { Navigation, Thumbs } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -31,7 +31,6 @@ export default function ProductImagesSlider({
   selectedImageIndex,
   onImageSelectIndex,
 }: ProductImagesSliderProps) {
-  const slidesCountView: number = isThumbnail ? 7 : 1;
   const navBtn: string = isThumbnail ? "hidden" : "disabled";
 
   const btn_Next: string = isThumbnail
@@ -48,7 +47,7 @@ export default function ProductImagesSlider({
     : "right-0 top-1/2 -translate-y-1/2";
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  let activeIndex = selectedImageIndex ?? 0;
+  const activeIndex = selectedImageIndex ?? 0;
 console.log(activeIndex)
   function next () {
     if (activeIndex + 1 > images.length-1 )
@@ -56,7 +55,7 @@ console.log(activeIndex)
        // event.currentTarget.disabled=true
       return}
     //console.log("selectedImageIndex");
-    let nextIndex: number; //= Math.min(activeIndex + 1, images.length - 1);
+    //const nextIndex: number; //= Math.min(activeIndex + 1, images.length - 1);
 
     /* if (activeIndex + 1 > images.length - 1) 
       {nextIndex = images.length - 1;
@@ -64,7 +63,7 @@ console.log(activeIndex)
       }
     else 
       { */
-        nextIndex = activeIndex + 1;
+       const nextIndex: number = activeIndex + 1;
         console.log("index")
      // }
 
@@ -82,10 +81,10 @@ console.log(activeIndex)
       return
     }
     
-    let prevIndex:number //= Math.max(activeIndex - 1, 0);
+    //const prevIndex:number //= Math.max(activeIndex - 1, 0);
      /* if (activeIndex - 1 <0) prevIndex = 0;
     else */
-       prevIndex = activeIndex - 1;
+       const prevIndex:number = activeIndex - 1;
 
     onImageSelectIndex(prevIndex);
     //setCurrentImageIndex(Math.max(selectedImageIndex - 1, 0))

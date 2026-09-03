@@ -2,7 +2,6 @@
 import {
   Card,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -16,22 +15,22 @@ import {
   Star,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { ProductCard } from "@/types/types";
+import { useShoppingCartStore } from "@/stores/useshoppingcart.store";
 
 type ProductDetailsProps = {
   productData: ProductCard;
 };
 const ProductDetails = ({ productData }: ProductDetailsProps) => {
-  const { addToFavorite, removeFromFavorite, existFavorite, usersFavorites } =
+  const { addToFavorite, removeFromFavorite, existFavorite } =
     useUserFavorites();
   const [isAddFavorite, setIsAddFavorite] = useState<boolean>(false);
   const { currentUser } = useAuthUserStore();
+  const { addToCart, setCurrentUserId } = useShoppingCartStore();
 
-  function handleUserFavoriteToggle(productId: number) {
+  function handleUserFavoriteToggle() {
     //const p = productsData.find((p) => p.id === productId);
 
     let messsage: string = "";
@@ -47,9 +46,16 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
     }
     toast.success(messsage);
     setIsAddFavorite(!isAddFavorite);
-
   }
 
+  function handleAddtoCart() {
+    let message: string = "";
+    const userId = currentUser?.id || "guest";
+    setCurrentUserId(userId);
+    message = addToCart(productData).message;
+
+    toast.success(message);
+  }
   useEffect(() => {
     //const p = productsData.find((p) => p.id === productId);
 
@@ -60,91 +66,92 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
       : existFavorite("", productData);
 
     setIsAddFavorite(exists);
-  }, [currentUser, productData.id, existFavorite]);
+  }, [currentUser, productData, existFavorite]);
   return (
-    <Card
-      className={cn(
-        "ring-0 rounded-none relative p-0", ""
-      )}
-    >
-      <div className="">        
-          <div>
-            <CardHeader className="p-0">
-              {productData.priceLowered && (
-                <span className="text-red-700 text-base font-bold capitalize">
-                  {productData.priceLowered}
-                </span>
-              )}
-              <CardTitle>
-                <span className="font-extrabold text-sm tracking-wide uppercase text-black/80 ">
-                  {productData.title}
-                </span>
-                <p>{productData.subtitle}</p>
-                <p className="text-black/75 text-sm mt-4">
-                  {productData.description}
-                </p>
-              </CardTitle>
-              <CardDescription>
-                <div className="space-y-3 ">
-                  <div
-                    className={cn(
-                      "w-fit p-1 flex gap-1",
-                      !productData.priceLowered &&
-                        "bg-yellow-400/80 shadow-[2px_2px_0px_rgba(255,0,0,0.9)]",
-                    )}
-                  >
-                    <div className="flex gap-1">
-                      <span className="font-extrabold text-black/80 ">EGP</span>
-                      <span className="font-black text-3xl text-black/80">
-                        {productData.price}
-                      </span>
-                    </div>
-                    {productData.pack && (
-                      <span className="font-extrabold text-black/80 flex items-end">
-                        /{productData.packCount} {productData.pack}
-                      </span>
-                    )}
+    <Card className={cn("ring-0 rounded-none relative p-0", "")}>
+      <div className="">
+        <div>
+          <CardHeader className="p-0">
+            {productData.priceLowered && (
+              <span className="text-red-700 text-base font-bold capitalize">
+                {productData.priceLowered}
+              </span>
+            )}
+            <CardTitle>
+              <span className="font-extrabold text-sm tracking-wide uppercase text-black/80 ">
+                {productData.title}
+              </span>
+              <p>{productData.subtitle}</p>
+              <p className="text-black/75 text-sm mt-4">
+                {productData.description}
+              </p>
+            </CardTitle>
+            <CardDescription>
+              <div className="space-y-3 ">
+                <div
+                  className={cn(
+                    "w-fit p-1 flex gap-1",
+                    !productData.priceLowered &&
+                      "bg-yellow-400/80 shadow-[2px_2px_0px_rgba(255,0,0,0.9)]",
+                  )}
+                >
+                  <div className="flex gap-1">
+                    <span className="font-extrabold text-black/80 ">EGP</span>
+                    <span className="font-black text-3xl text-black/80">
+                      {productData.price}
+                    </span>
                   </div>
-                  {productData.lastChance && (
-                    <div className="flex gap-1">
-                      <HugeiconsIcon icon={ArrowRight01Icon} />
-                      <span className="text-base font-semibold text-black">
-                        {productData.lastChance}
-                      </span>
-                    </div>
-                  )}
-                  {productData.unitPrice && (
-                    <p className="text-sm font-medium text-black/80">
-                      Unit price:EGP {productData.unitPrice}/{productData.pack}
-                    </p>
-                  )}
-                  {productData.previousPrice && (
-                    <p className="text-sm text-black/80">
-                      Previous price:EGP{productData.previousPrice}
-                    </p>
-                  )}
-                  {productData.ratingCount && (
-                    <div className="flex items-center gap-1 group">
-                      <HugeiconsIcon
-                        icon={Star}
-                        className="size-4 fill-amber-400 "
-                        strokeWidth={0}
-                      />
-                      <span className="text-black/80 font-medium group-hover:underline">
-                        ({productData.ratingCount})
-                      </span>
-                    </div>
-                  )}
-                  {productData.moreOptions && (
-                    <span className="text-sm text-black/70">{productData.moreOptions}</span>
+                  {productData.pack && (
+                    <span className="font-extrabold text-black/80 flex items-end">
+                      /{productData.packCount} {productData.pack}
+                    </span>
                   )}
                 </div>
-              </CardDescription>
-            </CardHeader>
-          </div>
-        
+                {productData.lastChance && (
+                  <div className="flex gap-1">
+                    <HugeiconsIcon icon={ArrowRight01Icon} />
+                    <span className="text-base font-semibold text-black">
+                      {productData.lastChance}
+                    </span>
+                  </div>
+                )}
+                {productData.unitPrice && (
+                  <p className="text-sm font-medium text-black/80">
+                    Unit price:EGP {productData.unitPrice}/{productData.pack}
+                  </p>
+                )}
+                {productData.previousPrice && (
+                  <p className="text-sm text-black/80">
+                    Previous price:EGP{productData.previousPrice}
+                  </p>
+                )}
+                {productData.ratingCount && (
+                  <div className="flex items-center gap-1 group">
+                    <HugeiconsIcon
+                      icon={Star}
+                      className="size-4 fill-amber-400 "
+                      strokeWidth={0}
+                    />
+                    <span className="text-black/80 font-medium group-hover:underline">
+                      ({productData.ratingCount})
+                    </span>
+                  </div>
+                )}
+                {productData.moreOptions && (
+                  <span className="text-sm text-black/70">
+                    {productData.moreOptions}
+                  </span>
+                )}
+              </div>
+            </CardDescription>
+          </CardHeader>
+        </div>
+
         <div className="flex items-center gap-2 hover:cursor-default mt-3">
-          <button className="w-10 h-10 flex items-center justify-center p-3 bg-blue-900 rounded-full hover:cursor-pointer">
+          <button
+            className="w-10 h-10 flex items-center justify-center p-3 bg-blue-900 rounded-full hover:cursor-pointer"
+            onClick={handleAddtoCart}
+          >
             <HugeiconsIcon
               icon={ShoppingCart02Icon}
               className="size-5 text-white"
@@ -160,16 +167,14 @@ const ProductDetails = ({ productData }: ProductDetailsProps) => {
               )}
               strokeWidth={3}
               onClick={() => {
-                handleUserFavoriteToggle(productData.id);
+                handleUserFavoriteToggle();
               }}
             />
           </button>
         </div>
       </div>
-      
     </Card>
-   
-)
-}
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;

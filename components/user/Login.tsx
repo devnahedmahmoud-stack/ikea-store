@@ -55,7 +55,7 @@ const Login = () => {
       reset();
       clearErrors();
     }
-  }, [isSubmitSuccessful]);
+  }, [isSubmitSuccessful,reset,clearErrors,router]);
   return (
     <section className="py-20 xl:px-40 lg:px-10 px-6 flex lg:flex-row flex-col xl:gap-20 gap-10">
       <div className="xl:w-[30%] lg:w-[40%]">

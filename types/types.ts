@@ -19,6 +19,7 @@ export type ProductCard = {
   previousPrice?: number;
   moreOptions?: string;
   categoryId?: number;
+  badge?:string;
 };
 // Define the structure of our offer item
 export type OfferItem= {
@@ -99,6 +100,7 @@ export type Category = {
   name: string;
   title: string;
   desc?: string;
+  imageUrl?:string;
 };
 export type RestaurantItem = {
   id: number;
@@ -148,4 +150,45 @@ export type Gallery= {
 }
 
 
+export interface HeroSection {
+  title: string;
+  subtitle: string;
+  description: string;
+  imageUrl: string;
+  ctaText: string;
+  ctaLink: string;
+}
 
+export interface KitchenCategory {
+  id: string;
+  title: string;
+  imageUrl: string;
+  link: string;
+}
+
+
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  currency: string;
+  rating: number;
+  imageUrl: string;
+  badge?: string;
+}
+
+export interface InspirationGalleryItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  imageUrl: string;
+  link: string;
+}
+
+export interface KitchenPageData {
+  hero: HeroSection;
+  categories: Category[];
+  featuredProducts: ProductCard[];
+  gallery: InspirationGalleryItem[];
+}

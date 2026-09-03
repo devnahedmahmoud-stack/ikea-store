@@ -3,6 +3,7 @@ import ContainerProvider from "@/components/Providers/ContainerProvider";
 import {
   AccessoriesProducts,
   FurnitureProducts,
+  kitchenPageData,
   productCards,
 } from "@/data/data";
 import { ProductCard } from "@/types/types";
@@ -18,7 +19,8 @@ const getProductDetails = cache(async (productId: number) => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
   const product: ProductCard | undefined =productCards.find((product) => product.id === productId) ??
     AccessoriesProducts.find((product) => product.id === productId) ??
-    FurnitureProducts.find((product) => product.id === productId);
+    FurnitureProducts.find((product) => product.id === productId)??
+    kitchenPageData.featuredProducts.find((product) => product.id === productId);
 
   return product;
 });

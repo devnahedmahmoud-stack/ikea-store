@@ -6,6 +6,7 @@ import {
   HomeSection,
   IKEAOffer,
   IKEAStore,
+  KitchenPageData,
   MenuItemButton,
   NavLink,
   ProductCard,
@@ -112,6 +113,34 @@ export const ProductCategories: Category[] = [
     desc: "",
   },
 ];
+export const KitchenCategories:Category[]=
+[
+ {
+      id: 15,
+      name:"Kitchen Systems & Cabinets",
+      title: "Kitchen Systems & Cabinets",
+      imageUrl: "/kitchen/kitchen-5.png",      
+    },
+    {
+      id: 16,
+      name:"Kitchen Islands & Carts",
+      title: "Kitchen Islands & Carts",
+      imageUrl: "/kitchen/kitchen-2.png",      
+    },
+    {
+      id: 17,
+      name:"Cookware & Tableware",
+      title: "Cookware & Tableware",
+      imageUrl: "/kitchen/kitchen-3.png",
+    },
+    {
+      id: 18,
+      name: "Pantry & Storage Solutions",
+      title: "Pantry & Storage Solutions",
+      imageUrl: "/kitchen/kitchen-4.png",  
+    }
+]
+
 export const productCards: ProductCard[] = [
   {
     id: 1,
@@ -905,9 +934,8 @@ export const MenuMainLinks: FooterLink[] = [
               href: "/search/products/topseller?group=Our most popular",
             },
             { id: 3, title: "new products", href: "/new" },
-            { id: 4, title: "our lowest price", href: "/lowest-price" },
             {
-              id: 5,
+              id: 4,
               title: "last chance",
               href: "/search/products/last-chance?group=Last chance",
             },
@@ -1161,8 +1189,7 @@ export const MenuMainLinks: FooterLink[] = [
         secondLinks: {
           header: "All campaigns",
           links: [
-            { id: 1, title: "Life starts in the kitchen", href: "" },
-            { id: 2, title: "Trending this season", href: "" },
+            { id: 1, title: "Life starts in the kitchen", href: "/campaigns/life-starts-in-the-kitchen" },            
           ],
         },
         thirdLinks: {
@@ -2307,7 +2334,7 @@ export const RoomInspiration: NavLink[] = [
     id: 1,
     title: "Living room gallery",
     desc:"",
-    href:"livingroom",
+    href:"living-room",
     image: "/living-room-2.png",    
   },
   {
@@ -2398,3 +2425,85 @@ export const RoomGallery: Gallery[] = [
     roomId: 1,
   },
 ];
+
+export const kitchenPageData: KitchenPageData = {
+  hero: {
+    title: "Life starts in the kitchen",
+    subtitle: "Heart of the Home",
+    description:
+      "From morning coffees to late-night chats, transform your kitchen into a warm, functional space where memories are made.",
+    imageUrl: "/Kitchen/kitchen-1.png",
+    ctaText: "Explore Kitchen Ideas",
+    ctaLink: "#gallery",
+  },
+  categories: KitchenCategories,
+  featuredProducts: [
+  {
+      
+      id: 37,
+      title: "METOD Kitchen System",
+      categoryId: 15,
+      price: 1250,      
+      ratingCount: 4.8,
+      images: ["/kitchen/kitchen-7.png"],
+      badge: "Best Seller",
+    },
+    {
+      id: 38,
+      title: "TORNVIKEN Kitchen Island",
+      categoryId:16,
+      price: 399,      
+      ratingCount: 4.7,
+      images: ["/kitchen/kitchen-6.png"],
+      badge: "New",
+    },
+    {
+      
+      id: 39,
+      title: "VÄRDERA 18-piece Service",
+      categoryId: 17,
+      price: 49.99,      
+      ratingCount: 4.9,
+      images: ["/kitchen/kitchen-9.png","/kitchen/kitchen-14.png","/kitchen/kitchen-15.png"],
+    },
+    {
+      
+      id: 40,
+      title: "365+ Cookware Set 6-pc",
+      categoryId: 17,
+      price: 89.99,
+      ratingCount: 4.6,
+      images: ["/kitchen/kitchen-8.png"],
+    },
+  ],
+  gallery: [
+    {
+      id: "g1",
+      title: "Warm Minimalist Dining",
+      subtitle: "Natural wood accents with soft ambient lighting",
+      imageUrl: "/kitchen/kitchen-10.png",
+      link: "",
+    },
+    {
+      id: "g2",
+      title: "Smart Compact Storage",
+      subtitle: "Maximize space with clever vertical organization",
+      imageUrl: "/kitchen/kitchen-11.png",
+      link: "",
+    },
+    {
+      id: "g3",
+      title: "Modern Family Hub",
+      subtitle: "Open-plan kitchen designed for sharing and cooking together",
+      imageUrl: "/kitchen/kitchen-12.png",
+      link: "",
+    },
+    {
+      id: "g4",
+      title: "Sustainable Everyday Living",
+      subtitle: "Eco-friendly materials and waste sorting solutions",
+      imageUrl: "/kitchen/kitchen-13.png",
+      link: "",
+    },
+  ],
+};

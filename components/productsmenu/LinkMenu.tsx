@@ -188,7 +188,7 @@ if (!isRooms) {
                       href={
                         l.href.startsWith("/") || l.href.startsWith("http")
                           ? l.href
-                          : `/cat/${l.href}-${l.id}`
+                          : `/${l.href}-${l.id}`
                       }
                       className=" capitalize w-fit text-sm hover:underline"
                       onClick={() =>

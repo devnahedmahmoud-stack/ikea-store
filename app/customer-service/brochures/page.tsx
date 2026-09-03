@@ -10,7 +10,7 @@ export default function BrochuresPage() {
       <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
         <ol className="list-none p-0 inline-flex space-x-2">
           <li className="flex items-center">
-            <Link href="/" className="hover:underline">Customer Service</Link>
+            <Link href="/customer-service" className="hover:underline">Customer Service</Link>
             <span className="mx-2">&rsaquo;</span>
           </li>
           <li className="text-gray-900 font-medium" aria-current="page">
